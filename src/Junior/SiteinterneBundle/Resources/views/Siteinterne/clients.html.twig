@@ -1,0 +1,159 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+{{ parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+
+{% block body %}
+			<section class="row">
+
+{{include("JuniorSiteinterneBundle:Siteinterne:sousmenumissions.html.twig")}}
+				<div id="content" class="col-md-4 col-md-offset-1">
+					<h1>Les Clients</h1>
+					<ul>
+					{% if listeClients %}
+						{% for client in listeClients %}
+						<li><a href="{{path('junior_siteinterne_missions_client', { 'id': client.id, 'edit': 'null' })}}">{% if client.particulierEntreprise == "particulier" %}{{client.nomContact}} {{mission.client.prenomContact}} (Particulier){% else %}{{client.nom}}{% endif %}</a> <a href="{{path('junior_siteinterne_missions_clients', { 'id': client.id, 'suppr': 'supprimer' })}}"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></li><br>
+						{% endfor %}
+							</ul>
+					{% endif %}
+					</ul>
+				</div>
+				
+				<div class="col-md-5">
+					<div class="well">
+					<h1>Nouveau client</h1>
+						<br>
+						<br>
+						{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+						{{ form_errors(form) }}
+
+						<div class="form-group">
+							{{ form_label(form.particulierEntreprise, "Type", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.particulierEntreprise) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.particulierEntreprise, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.nom, "Nom de l'entreprise (si entreprise)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.nom) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.taille, "Taille de l'entreprise (si entreprise)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.taille) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.taille, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.nomContact, "Nom du contact", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.nomContact) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.nomContact, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.prenomContact, "Prénom du contact", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.prenomContact) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.prenomContact, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.email, "Adresse email", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.email) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.telephone, "Numéro de téléphone", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.telephone) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						
+						<div class="form-group">
+							{{ form_label(form.adresse1, "Adresse", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.adresse1) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.adresse1, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.adresse2, " ", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.adresse2) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.adresse2, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.adresse3, " ", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.adresse3) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.adresse3, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						
+						<div class="form-group">
+							{{ form_label(form.ville, "Ville", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.ville) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						
+						<div class="form-group">
+							{{ form_label(form.codePostal, "Code postal", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.codePostal) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.codePostal, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						
+						<div class="form-group">
+							{{ form_label(form.pays, "Pays", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.pays) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.pays, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-4">
+								{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+							</div>
+						</div>
+
+
+						{{ form_rest(form) }}
+
+		  
+						{{ form_end(form) }}
+					</div>
+				</div>
+			</section>
+{% endblock %}

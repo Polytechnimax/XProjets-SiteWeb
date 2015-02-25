@@ -1,0 +1,30 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+	<div>
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email, {'attr': {'tabindex': '4', 'class': 'span12', 'id': 'email' } }) }}  
+    </div>
+	
+	<div>
+        {{ form_errors(form.societe) }}
+        {{ form_widget(form.societe, {'attr': {'tabindex': '2', 'class': 'span12', 'id': 'societe' } }) }}  
+    </div>
+
+	<div>
+        {{ form_errors(form.nom) }}
+        {{ form_widget(form.nom, {'attr': {'tabindex': '3', 'class': 'span12', 'id': 'nom' } }) }}  
+    </div>
+	
+	<div>
+        {{ form_errors(form.message) }}
+        {{ form_widget(form.message, {'attr': {'tabindex': '3', 'class': 'input-xlarge span12', 'id': 'message', 'rows': '7'} }) }}  
+    </div>
+	
+	
+	<div class="actions">
+    <button tabindex="3" type="submit" class="btn btn-succes btn-large">{{'Envoyer un message'|trans}}</button>
+	</div>
+
+{{ form_end(form) }}
+

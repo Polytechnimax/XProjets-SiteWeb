@@ -1,0 +1,29 @@
+#cloud-carousel { 
+margin: 0 auto; 
+width: 570px; 
+height: 310px; 
+overflow: scroll; 
+}
+
+
+.carouselLeft {
+	display:none;
+	background:url('../img/rotate-left.png');
+	width:30px; height:30px;
+	background-position: 0px 0px;
+}
+.carouselLeft:hover {
+	width:30px; height:30px;
+	background-position: 0px 30px;
+	cursor:auto;
+}
+.carouselRight {
+	display:none;
+	background:url('../img/rotate-right.png');
+	width:30px; height:30px;
+	background-position: 0px 0px;
+}
+.carouselRight:hover {
+	width:30px; height:30px;
+	background-position: 0px 30px;
+}

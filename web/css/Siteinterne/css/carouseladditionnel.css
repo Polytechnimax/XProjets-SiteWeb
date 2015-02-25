@@ -1,0 +1,9 @@
+/* Carousel base class */
+.carousel {
+  height: 200px;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 200px;
+}

@@ -1,0 +1,227 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+ {{mission.nom}} - {{parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+{% block titrePage %}
+Mission {{mission.numSiaje}} : {{mission.nom}}
+{% endblock %}
+
+{% block body %}
+			<section class="row">
+				<div id="content" class="col-md-offset-1 col-md-10">
+					<div class="row">
+						<div class="col-md-8" id="modifier_etat" style="visibility:hidden;">
+							<a type="button" href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifRaisonEchec': 'ok' }) }}" class="btn btn-default">Echec</a>
+							<a type="button" href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerEtat': 2 }) }}" class="btn btn-default">Terminée</a>
+							<a type="button" href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerEtat': 3 }) }}" class="btn btn-default">A pourvoir</a>
+							<a type="button" href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerEtat': 4 }) }}" class="btn btn-default">En standby</a>
+							<a type="button" href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerEtat': 5 }) }}" class="btn btn-default">En cours</a>
+						</div>
+						{% if is_granted('ROLE_MBJE') %}
+						<div class="col-md-2" style="text-align:right;">
+							<button id="montre_menu_modi_etat" class="btn btn-default" style="cursor:pointer;">&laquo; Modifier</button>
+						</div>
+						{% endif %}
+						<div class="col-md-2" style="text-align:center;">
+							{% if mission.etat == 'Echec' %}
+							<button type="button" class="btn btn-danger btn-block">{{mission.etat}}</button>
+							{% elseif mission.etat == 'Terminée'%}
+							<button type="button" class="btn btn-success btn-block">{{mission.etat}}</button>
+							{% elseif mission.etat == 'En cours'%}
+							<button type="button" class="btn btn-primary btn-block">{{mission.etat}}</button>
+							{% else %}
+							<button type="button" class="btn btn-warning btn-block">{{mission.etat}}</button>
+							{%endif%}
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-4">
+							<div class=" well">
+							<h1>Infos</h1>
+							<span class="light padd">ajoutée le {{mission.ajouteLe|date('d/m/Y à H\\hi')}} par {{mission.ajoutePar.firstName}} {{mission.ajoutePar.lastName}}</span><br />
+							Mission numéro<br/>
+							<span class="light padd">{{mission.numSiaje}} </span>
+							<br />
+							{% if is_granted('ROLE_MBJE') %}Mission visible<br/>
+							<span class="light padd">{% if mission.publique %}oui <a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerPublique': 'ok' }) }}" class="btn btn-default btn-xs">Rendre privée  &raquo;</a>{% else %}non <a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerPublique': 'ok' }) }}" class="btn btn-default btn-xs">Rendre publique  &raquo;</a>{% endif %} </span> <br />{% endif %}
+							Client<br /><span class="light padd">{% if mission.client.particulierEntreprise == "particulier"%}Particulier{%else%}{{ mission.client.nom }}{%endif%}</span> <br />
+							Nombre de JEH<br /><span class="light padd">{% if mission.nbJeh is not null %}{{ mission.nbJeh }}{% else %} Pas encore défini {% endif %}</span><br />
+							Catégories<br /><span class="light padd">{% for categorie in mission.categories %}{{categorie.name}}{% if not loop.last %}, {% endif %}{% else %} Pas de catégories{% endfor %}</span><br />
+							Compétences<br /><span class="light padd">{% for comp in mission.competences %}{{comp.nom}}{% if not loop.last %}, {% endif %}{% else %} Pas de compétences{% endfor %}</span><br />
+							Description<br /><span class="light padd">{{mission.descriptif}}</span><br />
+							{% if is_granted('ROLE_MBJE') %}<a  href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifMission': 'ok' }) }}" id="montre_menu_modi_etat" class="btn btn-default" style="cursor:pointer;">Modifier &raquo;</a>
+							<br />{% endif %}
+							</div>
+							
+							<div class=" well">
+							<h1>Equipe</h1>
+							Référent mission : <br />
+								<span class="light padd">{% if mission.referent is not null %}{{mission.referent.firstName}} {{mission.referent.lastName}}{%else%}Pas encore choisi{% endif %}{% if is_granted('ROLE_MBJE') %}<br/><a href="{{ path('junior_siteinterne_users', { 'idmission': mission.id,'refIntCDP': 1 }) }}" class="btn btn-primary">Choisir</a>{% endif %}</span><br/><br/>
+								Chef de projet :<br />
+								<span class="light padd">{% if mission.chefDeProjet is not null %}{{mission.chefDeProjet.firstName}} {{mission.chefDeProjet.lastName}}{%else%}Pas encore recruté{% endif %}{% if is_granted('ROLE_MBJE') %}<br />
+								<a href="{{ path('junior_siteinterne_users', { 'idmission': mission.id,'refIntCDP': 3 }) }}" class="btn btn-primary">Choisir</a>{% endif %}<br />
+								</span><br/>
+								Intervenant(s) :<br />
+								{% for intervenant in mission.intervenants %}<span class="light padd">{{intervenant.firstName}} {{intervenant.lastName}}</span> {% if is_granted('ROLE_MBJE') %}<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id,'iduser': intervenant.id, 'supprInt':'ok' }) }}"><span class="glyphicon glyphicon-remove"></span></a>{% endif %}<br />
+								{%else%}<span class="light padd">Pas encore recruté(s)</span><br/>{% endfor %}
+								{% if is_granted('ROLE_MBJE') %}<a href="{{ path('junior_siteinterne_users', { 'idmission': mission.id,'refIntCDP': 2 }) }}" class="btn btn-primary">Nouvel intervenant</a>{% endif %}<br />
+
+							</div>
+						</div>
+
+						<div class="col-md-8">
+						  <div class="row well">
+							<h2>Evolution</h2>
+					{% if mission.etat == "Echec"%}
+							Mission échouée pour la raison suivante :<br/>
+							{{mission.raisonEchec}}
+					{% else %}
+							<div class="btn-group">
+								{% if tauxdavancement >= 0 %}
+								{% for i in 1..10 %}
+								{% if i <= tauxdavancement %}
+								<button class="btn btn-success"></button>
+								{% endif %}
+								{% if i > tauxdavancement %}
+								<button class="btn btn-danger"></button>
+								{% endif %}
+								{% endfor %}
+								{% endif %}
+							</div>
+							<br/>
+							Date de début : {% if mission.dateDebut%}{{ mission.dateDebut|date('d/m/Y') }}{% else %}Pas encore défini{% endif %}<br />
+							Date de fin : {% if mission.dateFin%}{{ mission.dateFin|date('d/m/Y') }}{% else %}Pas encore défini{% endif %}<br />
+							{% if is_granted('ROLE_MBJE') %}<a  href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDates': 'ok' }) }}" id="montre_menu_modi_etat" class="btn btn-default btn-xs" style="cursor:pointer;">Modifier les dates &raquo;</a><br/>{% endif %}
+					{% endif %}
+						  </div>
+					{% if statut=="mbje" or (statut=="cdp" and mission.montrerClientAuCdp)%}
+						  <div class="row well">
+							<h2>Infos client <span class="light">{% if statut=="mbje" and mission.montrerClientAuCdp %} (Visible par le chef de projet){% elseif statut=="mbje" and not mission.montrerClientAuCdp %}(Non visible par le chef de projet){% endif %}</span></h2>
+					{% if mission.client.particulierEntreprise == "particulier" %}
+						{{mission.client.nomContact}} {{mission.client.prenomContact}} (Particulier)
+						<ul>
+								<li>Adresse email : {{mission.client.email}}</li>
+								<li>Numéro de téléphone : {{mission.client.telephone}}</li>
+								<li>Adresse :
+									<ul>
+										<li>{{mission.client.adresse1}}<br/>
+										{% if mission.client.adresse2%}{{mission.client.adresse2}}{% endif %}<br/>
+										{% if mission.client.adresse3%}{{mission.client.adresse3}}{% endif %}<br/>
+										{{mission.client.codePostal}} {{mission.client.ville}}<br/>
+										{{mission.client.pays}}</li>
+									</ul>
+						</ul>
+					{% else %}
+						{{mission.client.nom}}
+						<ul>
+								<li> Taille de l'entreprise : {{mission.client.taille}}</li>
+								<li>Nom du contact : {{mission.client.nomContact}} {{mission.client.prenomContact}}</li>
+								<li>Adresse email : {{mission.client.email}}</li>
+								<li>Numéro de téléphone : {{mission.client.telephone}}</li>
+								<li>Adresse :
+									<ul>
+										<li>{{mission.client.adresse1}}<br/>
+										{% if mission.client.adresse2%}{{mission.client.adresse2}}{% endif %}<br/>
+										{% if mission.client.adresse3%}{{mission.client.adresse3}}{% endif %}<br/>
+										{{mission.client.codePostal}} {{mission.client.ville}}<br/>
+										{{mission.client.pays}}</li>
+									</ul>
+						</ul>
+					{% endif %}
+					<br/>
+							
+						  </div>
+					{%endif%}
+						  <div class="row well">
+							<h2>Documents</h2>
+							<table class="table table-bordered table-striped">
+								<thead>
+								<tr>
+									<th>Nom du document</th>
+									<th>Etat</th>
+									<th>+ d'infos</th>
+								</tr>
+								</thead>
+								<tbody>
+									{% for doc in documents %}
+									{% if doc.frozen %}
+									<tr class="success">
+									{% else %}
+									<tr class="danger">
+									{% endif %}
+										<td>{{ doc.typeDeDocument }}</td>
+										{% if doc.frozen %}
+										<td><span class="glyphicon glyphicon-ok"></span></td>
+										{% else %}
+										<td><span class="glyphicon glyphicon-remove"></span></td>
+										{% endif %}
+										<td><a href="{{ path('junior_siteinterne_docmission', { 'id': mission.id, 'iddoc': doc.id }) }}" class="btn btn-default btn-xs">Détails  &raquo;</a></td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						  </div>
+					    </div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Remarques</h3>
+							<div class="well">
+								{% for com in commentaires %}
+								<span style="font-weight:bold;">{{com.ajoutePar.firstName}} {{com.ajoutePar.lastName}}</span> {{com.contenu}}<br/><span class="light">  {{com.date|date('j M Y, H\\hi')}}</span><br/><br/>
+								
+								{% endfor %}
+								<br/>
+								{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+								{{ form_errors(form) }}
+
+								<div class="form-group">
+									{{ form_label(form.contenu, "Commentaire", {'label_attr': {'class': '
+									control-label'}}) }}
+
+									{{ form_errors(form.contenu) }}
+
+									<div>
+										{{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-6 col-sm-offset-4">
+										{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+									</div>
+								</div>
+
+
+								{{ form_rest(form) }}
+
+				  
+								{{ form_end(form) }}
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+			</section>
+			
+			<script>
+			var nbClick = 0;
+			document.getElementById("montre_menu_modi_etat").addEventListener('click', function(e) {
+				if(nbClick % 2 == 0){
+					document.getElementById("modifier_etat").style.visibility = "visible";
+				} else {
+					document.getElementById("modifier_etat").style.visibility = "hidden";
+				}
+				nbClick++;
+			}, false);
+			</script>
+{% endblock %}

@@ -1,0 +1,7 @@
+junior_site_homepage:
+    pattern:  /
+    defaults: { _controller: JuniorSiteBundle:Site:index }
+
+junior_site_mail_contact:
+    pattern:  /contact/
+    defaults: { _controller: JuniorSiteBundle:Site:mail }

@@ -1,0 +1,7 @@
+parameters:
+#    junior_site.example.class: Junior\SiteBundle\Example
+
+services:
+#    junior_site.example:
+#        class: %junior_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

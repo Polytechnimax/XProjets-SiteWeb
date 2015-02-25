@@ -1,0 +1,49 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+ {{mission.nom}} - {{parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+{% block titrePage %}
+Mission {{mission.numSiaje}} : {{mission.nom}}
+{% endblock %}
+
+
+{% block body %}
+			<section class="row">
+				<div id="content" class="col-md-offset-2 col-md-8">
+					<br />
+					<div class="row">
+							<div class="light padd" style="text-align:right;">ajoutée le {{mission.ajouteLe|date('d/m/Y à H\\hi')}} par {{mission.ajoutePar.firstName}} {{mission.ajoutePar.lastName}}</div>
+							<div class=" well">
+							<div class="col-md-9">
+								<h1>{{mission.nom}}</h1>
+							</div>
+							<div class="col-md-3"><br/>
+							Catégories<br /><span class="light padd">{% for categorie in mission.categories %}{{categorie.name}}{% if not loop.last %}, {% endif %}{% else %} Pas de catégories{% endfor %}</span><br />
+							Compétences<br /><span class="light padd">{% for comp in mission.competences %}{{comp.nom}}{% if not loop.last %}, {% endif %}{% else %} Pas de compétences{% endfor %}</span><br />
+							</div>
+							<br />
+							<span class="padd">{{mission.descriptif}}</span>
+
+							<br />
+							</div>
+						</div>
+				</div>
+			</section>
+			
+			<script>
+			var nbClick = 0;
+			document.getElementById("montre_menu_modi_etat").addEventListener('click', function(e) {
+				if(nbClick % 2 == 0){
+					document.getElementById("modifier_etat").style.visibility = "visible";
+				} else {
+					document.getElementById("modifier_etat").style.visibility = "hidden";
+				}
+				nbClick++;
+			}, false);
+			</script>
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block feuilleStyleAlternative %}
+{% endblock %}
+
+{% block titrePage %}
+Bienvenue sur le site interne d'XProjets.
+{% endblock %}
+
+{% block body %}
+		<div class="row test">
+			<div class="col-md-8">
+				<h1>Les missions à pourvoir</h1>
+				{% if listeMissions %}
+				<table class="table table-bordered table-striped">
+					<thead>
+					<tr>
+						<th>Titre</th>
+						<th>Client</th>
+						<th>Catégories</th>
+						<th>+ d'infos</th>
+					</tr>
+					</thead>
+					<tbody>
+						{% for mission in listeMissions %}
+						{% if mission.publique and mission.etat == "A pourvoir" %}
+						<tr class="">
+							<td>{{ mission.nom }}<span class="light">  - {{mission.chaineDeCaractere}}</span></td>
+							<td>{% if mission.client.particulierEntreprise == "particulier"%}Particulier{%else%}{{ mission.client.nom }}{%endif%}</td>
+							<td>{% for categorie in mission.categories %}{{categorie.name}}{% if not loop.last %}, {% endif %}{% else %} Pas de catégories{% endfor %}</td>
+							<td><a href="{{ path('junior_siteinterne_mission', { 'id': mission.id }) }}" class="btn btn-default btn-xs">Détails  &raquo;</a></td>
+						</tr>
+						{% endif %}
+						{% endfor %}
+					</tbody>
+				</table>
+				{% else %}
+					Il n'y a pas de missions à pourvoir en ce moment.
+				{% endif %}
+			</div>
+			<div class="col-lg-4">
+			  <img class="img-circle" src="{{ asset('img/logos/argent.png') }}" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+			  <h2>Tu as gagné...</h2>
+			  <h2>{{argentGagne}} €</h2>
+			  <h2>...jusqu'à présent.</h2>
+			</div><!-- /.col-lg-4 -->
+
+		</div>
+
+      <hr class="featurette-divider">
+
+      <!-- Chef de projet -->
+      <div class="row">
+        <div class="col-lg-4">
+					<h1>Mes missions en tant que <span class="text-muted">chef de projet</span></h1>
+					{% if listeMissionsCDP %}
+					<table class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Etat</th>
+							<th>+ d'infos</th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for mission in listeMissionsCDP %}
+							<tr class="">
+								<td>{{ mission.nom }}</td>
+								<td>{{ mission.etat }}</td>
+								<td><a href="{{ path('junior_siteinterne_mission', { 'id': mission.id }) }}" class="btn btn-default btn-xs">Détails  &raquo;</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+						Vous n'avez pas encore réalisé de mission en tant que chef de projet.
+					{% endif %}
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="{{ asset('img/logos/question.png') }}" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Qu'est-ce qu'un chef de projet ?</h2>
+          <p>Le chef de projet est l’intermédiaire entre le client et les intervenants car d’un point vu légal ces derniers ne doivent pas entrer en contact directement. Il a pour rôle de rédiger les différents papiers nécessaires à la mission : PROPAL, convention client etc. Le chef de projet doit être réactif et il ne doit pas hésiter à contacter son référent mission en cas de doute.</p>
+          <!--<p><a class="btn btn-default" href="#howto" role="button">En savoir plus &raquo;</a></p>-->
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="{{ asset('img/logos/argent.png') }}" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Comment est-il rémunéré ?</h2>
+          <p>Le chef de projet est rémunéré suivant la taille de la mission. Si la mission nécessite beaucoup de travail, ne pas hésiter à contacter le référent mission pour négocier la rémunération.</p>
+          <!--<p><a class="btn btn-default" href="#howto" role="button">En savoir plus &raquo;</a></p>-->
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+	  
+      <hr class="featurette-divider">
+      <div class="row">
+        <div class="col-lg-4">
+					<h1>Mes missions en tant qu'<span class="text-muted">intervenant</span></h1>
+					{% if listeMissionsINT %}
+					<table class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Etat</th>
+							<th>+ d'infos</th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for mission in listeMissionsINT %}
+							<tr class="">
+								<td>{{ mission.nom }}</td>
+								<td>{{mission.etat}}</td>
+								<td><a href="{{ path('junior_siteinterne_mission', { 'id': mission.id }) }}" class="btn btn-default btn-xs">Détails  &raquo;</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+						Vous n'avez pas encore réalisé de mission en tant qu'intervenant.
+					{% endif %}
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="{{ asset('img/logos/question.png') }}" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Qu'est-ce qu'un intervenant ?</h2>
+          <p>L’intervenant est la personne chargée d’effectuer la mission. Il doit aussi, en collaboration avec le chef de projet, définir le budget et l’échéancier de la mission. Il est absolument nécessaire que la mission entre dans le cadre de compétences de l’intervenant.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="{{ asset('img/logos/argent.png') }}" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Comment est-il rémunéré ?</h2>
+          <p>La mission est facturée en terme de Jour-Homme-Etude (JEH), qui correspond à 300€ pour 8h de travail. Après déduction des charges l’intervenant perçoit 180€ par JEH facturé. Pour être payé l’intervenant n’a pas une obligation de résultats mais il doit prouver qu’il s’est donné les moyens pour effectuer la mission.</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+      <hr class="featurette-divider">
+
+      <div class="row" id="howto">
+	    <div class="col-md-12">
+          <h1>Fonctionnement d'<span class="text-muted">XProjets</span></h1>
+          <p class="lead">Dans ce paragraphe, tu trouveras les réponses aux questions les plus fréquentes, et tu pourras comprendre comment nous fonctionnons.</p>
+		  <p>A rédiger</p>
+		</div>
+      </div>
+{% endblock %}

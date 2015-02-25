@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Site interne d'XProjets'">
+		<meta name="author" content="Delbouys">
+		<link rel="icon" href="{{asset('img/logos/favicon.png')}}">
+		<title>{% block title %}Site interne d'XProjets{% endblock %}</title>
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/bootstrap.css')}}">
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carousel.css')}}">
+		{% block feuilleStyleAlternative %}{% endblock %}
+		
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		
+	    <div class="navbar-wrapper">
+		  <div class="container">
+
+			<nav class="navbar navbar-inverse navbar-static-top">
+			  <div class="container">
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="{{path('junior_siteinterne_index')}}"><img src="{{asset('img/logos/logo-xprojets-menu.png')}}" id="logo-barre" /></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+				  <ul class="nav navbar-nav">
+					<li><a href="{{path('junior_siteinterne_index')}}">Accueil</a></li>
+					<li><a href="{{path('junior_siteinterne_index')}}#howto">Tout sur XProjets</a></li>
+					{% if is_granted('ROLE_MBJE') %}
+					<li><a href="{{path('junior_siteinterne_missions')}}">Gestion des missions</a></li>
+					{% endif %}
+					{% if is_granted('ROLE_ADMIN') %}
+					<li><a href="{{path('junior_siteinterne_config')}}">Configuration</a></li>
+					{% endif %}
+				  </ul>
+				  <ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bonjour {{app.user.firstName}} <span class="caret"></span></a>
+					  <ul class="dropdown-menu" role="menu">
+						<li><a href="{{path('logout')}}">Déconnexion</a></li>
+					  </ul>
+					</li>
+				  </ul>
+				</div>
+			  </div>
+			</nav>
+
+		  </div>
+		</div>
+
+		
+		<div id="myCarousel" class="carousel slide">
+		  <div class="carousel-inner">
+			<div class="item active">
+			  <div class="container">
+				<div class="carousel-caption">
+				  <h1>{% block titrePage %}{% endblock %}</h1>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div><!-- /.carousel -->
+
+	    <div class="container marketing">
+			{% block body %}{% endblock %}
+			<hr class="featurette-divider">
+
+
+		  <footer>
+			<p>&copy; XProjets 2013</p>
+		  </footer>
+
+		</div><!-- /.container -->
+    
+
+	<script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min2.js')}}"></script>
+    <script src="{{asset('js/docs.min.js')}}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{asset('js/ie10-viewport-bug-workaround.js')}}"></script>
+  </body>
+</html>

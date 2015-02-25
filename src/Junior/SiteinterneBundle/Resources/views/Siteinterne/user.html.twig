@@ -1,0 +1,151 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+ {{u.firstName}} {{u.lastName}} - {{parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+{% block titrePage %}
+{{u.firstName}} {{u.lastName}}
+{% endblock %}
+
+
+{% block body %}
+			<section class="row">
+				<div id="content" class="col-md-offset-1 col-md-10">
+					<div class="row">
+						<div class="col-md-5">
+							<div class="well">
+								<h3>Infos</h3>
+								Promo<br/>
+								<span class="light padd">{{u.promo}}</span><br />
+								Statut<br/>
+								<span class="light padd">{% for st in u.roles %}{{st}}{% if not loop.last %}, {% endif %}{% else %} Aucun statut{% endfor %}</span><br />
+								Inscrit à la JE ?<br/>
+								<span class="light padd">{% if u.inscrit %}Oui{% else %}Non{% endif %}</span><br />
+								{% if u.inscrit %}Inscrit le<br/>
+								<span class="light padd">{{u.inscritLe|date('j M Y')}}</span><br />{% endif %}
+								{% if is_granted('ROLE_RH') %}
+								<h3>Modifier</h3>
+								{{ form_start(form2) }}
+
+								{{ form_errors(form2) }}
+
+								<div>
+									{{ form_label(form2.inscrit, "Inscrit") }}
+
+									{{ form_errors(form2.inscrit) }}
+
+										{{ form_widget(form2.inscrit) }}
+								</div>
+								<div>
+									{{ form_label(form2.inscritLe, "Date") }}
+
+									{{ form_errors(form2.inscritLe) }}
+										{{ form_widget(form2.inscritLe) }}
+								</div><br/>
+								
+										{{ form_widget(form2.save, {'attr': {'class': 'btn btn-default'}}) }}
+
+
+								{{ form_rest(form2) }}
+
+				  
+								{{ form_end(form2) }}
+								{%endif%}
+							</div>
+					<div class="well"><h3>Ses missions en tant que chef de projet</h3>
+					<hr>
+					{% if listeMissionsCDP %}
+					<table class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Etat</th>
+							<th>Plus d'infos</th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for mission in listeMissionsCDP %}
+							<tr class="">
+								<td>{{ mission.nom }}</td>
+								<td>{{mission.etat}}</td>
+								<td><a href="{{path('junior_siteinterne_mission', { 'id': mission.id })}}" class="btn btn-default btn-xs">Détails  &raquo;</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+						Cet utilisateur n'a pas encore réalisé de mission en tant que chef de projet.
+					{% endif %}
+					<br/><br/></div>
+					
+					<div class="well"><h3>Ses missions en tant qu'intervenant</h3>
+					<hr>
+					{% if listeMissionsINT %}
+					<table class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Etat</th>
+							<th>Plus d'infos</th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for mission in listeMissionsCDP %}
+							<tr class="">
+								<td>{{ mission.nom }}</td>
+								<td>{{mission.etat}}</td>
+								<td><a href="{{path('junior_siteinterne_mission', { 'id': mission.id })}}" class="btn btn-default btn-xs">Détails  &raquo;</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+						Cet utilisateur n'a pas encore réalisé de mission en tant qu'intervenant.
+					{% endif %}
+						<br />
+						</div></div>
+						<div class="col-md-7">
+							<div class="well">
+							<h3>Remarques</h3>
+								{% for com in commentaires %}
+								<span style="font-weight:bold;">{{com.ajoutePar.firstName}} {{com.ajoutePar.lastName}}</span> {{com.contenu}}<br/><span class="light">  {{com.ajouteLe|date('j M Y, H\\hi')}}</span><br/><br/>
+								{% endfor %}
+								<br>
+								<br>
+								{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+								{{ form_errors(form) }}
+
+								<div class="form-group">
+									{{ form_label(form.contenu, "Commentaire", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+
+									{{ form_errors(form.contenu) }}
+
+									<div class="col-sm-6">
+										{{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-6 col-sm-offset-4">
+										{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+									</div>
+								</div>
+
+
+								{{ form_rest(form) }}
+
+				  
+								{{ form_end(form) }}
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+			</section>
+{% endblock %}

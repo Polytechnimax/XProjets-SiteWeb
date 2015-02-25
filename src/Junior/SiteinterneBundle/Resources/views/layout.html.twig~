@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}Site interne d'XProjets{% endblock %}</title>
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/bootstrap.css')}}">
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="header" class="jumbotron" style="font-size:1.5em;">
+				<div class="row">
+					<div class="col-md-10">
+						<h2>Bienvenue sur le site interne d'XProjets</h2>
+					</div>
+					
+					<div class="col-md-2">
+						<p>Bonjour, {{app.user.username}}</p>
+						<a href="{{path('logout')}}" class="btn btn-danger">Se déconnecter</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="navbar navbar-default">
+			  <ul class="nav navbar-nav">
+				<li> <a href="{{path('junior_siteinterne_index')}}">Accueil</a> </li>
+				<li> <a href="{{path('junior_siteinterne_mes_missions')}}">Mes missions</a> </li>
+				<li> <a href="{{path('junior_siteinterne_howto')}}">Comment participer</a> </li>
+				<li> <a href="{{path('junior_siteinterne_missions')}}">Gestion des missions</a> </li>
+				<li> <a href="{{path('junior_siteinterne_docs')}}">Documents</a> </li>
+				<li> <a href="{{path('junior_siteinterne_users')}}">Gestion des utilisateurs</a> </li>
+			  </ul>
+			</div>
+			
+			{% block body%}{% endblock %}
+
+			<hr>
+			<footer>
+				<p>XProjets 2013</p>
+			</footer>
+		</div>
+	</body>
+</html>

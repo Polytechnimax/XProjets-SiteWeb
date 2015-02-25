@@ -1,0 +1,198 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<div class="well">
+				<h2>Nouvelle mission</h2>
+				<br>
+				<br>
+				{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+				{{ form_errors(form) }}
+
+				<div class="form-group">
+					{{ form_label(form.nom, "Nom de la mission", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+
+					{{ form_errors(form.nom) }}
+
+					<div class="col-sm-6">
+						{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form.categories, "Catégorie(s) (maintenir la touche ctrl enfoncée pour sélectionner plusieurs catégories)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.categories) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form.descriptif, "Description (visible par tous)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.descriptif) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.descriptif, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.remarques, "Remarques (visible par le chef de projet, les intervenants et les membres de la JE)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.remarques) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.remarques, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					{{ form_label(form.client, "Nom du client", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.client) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.client, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form.publique, "Publique", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.publique) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.publique) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					{{ form_label(form.etat, "Etat de la mission", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.etat) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.etat, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					{{ form_label(form.raisonEchec, "Raison si échec", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.raisonEchec) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.raisonEchec, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form.cdpRecrute, "Chef de projet recruté", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.cdpRecrute) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.cdpRecrute) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.intRecrutes, "Intervenant(s) recruté(s)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.intRecrutes) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.intRecrutes) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.cdpIntInscrits, "Chef de projet et intervenant(s) inscrits à la JE", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.cdpIntInscrits) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.cdpIntInscrits) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.propaleEnvoyee, "Propale envoyée au client", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.propaleEnvoyee) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.propaleEnvoyee) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.propaleSignee, "Propale signée", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.propaleSignee) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.propaleSignee) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.dateSignature, "Date de signature de la propale", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.dateSignature) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.dateSignature) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.nbJeh, "Nombre de JEH", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.nbJeh) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.nbJeh, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.dateFin, "Date de fin de mission", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.dateFin) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.dateFin) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.ficheSuivi, "Fiche de suivi", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.ficheSuivi) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.ficheSuivi) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.conventionClient, "Convention client", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.conventionClient) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.conventionClient) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.pvRecetteFinale, "Procès verbal de recette finale", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.pvRecetteFinale) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.pvRecetteFinale) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.rapportPedagogique, "Rapport pédagogique", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.rapportPedagogique) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.rapportPedagogique) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.recapMission, "Récapitulatif mission", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.recapMission) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.recapMission) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form.envoiPoleTrez, "Envoi pôle trésorerie", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form.envoiPoleTrez) }}
+					<div class="col-sm-6">
+						{{ form_widget(form.envoiPoleTrez) }}
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-4">
+						{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+					</div>
+				</div>
+
+
+				{{ form_rest(form) }}
+
+  
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}

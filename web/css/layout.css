@@ -1,0 +1,70 @@
+/* home */
+
+.fond_texte_accueil{
+	background-color : black; 
+	height : 100%; 
+	width : 100%; 
+	margin : auto;
+	opacity: 0.6;
+
+}
+
+.deco #deco-img-1{
+	width : 67%;
+	z-index : 100;
+	position : relative;
+	top : 27%;
+	left : 17%;
+}
+
+.deco #deco-img-2{
+	width : 42%;
+	z-index : 100;
+	position : relative;
+	top : 23%;
+	left : 28%;
+}
+
+.deco #deco-img-3{
+	width : 63%;
+	z-index : 100;
+	position : relative;
+	top : 14%;
+	left : 18%;
+}
+
+/* mot du président */
+
+#mot-president{
+	vertical-align : top; 
+	text-align : justify; 
+	width : 70%; 
+	display : inline-block;
+}
+
+#img-president{
+	vertical-align : top; 
+	width : 23%; 
+	display : inline-block; 
+	margin-left : 6%;
+}
+
+@media screen and (max-width: 660px) {
+	#mot-president{
+		width : 100%;
+	}
+	#img-president{
+	display : none;
+}
+}
+
+/* Présentation */
+
+#pricing p{
+	text-align : justify;
+}
+
+#image_groupe{
+	box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7); 
+	margin-bottom : 10px;
+}

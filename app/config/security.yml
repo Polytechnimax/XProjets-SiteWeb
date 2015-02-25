@@ -1,0 +1,36 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        Junior\SiteinterneBundle\Entity\User: plaintext
+    role_hierarchy:
+        ROLE_MBJE:        ROLE_USER
+        ROLE_RH:          ROLE_MBJE
+        ROLE_POLEMISSION: ROLE_MBJE
+        ROLE_ADMIN:       [ROLE_MBJE, ROLE_USER, ROLE_POLEMISSION, ROLE_RH]
+
+    providers:
+        main_provider:
+            entity: { class: JuniorSiteinterneBundle:User, property: username }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main_login:
+            pattern: ^/platal/login$
+            anonymous: true
+        main:
+            pattern: ^/platal
+            anonymous: false
+            provider: main_provider
+            form_login:
+                login_path: login
+                check_path: login_check
+                always_use_default_target_path: true
+                default_target_path:            /platal
+            logout:
+                path:   logout
+                target: /platal
+
+    access_control:
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

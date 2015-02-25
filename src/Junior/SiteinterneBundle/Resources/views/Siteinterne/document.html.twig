@@ -1,0 +1,123 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+ {{doc.mission.nom}} - {{parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+
+{% block body %}
+			<section class="row">
+				<div class="col-md-1">
+					<a href="{{ path('junior_siteinterne_mission', { 'id': doc.mission.id}) }}" class="btn btn-xs btn-default" style="margin-top:30px;">&laquo; Retour<br/>à la<br/>mission</a>
+				</div>
+				<div id="content" class="col-md-10">
+					<h2>{{doc.typeDeDocument}} de la mission "{{doc.mission.nom}}" </h2>
+					<span class="light">Ajouté le {{ doc.ajouteLe|date('d/m/Y à H\\hi') }} par {{ doc.ajoutePar.firstName }} {{ doc.ajoutePar.lastName }}.</span>
+					<hr>
+					<br />
+					<div class="col-md-6">
+					<div class="well"><h3>Télécharger</h3>
+					{% if doc.upUneFois %}
+						<a href="{{ asset(doc.webPath) }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> {{doc.typeDeDocument}}</a><br />
+					{% else %}
+						Le document n'est pas encore en ligne.<br />
+						{% if doc.dirName == 'propale'%}
+						<a href="{{ path('junior_siteinterne_docvierge', { 'id': doc.mission.id, 'typedoc' : doc.dirName }) }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> {{doc.typeDeDocument}} (vierge)</a><br />
+						{% endif %}
+					{% endif %}</div>
+					{% if statut=="polemission" or (statut =="cdp" and not doc.frozen) %}
+					<div class="well"><h3>Ajouter</h3>
+								{{ form_start(form2, {'attr': {'class': 'form-horizontal'}}) }}
+
+								{{ form_errors(form2) }}
+
+								{% if statut == "cdp" %}
+								<div class="form-group">
+									{{ form_label(form2.file, "Fichier", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.file) }}
+
+									<div>
+										{{ form_widget(form2.file, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								
+								<div class="form-group">
+									{{ form_label(form2.signeLe, "Signé le (attention, la date inscrite doit être la même que sur le document)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.signeLe) }}
+
+									<div>
+										{{ form_widget(form2.signeLe) }}
+									</div>
+								</div>
+								{% endif %}
+								{% if statut == "polemission" %}
+								<div class="form-group">
+									{{ form_label(form2.frozen, "Valider le fichier", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.frozen) }}
+
+									<div>
+										{{ form_widget(form2.frozen) }}
+									</div>
+								</div>
+								{% endif %}
+								<div class="row">
+									<div class="col-sm-6 col-sm-offset-4">
+										{{ form_widget(form2.save, {'attr': {'class': 'btn btn-primary'}}) }}
+									</div>
+								</div>
+
+
+								{{ form_rest(form2) }}
+
+				  
+								{{ form_end(form2) }}
+					</div>
+							{% endif %}
+					</div>
+					
+						<div class="col-md-6">
+							<div class="well">
+								<h3>Remarques</h3>
+								{% for com in commentaires %}
+								<span style="font-weight:bold;">{{com.ajoutePar.firstName}} {{com.ajoutePar.lastName}}</span> {{com.contenu}}<br/><span class="light">  {{com.date|date('j M Y, H\\hi')}}</span><br/><br/>
+								{% endfor %}
+								<br>
+								<br>
+								{{ form_start(form1, {'attr': {'class': 'form-horizontal'}}) }}
+
+								{{ form_errors(form1) }}
+
+								<div class="form-group">
+									{{ form_label(form1.contenu, "Commentaire", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form1.contenu) }}
+
+									<div>
+										{{ form_widget(form1.contenu, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-6 col-sm-offset-4">
+										{{ form_widget(form1.save, {'attr': {'class': 'btn btn-primary'}}) }}
+									</div>
+								</div>
+
+
+								{{ form_rest(form1) }}
+
+				  
+								{{ form_end(form1) }}
+							</div>
+						</div>
+					
+					
+				</div>
+			</section>
+{% endblock %}

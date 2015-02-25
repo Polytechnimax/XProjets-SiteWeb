@@ -1,0 +1,59 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+{{ parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+
+{% block body %}
+			<section class="row">
+
+{{include("JuniorSiteinterneBundle:Siteinterne:sousmenumissions.html.twig")}}
+				<div id="content" class="col-md-4 col-md-offset-1">
+					<h1>Les compétences</h1>
+					<ul>
+					{% if listeCompetences %}
+						{% for comp in listeCompetences %}
+							<li>{{comp.nom}} <a href="{{path('junior_siteinterne_missions_competences', { 'id': comp.id, 'suppr': 'supprimer' })}}"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></li><br>
+						{% endfor %}
+					{% endif %}
+					</ul>
+				</div>
+				
+				<div class="col-md-offset-1 col-md-4">
+					<div class="well">
+					<h2>Nouvelle compétence</h2>
+						<br>
+						<br>
+						{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+						{{ form_errors(form) }}
+
+						<div class="form-group">
+							{{ form_label(form.nom, "Nom de la compétence", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+
+							{{ form_errors(form.nom) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-4">
+								{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+							</div>
+						</div>
+
+
+						{{ form_rest(form) }}
+
+		  
+						{{ form_end(form) }}
+					</div>
+				</div>
+			</section>
+{% endblock %}

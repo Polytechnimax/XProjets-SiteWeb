@@ -1,0 +1,160 @@
+<div id="portfolio" class="color white">	
+	<div class="container">
+		<div class="wrapper span12">
+	
+		<div id="page-title">
+			<div id="page-title-inner">
+				<h2><span>{{'Nos activités'|trans}}</span></h2>
+			</div>	
+		</div>
+
+		<div id="filters">
+			<ul class="option-set" data-option-key="filter">
+				<li><a href="#filter" class="selected" data-option-value=".intervention">{{'Nos secteurs d\'interventions'|trans}}</a></li>
+				<li>/</li>
+				<li><a href="#filter" data-option-value=".demarche">{{'Notre démarche'|trans}}</a></li>
+				<li>/</li>
+				<li><a href="#filter" data-option-value=".specificite">{{'Nos spécifités'|trans}}</a></li>
+				<li>/</li>
+				<li><a href="#filter" data-option-value=".extrapol">{{'Partenariat eXtraPol'|trans}}</a></li>
+			</ul>
+		</div>
+				
+		<div id="portfolio-wrapper" class="row-fluid">
+				
+			<div class="span12 intervention" style="margin-bottom : 30px; margin-left : 0px;">
+			 
+			<div class="row-fluid">
+			
+			<div class="imageWrapper span7">
+				<a href="#" onmouseenter="Animation1();" onmouseleave="Animation1o();"><img id="comp1" src="{{ asset('img/comp1.png') }}" alt="Nos compétences" title="Nos compétences" /></a>
+				<a href="#" onmouseenter="Animation2();" onmouseleave="Animation2o();"><img id="comp2" src="{{ asset('img/comp2.png') }}" alt="Nos compétences" title="Nos compétences" /></a>
+				<a href="#" onmouseenter="Animation4();" onmouseleave="Animation4o();"><img id="comp4" src="{{ asset('img/comp4.png') }}" alt="Nos compétences" title="Nos compétences" /></a>
+				<a href="#" onmouseenter="Animation3();" onmouseleave="Animation3o();"><img id="comp3" src="{{ asset('img/comp3.png') }}" alt="Nos compétences" title="Nos compétences" /></a>
+			</div>
+			
+			<div class="span5">
+				<div id="secteurs-interventions">
+					<h3>{{'Nos secteurs d\'interventions'|trans}}</h3>
+					<p>
+					{% trans %}XProjets bénéficie de la polyvalence de l'enseignement fourni à l'Ecole polytechnique, ainsi que de la grande diversité des étudiants sur le campus (2000 intervenants potentiels) pour offrir une gamme de prestations complète centrée sur notre expertise scientifique.{% endtrans %}
+					</p>
+				</div>
+				<div class="texteWrapper">
+				<div id="texte1"><p>{% trans %}Nous élaborons votre dossier d'éligibilité au crédit impôt recherche.{% endtrans %}</p></div>
+				<div id="texte2"><p>{% trans %}Etudes de marché pour les innovations scientifiques et les projets de développement économique.{% endtrans %}</p></div>
+				<div id="texte4"><p>{% trans %}Création de sites internet et développement de logiciels pour votre entreprise.{% endtrans %}</p></div>
+				<div id="texte3"><p>{% trans %}Ingénierie et sciences appliquées en mathématique, mécanique, chimie et biologie.{% endtrans %}</p></div>
+				</div>
+			</div>
+			
+			</div>
+			
+			</div>
+			
+			<div class="span12 demarche" style="text-align : justify; margin-bottom : 30px; margin-left : 0px;">
+				<div >
+					<h3>{{'Notre démarche'|trans}}</h3>
+					<p>{% trans %}Depuis sa création, XProjets s'inscrit dans une démarche de qualité et la satisfaction de nos clients est notre plus grande fierté. Dans ce cadre, de nombreux process ont été mis en vigueur au sein de notre Junior-Entreprise.{% endtrans %}</p>
+					<p>{% trans %}Preuve de notre professionnalisme, nous utilisons une méthodologie fixe qui nous permet de traiter tout type de missions.{% endtrans %}</p>
+				</div>
+				
+				<div style="text-align : center; margin-top : 30px; margin-bottom : 30px;">
+					<img src="{{ asset('img/methodologie.png') }}" alt="methodologie" title="methodologie" />
+				</div>
+				
+				<div id="processus">
+					<ul>
+						<li><strong>{{'Prise de contact'|trans}}</strong> :
+						{% trans %}Moins de 24h après avoir déposé votre appel d'offre, un chef de projet d'XProjets prend contact avec vous pour répondre à vos questions et comprendre vos besoins dans les moindres détails.{% endtrans %}</li>
+						<li><strong>{{'Devis'|trans}}</strong> :
+						{% trans %}A la suite de votre premier entretien téléphonique ou de votre première rencontre, le chef de projet en charge de votre étude recherche les étudiants ayant les compétences idoines pour réaliser la mission. Ensemble, ils rédigent une proposition d'intervention ou devis définissant le cahier des charges et l'échéancier correspondant à la mission que vous souhaitez nous confier.{% endtrans %}</li>
+						<li><strong>{{'Phase de recherche'|trans}}</strong> : 
+						{% trans %}Dès lors que le projet vous satisfait, le chef de projet rédige la convention ou contrat qui lie XProjets à votre entreprise, convention comprenant notamment une close de confidentialité. Le(s) intervenant(s) recruté(s) et préparé(s) par le chef de projet se lance(nt) dans une phase de recherche en liaison avec les laboratoires de l'Ecole polytechnique. Suivi au quotidien par le chef de projet, il(s) réalise(nt) des points d'avancement réguliers avec vous.{% endtrans %}</li>
+						<li><strong>{{'Remise du produit fini'|trans}}</strong> :
+						{% trans %}Conformément à l'échéancier mis en place dans la convention, le livrable vous est remis à temps par le chef de projet et le(s) intervenant(s). Accompagné d'explications, le suivi du produit peut également être réalisé pendant plusieurs mois après sa remise en main propre.{% endtrans %}</li>
+						<li><strong>{{'Débriefing'|trans}}</strong> : 
+						{% trans %}A l'issue de la mission, un questionnaire qualité vous est remis et nous permet d'améliorer notre démarche au quotidien. Par ailleurs, le chef de projet réalise un débriefing complet du déroulement de la mission avec le(s) intervenant(s) dans un souci d amélioration continue.{% endtrans %}
+						</li>
+					</ul>
+				</div>
+			
+			</div>			
+
+			<div class="span12 specificite" style="text-align : justify; margin-bottom : 30px; margin-left : 0px;" >
+			
+			<div class="row-fluid">
+			
+				<div class="span6">
+				<h3>{{'Dynamisme'|trans}}</h3> 
+					<p>{% trans %}Rapidité et efficacité sont les maîtres mots. Sous 24h, nous établissons un premier contact et nous nous engageons à vous fournir un devis sous 8 jours.{% endtrans %}</p>
+					<p>{% trans %}Avec XProjets, vous bénéficiez de la flexibilité et de la réactivité d'une petite structure. Nous prenons vos demandes en compte instantanément.{% endtrans %}</p>
+					<img src="{{ asset('img/photo_dynamisme.jpg') }}" />
+				</div>
+					
+				<div class="span6">
+				<h3>{{'Performance'|trans}}</h3> 
+					<p>{% trans %}Les produits livrés sont à forte valeur ajoutée et correspondent à la mise en pratique de la créativité et la qualité du travail des élèves ingénieurs polytechniciens. XProjets a ainsi développé une expertise dans le conseil en innovation, le développement d'outils informatiques, de solutions Web, de prototypes en mécanique et en physique, mais également dans la réalisation d'études de marché.{% endtrans %}</p>
+
+					<p>{% trans %}XProjets offre des prestations aux tarifs les plus bas, 35 euros HT, par heure de travail effective.{% endtrans %}</p>
+					<div style="text-align : center">
+					<a href="{{ asset('downloads/plaquette.pdf') }}"><img src="{{ asset('img/plaquette_xprojets.png') }}" /></a>
+					<p>{{'Notre plaquette'|trans}}</p>
+					</div>
+				</div>
+			
+			</div>
+			</div>
+			
+			<div class="span12 extrapol" style="text-align : justify; margin-bottom : 30px; margin-left : 0px; ">
+			
+			<div class="row-fluid">
+				<div class="span6">
+				<h3>{{'Partenariat eXtraPol'|trans}}</h3> 
+					<p>{% trans %}eXtraPol, association Loi 1901, est la nouvelle marque commune aux Junior-Entreprises de deux prestigieuses écoles : L’Ecole polytechnique et Sciences Po. L'association a pour objet la réalisation de missions de conseil auprès de clients issus du secteur privé (grandes entreprises, associations, fondations) comme de la sphère publique (administrations centrales, collectivités territoriales, think tank, etc).{% endtrans %}</p>
+					<p>{% trans %}Grâce à cette nouvelle marque, vous n’aurez plus à hésiter entre une Junior Ingénieure et une Junior tournée Institutionnel et Commercial pour vos projets de haut niveau.{% endtrans %}</p>
+					
+				</div>
+					
+				<div class="span6">
+				<div class="row-fluid">
+				
+					<div class="span8">
+					<img src="{{ asset('img/logos/logo-extrapol.png') }}" />
+					</div>
+					
+					<div class="span4" style="text-align : center">
+					<a href="{{ asset('downloads/plaquette_extrapol.pdf') }}"><img src="{{ asset('img/plaquette_extrapol.png') }}" /></a>
+					<p>{{'Plaquette eXtraPol'|trans}}</p>
+					</div>
+					
+				</div>
+				</div>
+			
+			</div>
+			</div>
+					
+		</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

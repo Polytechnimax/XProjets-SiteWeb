@@ -1,0 +1,83 @@
+junior_siteinterne_index:
+    pattern:  /
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:index }
+
+junior_siteinterne_missions:
+    pattern:  /missions
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:missions }
+
+junior_siteinterne_missions_categories:
+    pattern:  /missions/categories/{suppr}/{id}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:categories, suppr:'watch', id:0 }
+    requirements:
+        id: \d*
+
+junior_siteinterne_missions_clients:
+    pattern:  /missions/clients/{suppr}/{id}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:clients, suppr:'watch', id:0 }
+    requirements:
+        id: \d*
+
+junior_siteinterne_missions_client:
+    pattern:  /missions/client/{id}/{edit}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:client, edit:'null', id:0 }
+    requirements:
+        id: \d*
+
+junior_siteinterne_missions_competences:
+    pattern:  /missions/competences/{suppr}/{id}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:competences, suppr:'watch', id:0 }
+    requirements:
+        id: \d*
+
+junior_siteinterne_missions_ajouter:
+    pattern:  /missions/add
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:add }
+
+junior_siteinterne_mission:
+    pattern:  /mission/{id}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:mission }
+    requirements:
+        id: \d+
+
+junior_siteinterne_docmission:
+    pattern:  /mission/{id}/{iddoc}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:doc }
+    requirements:
+        id: \d+
+        iddoc: \d+
+
+junior_siteinterne_docvierge:
+    pattern:  /mission/{id}/{typedoc}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:docvierge }
+    requirements:
+        id: \d+
+
+junior_siteinterne_mission_modifier:
+    pattern:  /mission/edit/{id}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:edit }
+    requirements:
+        id: \d+
+
+junior_siteinterne_docs:
+    pattern:  /docs
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:docs }
+
+junior_siteinterne_user:
+    pattern:  /user/{id}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:user }
+    requirements:
+        id: \d+
+
+junior_siteinterne_users:
+    pattern:  /users/{idmission}/{refIntCDP}/{iduser}/{add}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:users, refIntCDP:0, idmission:0,iduser:0, add:'null'  }
+
+junior_siteinterne_modification_mission:
+    pattern:  /modifmission/{idmission}/{iduser}/{supprInt}/{changerEtat}/{changerPublique}/{modifMission}/{modifDates}/{modifRaisonEchec}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:modif, supprInt:'null', idmission:0,iduser:0, add:'null', changerEtat:'null', changerPublique:'null', modifMission:'null', modifDates:'null', modifRaisonEchec:'null'  }
+
+junior_siteinterne_config:
+    pattern:  /config/{iduser}/{action}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:config, iduser:0, action:0}
+

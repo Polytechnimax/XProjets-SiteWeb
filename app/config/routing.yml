@@ -1,0 +1,17 @@
+junior_siteinterne:
+    resource: "@JuniorSiteinterneBundle/Resources/config/routing.yml"
+    prefix:   /platal
+
+junior_site:
+    resource: "@JuniorSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login:
+    pattern:   /platal/login
+    defaults:  { _controller: JuniorSiteinterneBundle:Security:login }
+
+login_check:
+    pattern:   /platal/login_check
+
+logout:
+    pattern:   /platal/logout

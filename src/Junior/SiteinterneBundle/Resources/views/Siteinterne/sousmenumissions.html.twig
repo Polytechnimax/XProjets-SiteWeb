@@ -1,0 +1,40 @@
+<div class="col-md-2" id="menu_missions">
+	<h1>Menu</h1>
+    <div class="btn-group-vertical">
+        {% if app.request.requestUri == path('junior_siteinterne_missions') %}
+		<a class="btn btn-primary" href="{{path('junior_siteinterne_missions')}}">Tableau de bord des missions</a>
+		{% else %}
+		<a class="btn btn-default" href="{{path('junior_siteinterne_missions')}}">Tableau de bord des missions</a>
+		{% endif %}
+		
+        {% if app.request.requestUri == path('junior_siteinterne_missions_ajouter') %}
+		<a class="btn btn-primary" href="{{path('junior_siteinterne_missions_ajouter')}}">Nouvelle mission</a>
+		{% else %}
+		<a class="btn btn-default" href="{{path('junior_siteinterne_missions_ajouter')}}">Nouvelle mission</a>
+		{% endif %}
+		
+        {% if app.request.requestUri == path('junior_siteinterne_missions_categories') %}
+		<a class="btn btn-primary" href="{{path('junior_siteinterne_missions_categories')}}">Gestion des catégories</a>
+		{% else %}
+		<a class="btn btn-default" href="{{path('junior_siteinterne_missions_categories')}}">Gestion des catégories</a>
+		{% endif %}
+		
+        {% if app.request.requestUri == path('junior_siteinterne_missions_clients') %}
+		<a class="btn btn-primary" href="{{path('junior_siteinterne_missions_clients')}}">Gestion des clients</a>
+		{% else %}
+		<a class="btn btn-default" href="{{path('junior_siteinterne_missions_clients')}}">Gestion des clients</a>
+		{% endif %}
+		
+        {% if app.request.requestUri == path('junior_siteinterne_users') %}
+		<a class="btn btn-primary" href="{{path('junior_siteinterne_users')}}">Gestion des utilisateurs</a>
+		{% else %}
+		<a class="btn btn-default" href="{{path('junior_siteinterne_users')}}">Gestion des utilisateurs</a>
+		{% endif %}
+		
+        {% if app.request.requestUri == path('junior_siteinterne_missions_competences') %}
+		<a class="btn btn-primary" href="{{path('junior_siteinterne_missions_competences')}}">Gestion des compétences</a>
+		{% else %}
+		<a class="btn btn-default" href="{{path('junior_siteinterne_missions_competences')}}">Gestion des compétences</a>
+		{% endif %}
+    </div>
+</div>

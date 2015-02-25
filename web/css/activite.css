@@ -1,0 +1,78 @@
+#comp1 {
+	position:relative;
+	opacity:0.6;
+	width : 40%;
+	height : auto;
+}
+#comp2 {
+	position:relative;
+	opacity:0.6;
+	width : 40%;
+	height : auto;
+}
+#comp3 {
+	position:relative;
+	opacity:0.6;
+	width : 40%;
+	height : auto;
+}
+#comp4 {
+	position:relative;
+	opacity:0.6;
+	width : 40%;
+	height : auto;
+}
+
+img a {
+	border:none;
+}
+img a:hover {
+	border:none;
+}
+
+.imageWrapper{
+	overflow : hidden;
+	text-align : center;
+}
+
+
+@media screen and (max-width: 700px) {
+	.row-fluid .texteWrapper{
+	display : none;
+	}
+}
+
+
+#texte1, #texte2, #texte3, #texte4 {
+	opacity: 0;
+	padding: 10px;
+	text-align: justify;
+	border : 1px solid #6ea5d0;
+	background-color: white;
+	z-index: 2;
+	margin-top : 10px;
+	font-size: 15px;
+	-ms-filter: "alpha(opacity=0)"; /* IE 8 */
+    filter : alpha(opacity=0); /* IE < 8 */
+}
+
+#secteurs-interventions {
+	padding: 10px;
+	text-align: justify;
+	background-color: white;
+	z-index: 2;
+	font-size: 15px;
+}
+
+.imageWrapper img{
+	margin:-2px;
+}
+
+#processus li {
+	list-style-type: none;
+}
+
+#processus li:before {
+    content: "→ "; 
+}
+

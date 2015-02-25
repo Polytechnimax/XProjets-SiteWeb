@@ -1,0 +1,36 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+Utilisateurs - {{ parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+
+{% block body %}
+
+			<section class="row">
+{{include("JuniorSiteinterneBundle:Siteinterne:sousmenumissions.html.twig")}}
+				<div id="content" class="col-md-offset-1 col-md-9">
+					<h1>Liste des utilisateurs</h1>
+					<hr>
+					{% for u in listeUsers %}
+						{% if refIntCDP== 0 %}
+						<a href="{{ path('junior_siteinterne_user', { 'id': u.id }) }}" class="btn btn-primary">{{u.firstName}} {{u.lastName}}</a><br /><br />
+						{% endif %}
+						{% if refIntCDP== 1 %}
+						<a href="{{ path('junior_siteinterne_users', { 'idmission': idmission,'refIntCDP': refIntCDP,'iduser': u.id, 'add':'ok' }) }}" class="btn btn-primary">{{u.firstName}} {{u.lastName}}</a><br /><br />
+						{% endif %}
+						{% if refIntCDP== 2 %}
+						<a href="{{ path('junior_siteinterne_users', { 'idmission': idmission,'refIntCDP': refIntCDP,'iduser': u.id, 'add':'ok' }) }}" class="btn btn-primary">{{u.firstName}} {{u.lastName}}</a><br /><br />
+						{% endif %}
+						{% if refIntCDP== 3 %}
+						<a href="{{ path('junior_siteinterne_users', { 'idmission': idmission,'refIntCDP': refIntCDP,'iduser': u.id, 'add':'ok' }) }}" class="btn btn-primary">{{u.firstName}} {{u.lastName}}</a><br /><br />
+						{% endif %}
+					{% endfor %}
+				</div>
+			</section>
+
+
+{% endblock %}

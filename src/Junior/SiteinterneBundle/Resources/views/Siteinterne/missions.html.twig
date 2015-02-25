@@ -1,0 +1,52 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+{{ parent() }}
+{% endblock %}
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+{% block titrePage %}
+Gestion des missions
+{% endblock %}
+
+
+{% block body %}
+
+			<section class="row">
+{{include("JuniorSiteinterneBundle:Siteinterne:sousmenumissions.html.twig")}}
+				<div id="content" class="col-md-offset-1 col-md-9">
+					<h1>Vue d'ensemble des missions</h1>
+					<table class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Référent mission</th>
+							<th>Nombre de JEH</th>
+							<th>Etat de la mission</th>
+							<th>Chef de projet</th>
+							<th>Date début</th>
+							<th>Date fin</th>
+							<th></th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for mission in listeMissions %}
+							<tr>
+								<td>{{ mission.nom }} - <span class="light">{{mission.numSiaje}}</span></td>
+								<td>{% if mission.referent%}{{ mission.referent.firstName }} {{ mission.referent.lastName }}{% endif %}</td>
+								<td>{{ mission.nbJeh }}</td>
+								<td>{{ mission.etat }}</td>
+								<td>{% if mission.chefDeProjet%}{{ mission.chefDeProjet.firstName }} {{ mission.chefDeProjet.lastName }}{% endif %}</td>
+								<td>{% if mission.dateDebut%}{{ mission.dateDebut|date('d/m/Y') }}{% endif %}</td>
+								<td>{% if mission.dateFin%}{{ mission.dateFin|date('d/m/Y') }}{% endif %}</td>
+								<td><a href="{{path('junior_siteinterne_mission', { 'id': mission.id })}}" class="btn btn-default">Détails  &raquo;</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+{{ parent() }}
+{% endblock %}
+
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+
+{% block body %}
+			<section class="row">
+				<div id="content" class="col-md-10 col-md-offset-1">
+			<div class="well">
+				<h2>Modifier la mission</h2>
+				<br>
+				{% if formulaire == 1 %}
+				{{ form_start(form1, {'attr': {'class': 'form-horizontal'}}) }}
+
+				{{ form_errors(form1) }}
+
+				<div class="form-group">
+					{{ form_label(form1.nom, "Nom de la mission", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+
+					{{ form_errors(form1.nom) }}
+
+					<div class="col-sm-6">
+						{{ form_widget(form1.nom, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+				<div class="form-group">
+					{{ form_label(form1.appelOffreContactClient, "Statut", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+
+					{{ form_errors(form1.appelOffreContactClient) }}
+
+					<div class="col-sm-6">
+						{{ form_widget(form1.appelOffreContactClient, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form1.categories, "Catégorie(s) (maintenir la touche ctrl enfoncée pour sélectionner plusieurs catégories)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.categories) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.categories, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form1.competences, "Compétence(s) (maintenir la touche ctrl enfoncée pour sélectionner plusieurs compétences)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.competences) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.competences, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form1.descriptif, "Description (visible par tous)", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.descriptif) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.descriptif, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					{{ form_label(form1.client, "Nom du client", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.client) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.client, {'attr': {'class': 'form-control'}}) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form1.publique, "Visible par tous", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.publique) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.publique) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					{{ form_label(form1.montrerClientAuCdp, "Montrer les coordonnées du client au chef de projet", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.montrerClientAuCdp) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.montrerClientAuCdp) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					{{ form_label(form1.nbJeh, "Nombre de JEH", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.nbJeh) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.nbJeh) }}
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-4">
+						{{ form_widget(form1.save, {'attr': {'class': 'btn btn-primary'}}) }}
+					</div>
+				</div>
+				{{ form_end(form1) }}
+				
+				
+			{% elseif formulaire == 2 %}
+			
+			
+				{{ form_start(form2, {'attr': {'class': 'form-horizontal'}}) }}
+
+				{{ form_errors(form2) }}
+				<div class="form-group">
+					{{ form_label(form2.dateDebut, "Date de début", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form2.dateDebut) }}
+					<div class="col-sm-6">
+						{{ form_widget(form2.dateDebut) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
+					{{ form_label(form2.nbSemaines, "Délai en nombre de semaines", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form2.nbSemaines) }}
+					<div class="col-sm-6">
+						{{ form_widget(form2.nbSemaines) }}
+					</div>
+				</div>
+				
+				
+
+				
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-4">
+						{{ form_widget(form2.save, {'attr': {'class': 'btn btn-primary'}}) }}
+					</div>
+				</div>
+				{{ form_end(form2) }}
+				
+	{% elseif formulaire == 3 %}
+				{{ form_start(form3, {'attr': {'class': 'form-horizontal'}}) }}
+
+				{{ form_errors(form3) }}
+				<div class="form-group">
+					{{ form_label(form3.raisonEchec, "Raison de l'échec", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form3.raisonEchec) }}
+					<div class="col-sm-6">
+						{{ form_widget(form3.raisonEchec) }}
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-4">
+						{{ form_widget(form3.save, {'attr': {'class': 'btn btn-primary'}}) }}
+					</div>
+				</div>
+  
+				{{ form_end(form3) }}
+				{%endif%}
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

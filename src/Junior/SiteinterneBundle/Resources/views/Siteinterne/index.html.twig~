@@ -1,0 +1,40 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+			<section class="row">
+				<div id="content" class="col-md-offset-1 col-md-10">
+					<h1>Les missions à pourvoir</h1>
+					<hr>
+					{% if listeMissions %}
+					<table class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Client</th>
+							<th>Catégories</th>
+							<th></th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for mission in listeMissions %}
+							{% if mission.publique %}
+							<tr class="">
+								<td>{{ mission.nom }}</td>
+								<td>{% if mission.client %}{{ mission.client.nom }}{% endif %}</td>
+								<td>{% for categorie in mission.categories %}{{categorie.name}}{% if not loop.last %}, {% endif %}{% else %} Pas de catégories{% endfor %}</td>
+								<td><a href="{{ path('junior_siteinterne_mission', { 'id': mission.id }) }}" class="btn btn-primary">Détails</a></td>
+							</tr>
+							{% endif %}
+							{% endfor %}
+						</tbody>
+					</table>
+					{% else %}
+						Il n'y a pas de missions à pourvoir en ce moment.
+					{% endif %}
+				</div>
+			</section>
+{% endblock %}
