@@ -5,6 +5,7 @@ namespace Junior\SiteinterneBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use \DateTime;
 use \DateInterval;
 use Junior\SiteinterneBundle\Entity\Mission;
@@ -31,8 +32,8 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class SiteinterneController extends Controller
 {
-    public function indexAction()
-    {
+  public function indexAction()
+  {
 		$listeMissions = $this->getDoctrine()
 							  ->getRepository('JuniorSiteinterneBundle:Mission')
 							  ->getMissionAvecCategories();
@@ -61,26 +62,25 @@ class SiteinterneController extends Controller
 		'listeMissionsINT' => $listeMissionsINT,
 		'argentGagne' => $argentGagne
 		));
-    }
+  }
 		
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-	public function missionsAction()
-    {
+	public function missionsAction(){
 		$listeMissions = $this->getDoctrine()
 							  ->getRepository('JuniorSiteinterneBundle:Mission')
 							  ->getMissionAvecCategories();
-        return $this->render('JuniorSiteinterneBundle:Siteinterne:missions.html.twig', array(
+		return $this->render('JuniorSiteinterneBundle:Siteinterne:missions.html.twig', array(
 		'listeMissions' => $listeMissions
 		));
-    }
+   }
+
 
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function addAction(Request $request)
-    {
+  public function addAction(Request $request){
 		$tableau = array(
 				"Devis",
 				"Facture à accompte",
@@ -226,11 +226,9 @@ class SiteinterneController extends Controller
 			'form2' => $form2->createView(),
 			'clients' => $listeClients
 		));
-    }
+	}
 	
-    public function missionAction($id, Request $request)
-    {
-	
+  public function missionAction($id, Request $request){
 		$repository = $this
 						->getDoctrine()
 						->getManager()
@@ -315,7 +313,7 @@ class SiteinterneController extends Controller
 		}
 		
 
-        return $this->render('JuniorSiteinterneBundle:Siteinterne:mission.html.twig',
+		return $this->render('JuniorSiteinterneBundle:Siteinterne:mission.html.twig',
 		 array(
 			'form' => $form->createView(),
 			'mission' => $mission,
@@ -324,82 +322,80 @@ class SiteinterneController extends Controller
 			'tauxdavancement' => $tauxdavancement,
 			'statut' => $statut
 		 ));
-    }
+	}
 	
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function docsAction()
-    {
-        return $this->render('JuniorSiteinterneBundle:Siteinterne:docs.html.twig');
-    }
+public function docsAction(){
+	return $this->render('JuniorSiteinterneBundle:Siteinterne:docs.html.twig');
+}
 	
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function userAction($id, Request $request)
-    {
-		$repository = $this
-						->getDoctrine()
-						->getManager()
-						->getRepository('JuniorSiteinterneBundle:User');
-		$utilisateur = $repository->find($id);
-		
-		$listeMissionsCDP = $this->getDoctrine()
-							  ->getRepository('JuniorSiteinterneBundle:Mission')
-							  ->getMissionEnTantQueCDP($utilisateur);
-		$listeMissionsINT = $this->getDoctrine()
-							  ->getRepository('JuniorSiteinterneBundle:Mission')
-							  ->getMissionEnTantQuIntervenant($utilisateur);
+public function userAction($id, Request $request){
+	$repository = $this
+					->getDoctrine()
+					->getManager()
+					->getRepository('JuniorSiteinterneBundle:User');
+	$utilisateur = $repository->find($id);
+	
+	$listeMissionsCDP = $this->getDoctrine()
+						  ->getRepository('JuniorSiteinterneBundle:Mission')
+						  ->getMissionEnTantQueCDP($utilisateur);
+	$listeMissionsINT = $this->getDoctrine()
+						  ->getRepository('JuniorSiteinterneBundle:Mission')
+						  ->getMissionEnTantQuIntervenant($utilisateur);
 
 
-		$com = new RemarquesUser();
-		$form = $this->get('form.factory')->create(new RemarquesUserType(), $com);
-		$com->setUtilisateur($utilisateur);
-		
-		$form2 = $this->get('form.factory')->createBuilder('form', $utilisateur)
-			->add('inscrit', 'checkbox', array('required' => false))
-			->add('inscritLe', 'date')
-			->add('save', 'submit')
-			->getForm();
+	$com = new RemarquesUser();
+	$form = $this->get('form.factory')->create(new RemarquesUserType(), $com);
+	$com->setUtilisateur($utilisateur);
+	
+	$form2 = $this->get('form.factory')->createBuilder('form', $utilisateur)
+		->add('inscrit', 'checkbox', array('required' => false))
+		->add('inscritLe', 'date')
+		->add('save', 'submit')
+		->getForm();
 
-		if ($form->handleRequest($request)->isValid()) {
-			$user = $this->getUser();
-			if (null !== $user){
-				$em = $this->getDoctrine()->getManager();
-				$com->setAjoutePar($user);
-				$em->persist($com);
-				$em->flush();
-			}
-		}
-		
-		if ($form2->handleRequest($request)->isValid()) {
+	if ($form->handleRequest($request)->isValid()) {
+		$user = $this->getUser();
+		if (null !== $user){
 			$em = $this->getDoctrine()->getManager();
+			$com->setAjoutePar($user);
+			$em->persist($com);
 			$em->flush();
 		}
-
-		$repository = $this
-						->getDoctrine()
-						->getManager()
-						->getRepository('JuniorSiteinterneBundle:RemarquesUser');
-		$commentaires = $repository->findBy(array('utilisateur' => $utilisateur));
-		
-        return $this->render('JuniorSiteinterneBundle:Siteinterne:user.html.twig',
-		 array(
-			'form' => $form->createView(),
-			'form2' => $form2->createView(),
-			'u' => $utilisateur,
-			'commentaires' => $commentaires,
-			'listeMissionsINT' => $listeMissionsINT,
-			'listeMissionsCDP' => $listeMissionsCDP
-		 ));
-    }
+	}
 	
+	if ($form2->handleRequest($request)->isValid()) {
+		$em = $this->getDoctrine()->getManager();
+		$em->flush();
+	}
+
+	$repository = $this
+					->getDoctrine()
+					->getManager()
+					->getRepository('JuniorSiteinterneBundle:RemarquesUser');
+	$commentaires = $repository->findBy(array('utilisateur' => $utilisateur));
+	
+	return $this->render('JuniorSiteinterneBundle:Siteinterne:user.html.twig',
+	 array(
+		'form' => $form->createView(),
+		'form2' => $form2->createView(),
+		'u' => $utilisateur,
+		'commentaires' => $commentaires,
+		'listeMissionsINT' => $listeMissionsINT,
+		'listeMissionsCDP' => $listeMissionsCDP
+	 ));
+}
+
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function usersAction($idmission, $refIntCDP, $iduser, $add)
-    {
+	public function usersAction($idmission, $refIntCDP, $iduser, $add)
+	{
 		//refIntCDP =
 		//1 -> referent
 		//2 -> ajouterintervenant
@@ -431,19 +427,19 @@ class SiteinterneController extends Controller
 		$listeUsers = $this->getDoctrine()
 							  ->getRepository('JuniorSiteinterneBundle:User')
 							  ->findAll();
-        return $this->render('JuniorSiteinterneBundle:Siteinterne:users.html.twig', array(
+		return $this->render('JuniorSiteinterneBundle:Siteinterne:users.html.twig', array(
 		'listeUsers' => $listeUsers,
 		'refIntCDP' => $refIntCDP,
 		'idmission' => $idmission,
 		'add' => $add
 		));
-    }
+	}
 	
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function categoriesAction(Request $request, $suppr, $id)
-    {
+	public function categoriesAction(Request $request, $suppr, $id)
+	{
 		if($suppr == 'supprimer'){
 			$em = $this->getDoctrine()->getManager();
 			$cat = $this->getDoctrine()
@@ -473,13 +469,13 @@ class SiteinterneController extends Controller
 			'listeCategories' => $listeCategories
 		));
 		
-    }
+	}
 	
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function clientsAction(Request $request, $suppr, $id)
-    {
+	public function clientsAction(Request $request, $suppr, $id)
+	{
 		if($suppr == 'supprimer'){
 			$em = $this->getDoctrine()->getManager();
 			$client = $this->getDoctrine()
@@ -509,13 +505,13 @@ class SiteinterneController extends Controller
 			'listeClients' => $listeClients
 		));
 		
-    }
+	}
 
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function clientAction(Request $request, $edit, $id)
-    {
+	public function clientAction(Request $request, $edit, $id)
+	{
 		$em = $this->getDoctrine()->getManager();
 		$client = $this->getDoctrine()
 						  ->getRepository('JuniorSiteinterneBundle:Client')
@@ -543,13 +539,13 @@ class SiteinterneController extends Controller
 			'client' => $client
 		));
 		
-    }
+	}
 
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-    public function competencesAction(Request $request, $suppr, $id)
-    {
+	public function competencesAction(Request $request, $suppr, $id)
+	{
 		if($suppr == 'supprimer'){
 			$em = $this->getDoctrine()->getManager();
 			$competence = $this->getDoctrine()
@@ -579,10 +575,10 @@ class SiteinterneController extends Controller
 			'listeCompetences' => $listeCompetences
 		));
 		
-    }
+	}
 	
 	public function docAction($id, $iddoc, Request $request)
-    {
+	{
 		$manager = $this
 						->getDoctrine()
 						->getManager();
@@ -657,7 +653,7 @@ class SiteinterneController extends Controller
 						->getRepository('JuniorSiteinterneBundle:RemarquesDocument');
 		$commentaires = $repository3->findBy(array('document' => $doc));
 
-        return $this->render('JuniorSiteinterneBundle:Siteinterne:document.html.twig',
+		return $this->render('JuniorSiteinterneBundle:Siteinterne:document.html.twig',
 		 array(
 			'form1' => $form1->createView(),
 			'form2' => $form2->createView(),
@@ -665,10 +661,10 @@ class SiteinterneController extends Controller
 			'commentaires' => $commentaires,
 			'statut' => $statut
 		 ));
-    }
+	}
 	
 	public function docviergeAction($id, $typedoc, Request $request)
-    {
+	{
 
 		$manager = $this
 						->getDoctrine()
@@ -702,7 +698,7 @@ class SiteinterneController extends Controller
    * @Security("has_role('ROLE_MBJE')")
    */
 	public function modifAction($idmission, $iduser, $supprInt, $changerEtat, $changerPublique, $modifMission, $modifDates, $modifRaisonEchec, Request $request)
-    {
+	{
 		if($supprInt == 'ok'){
 			$manager = $this
 							->getDoctrine()
@@ -832,13 +828,13 @@ class SiteinterneController extends Controller
 		}
 		
 		return $this->redirect($this->generateUrl('junior_site_homepage'));
-    }
+	}
 
   /**
  * @Security("has_role('ROLE_ADMIN')")
    */
 	public function configAction($iduser,$action)
-    {
+	{
 		/*action
 		0 : afficher les differentes listes
 		1 : ajouter un admin
@@ -934,6 +930,6 @@ class SiteinterneController extends Controller
 			'rh' => $rh,
 			'action' => $action
 		));		
-    }
+	}
 	
 }

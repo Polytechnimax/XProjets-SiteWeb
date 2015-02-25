@@ -13,11 +13,20 @@ Gestion des missions
 
 
 {% block body %}
-
-			<section class="row">
+<script>
+(function(angular) {//angular permettant la recherche dans la liste des missions ; Si jamais il y a une erreur d'échappement, il faut rajouter e('js') au bon endroit
+    angular.module('platalApp', [])
+    .controller('MyController', ['$scope','$http', function ($scope, $http) {
+        $scope.message = 'Bonjour';
+        $scope.missions =[{% for mission in listeMissions %}{'nom' : '{{ mission.nom | e('js')}}', 'numSiaje' : '{{mission.numSiaje}}', {% if mission.referent%}'referent' : {'firstName' : '{{ mission.referent.firstName }}', 'lastName' : '{{ mission.referent.lastName }}' },{% endif%} 'nbJeh' : '{{mission.nbJeh}}', 'etat' : '{{mission.etat}}', {% if mission.chefDeProjet%}'chefDeProjet' : {'firstName' : '{{ mission.chefDeProjet.firstName }}', 'lastName' : '{{ mission.chefDeProjet.lastName }}' },{% endif%} 'dateDebut' : "{% if mission.dateDebut%}{{ mission.dateDebut|date('d/m/Y') }}{% endif %}", 'dateFin' : "{% if mission.dateFin%}{{ mission.dateFin|date('d/m/Y') }}{% endif %}", 'chemin' : "{{path('junior_siteinterne_mission', { 'id': mission.id })}} "}{% if not loop.last%},{%endif%} {% endfor %}];
+    }]);
+})(window.angular);
+</script>
+			<section class="row" ng-app="platalApp">
 {{include("JuniorSiteinterneBundle:Siteinterne:sousmenumissions.html.twig")}}
-				<div id="content" class="col-md-offset-1 col-md-9">
+				<div id="content" class="col-md-offset-1 col-md-9" ng-controller="MyController">
 					<h1>Vue d'ensemble des missions</h1>
+<div class="form-horizontal"><input type="search" class="input-md form-control" ng-model="q" placeholder="Filtrer les missions..." /></div><br/>
 					<table class="table table-bordered table-striped">
 						<thead>
 						<tr>
@@ -32,18 +41,20 @@ Gestion des missions
 						</tr>
 						</thead>
 						<tbody>
-							{% for mission in listeMissions %}
-							<tr>
+						
+						{% verbatim %}
+							<tr ng-repeat="mission in missions | filter:q">
 								<td>{{ mission.nom }} - <span class="light">{{mission.numSiaje}}</span></td>
-								<td>{% if mission.referent%}{{ mission.referent.firstName }} {{ mission.referent.lastName }}{% endif %}</td>
+								<td>
+								{{ mission.referent.firstName }} {{ mission.referent.lastName }}</td>
 								<td>{{ mission.nbJeh }}</td>
 								<td>{{ mission.etat }}</td>
-								<td>{% if mission.chefDeProjet%}{{ mission.chefDeProjet.firstName }} {{ mission.chefDeProjet.lastName }}{% endif %}</td>
-								<td>{% if mission.dateDebut%}{{ mission.dateDebut|date('d/m/Y') }}{% endif %}</td>
-								<td>{% if mission.dateFin%}{{ mission.dateFin|date('d/m/Y') }}{% endif %}</td>
-								<td><a href="{{path('junior_siteinterne_mission', { 'id': mission.id })}}" class="btn btn-default">Détails  &raquo;</a></td>
+								<td>{{ mission.chefDeProjet.firstName }} {{ mission.chefDeProjet.lastName }}</td>
+								<td>{{ mission.dateDebut}}</td>
+								<td>{{ mission.dateFin}}</td>
+								<td><a href="{{mission.chemin}}" class="btn btn-default">Détails  &raquo;</a></td>
 							</tr>
-							{% endfor %}
+{% endverbatim %}
 						</tbody>
 					</table>
 				</div>
