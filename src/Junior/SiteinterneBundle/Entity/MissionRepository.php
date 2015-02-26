@@ -14,6 +14,12 @@ use Junior\SiteinterneBundle\Entity\User;
  */
 class MissionRepository extends EntityRepository
 {
+	public function IsDateCorrecte($idmission,$signeLe,$typeDoc)
+	{
+
+		
+		return 'ok';
+	}
 	public function getMissionAvecCategories()
 	{
 		$qb=$this

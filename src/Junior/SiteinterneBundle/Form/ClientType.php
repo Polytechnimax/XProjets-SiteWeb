@@ -37,6 +37,7 @@ class ClientType extends AbstractType
 				)
             ->add('nomContact', 'text')
             ->add('prenomContact', 'text')
+            ->add('fonctionContact', 'text')
             ->add('email', 'text')
             ->add('telephone', 'text')
             ->add('adresse1', 'text')

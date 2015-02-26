@@ -15,8 +15,9 @@
 				<div id="content" class="col-md-9 col-md-offset-1">
 					{% if edit == 0 %}
 					{% if client.particulierEntreprise == "particulier" %}
-						<h1>{{client.nomContact}} (Particulier)</h1>
+						<h1>{{client.prenomContact}} {{client.nomContact}} (Particulier)</h1>
 						<ul>
+								<li>Fonction : {{client.fonctionContact}}</li>
 								<li>Adresse email : {{client.email}}</li>
 								<li>Numéro de téléphone : {{client.telephone}}</li>
 								<li>Adresse :
@@ -34,6 +35,7 @@
 								<li> Taille de l'entreprise : {{client.taille}}</li>
 								<li>Nom du contact : {{client.nomContact}}</li>
 								<li>Prénom du contact : {{client.prenomContact}}</li>
+								<li>Fonction du contact : {{client.fonctionContact}}</li>
 								<li>Adresse email : {{client.email}}</li>
 								<li>Numéro de téléphone : {{client.telephone}}</li>
 								<li>Adresse :
@@ -95,6 +97,14 @@
 
 							<div class="col-sm-6">
 								{{ form_widget(form.prenomContact, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ form_label(form.fonctionContact, "Fonction du contact", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.fonctionContact) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.fonctionContact, {'attr': {'class': 'form-control'}}) }}
 							</div>
 						</div>
 						<div class="form-group">

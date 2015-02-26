@@ -49,8 +49,8 @@ class User implements UserInterface
   private $lastName;
 
   /**
-   * permet d'utiliser l'authentification via Frankiz
-   * @ORM\Column(name="hash", type="string", length=255)
+   * pourrait permettre d'utiliser l'authentification via Frankiz
+   * @ORM\Column(name="hash", type="string", length=255, nullable=true)
    */
   private $hash;
 

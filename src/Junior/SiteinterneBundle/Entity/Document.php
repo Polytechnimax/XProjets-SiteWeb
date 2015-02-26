@@ -4,6 +4,8 @@ namespace Junior\SiteinterneBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+use Junior\SiteinterneBundle\Validator as JuniorAssert;
 
 
 /**
@@ -11,8 +13,10 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Junior\SiteinterneBundle\Entity\DocumentRepository")
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="document")
+ * @JuniorAssert\Surveilledates
  */
 class Document
 {
@@ -50,6 +54,11 @@ class Document
    * @ORM\ManyToOne(targetEntity="Junior\SiteinterneBundle\Entity\User")
    */
     private $ajoutePar;
+
+   /**
+   * @ORM\ManyToOne(targetEntity="Junior\SiteinterneBundle\Entity\User")
+   */
+    private $intervenant;
 
    /**
    * @ORM\ManyToOne(targetEntity="Junior\SiteinterneBundle\Entity\Mission")
@@ -335,5 +344,28 @@ class Document
     public function getSigneLe()
     {
         return $this->signeLe;
+    }
+
+    /**
+     * Set intervenant
+     *
+     * @param \Junior\SiteinterneBundle\Entity\User $intervenant
+     * @return Document
+     */
+    public function setIntervenant(\Junior\SiteinterneBundle\Entity\User $intervenant = null)
+    {
+        $this->intervenant = $intervenant;
+
+        return $this;
+    }
+
+    /**
+     * Get intervenant
+     *
+     * @return \Junior\SiteinterneBundle\Entity\User 
+     */
+    public function getIntervenant()
+    {
+        return $this->intervenant;
     }
 }

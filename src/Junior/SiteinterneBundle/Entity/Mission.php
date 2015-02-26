@@ -3,6 +3,7 @@
 namespace Junior\SiteinterneBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Mission
@@ -93,6 +94,20 @@ class Mission
      * @ORM\Column(name="nb_jeh", type="integer", nullable=true)
      */
     private $nbJeh;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="frais", type="integer", nullable=true)
+     */
+    private $frais;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="accompte", type="integer", nullable=true)
+     */
+    private $accompte;
 
   /**
    * @ORM\ManyToMany(targetEntity="Junior\SiteinterneBundle\Entity\Category", cascade={"persist"})
@@ -673,5 +688,51 @@ class Mission
     public function getNbSemaines()
     {
         return $this->nbSemaines;
+    }
+
+    /**
+     * Set frais
+     *
+     * @param integer $frais
+     * @return Mission
+     */
+    public function setFrais($frais)
+    {
+        $this->frais = $frais;
+
+        return $this;
+    }
+
+    /**
+     * Get frais
+     *
+     * @return integer 
+     */
+    public function getFrais()
+    {
+        return $this->frais;
+    }
+
+    /**
+     * Set accompte
+     *
+     * @param integer $accompte
+     * @return Mission
+     */
+    public function setAccompte($accompte)
+    {
+        $this->accompte = $accompte;
+
+        return $this;
+    }
+
+    /**
+     * Get accompte
+     *
+     * @return integer 
+     */
+    public function getAccompte()
+    {
+        return $this->accompte;
     }
 }

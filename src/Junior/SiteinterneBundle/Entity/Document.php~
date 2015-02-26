@@ -4,6 +4,8 @@ namespace Junior\SiteinterneBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+use Junior\SiteinterneBundle\Validator as JuniorAssert;
 
 
 /**
@@ -11,7 +13,10 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Junior\SiteinterneBundle\Entity\DocumentRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="document")
+ * @JuniorAssert\Surveilledates
  */
 class Document
 {
@@ -49,6 +54,11 @@ class Document
    * @ORM\ManyToOne(targetEntity="Junior\SiteinterneBundle\Entity\User")
    */
     private $ajoutePar;
+
+   /**
+   * @ORM\ManyToOne(targetEntity="Junior\SiteinterneBundle\Entity\User")
+   */
+    private $intervenant;
 
    /**
    * @ORM\ManyToOne(targetEntity="Junior\SiteinterneBundle\Entity\Mission")
@@ -311,5 +321,28 @@ class Document
     public function getUpUneFois()
     {
         return $this->upUneFois;
+    }
+
+    /**
+     * Set signeLe
+     *
+     * @param \DateTime $signeLe
+     * @return Document
+     */
+    public function setSigneLe($signeLe)
+    {
+        $this->signeLe = $signeLe;
+
+        return $this;
+    }
+
+    /**
+     * Get signeLe
+     *
+     * @return \DateTime 
+     */
+    public function getSigneLe()
+    {
+        return $this->signeLe;
     }
 }

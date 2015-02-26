@@ -74,8 +74,8 @@ junior_siteinterne_users:
     defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:users, refIntCDP:0, idmission:0,iduser:0, add:'null'  }
 
 junior_siteinterne_modification_mission:
-    pattern:  /modifmission/{idmission}/{iduser}/{supprInt}/{changerEtat}/{changerPublique}/{modifMission}/{modifDates}/{modifRaisonEchec}
-    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:modif, supprInt:'null', idmission:0,iduser:0, add:'null', changerEtat:'null', changerPublique:'null', modifMission:'null', modifDates:'null', modifRaisonEchec:'null'  }
+    pattern:  /modifmission/{idmission}/{iduser}/{supprInt}/{changerEtat}/{changerPublique}/{modifMission}/{modifDates}/{modifRaisonEchec}/{modifDocs}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:modif, supprInt:'null', idmission:0,iduser:0, add:'null', changerEtat:'null', changerPublique:'null', modifMission:'null', modifDates:'null', modifDocs:'null', modifRaisonEchec:'null'  }
 
 junior_siteinterne_config:
     pattern:  /config/{iduser}/{action}

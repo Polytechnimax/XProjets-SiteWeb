@@ -52,6 +52,8 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 							<span class="light padd">{% if mission.publique %}oui <a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerPublique': 'ok' }) }}" class="btn btn-default btn-xs">Rendre privée  &raquo;</a>{% else %}non <a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'changerPublique': 'ok' }) }}" class="btn btn-default btn-xs">Rendre publique  &raquo;</a>{% endif %} </span> <br />{% endif %}
 							Client<br /><span class="light padd">{% if mission.client.particulierEntreprise == "particulier"%}Particulier{%else%}{{ mission.client.nom }}{%endif%}</span> <br />
 							Nombre de JEH<br /><span class="light padd">{% if mission.nbJeh is not null %}{{ mission.nbJeh }}{% else %} Pas encore défini {% endif %}</span><br />
+							Frais<br /><span class="light padd">{% if mission.frais is not null %}{{ mission.frais }}{% else %} Pas encore défini {% endif %}</span><br />
+							Accompte<br /><span class="light padd">{% if mission.accompte is not null %}{{ mission.accompte }}{% else %} Pas encore défini {% endif %}</span><br />
 							Catégories<br /><span class="light padd">{% for categorie in mission.categories %}{{categorie.name}}{% if not loop.last %}, {% endif %}{% else %} Pas de catégories{% endfor %}</span><br />
 							Compétences<br /><span class="light padd">{% for comp in mission.competences %}{{comp.nom}}{% if not loop.last %}, {% endif %}{% else %} Pas de compétences{% endfor %}</span><br />
 							Description<br /><span class="light padd">{{mission.descriptif}}</span><br />
@@ -111,8 +113,8 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 								<li>Adresse :
 									<ul>
 										<li>{{mission.client.adresse1}}<br/>
-										{% if mission.client.adresse2%}{{mission.client.adresse2}}{% endif %}<br/>
-										{% if mission.client.adresse3%}{{mission.client.adresse3}}{% endif %}<br/>
+										{% if mission.client.adresse2 %}{{mission.client.adresse2}}<br/>{% endif %}
+										{% if mission.client.adresse3%}{{mission.client.adresse3}}<br/>{% endif %}
 										{{mission.client.codePostal}} {{mission.client.ville}}<br/>
 										{{mission.client.pays}}</li>
 									</ul>
@@ -127,8 +129,8 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 								<li>Adresse :
 									<ul>
 										<li>{{mission.client.adresse1}}<br/>
-										{% if mission.client.adresse2%}{{mission.client.adresse2}}{% endif %}<br/>
-										{% if mission.client.adresse3%}{{mission.client.adresse3}}{% endif %}<br/>
+										{% if mission.client.adresse2 %} {{ mission.client.adresse2 }} <br/> {% endif %}
+										{% if mission.client.adresse3 %} {{ mission.client.adresse3 }} <br/> {% endif %}
 										{{mission.client.codePostal}} {{mission.client.ville}}<br/>
 										{{mission.client.pays}}</li>
 									</ul>
@@ -155,7 +157,7 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 									{% else %}
 									<tr class="danger">
 									{% endif %}
-										<td>{{ doc.typeDeDocument }}</td>
+										<td>{{ doc.typeDeDocument }} {% if doc.typeDeDocument == "Récapitulatif mission" %} ({{doc.intervenant.firstName}} {{doc.intervenant.lastName}}){%endif%}</td>
 										{% if doc.frozen %}
 										<td><span class="glyphicon glyphicon-ok"></span></td>
 										{% else %}
@@ -166,6 +168,9 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 									{% endfor %}
 								</tbody>
 							</table>
+							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutpvri' }) }}" class="btn btn-sm btn-default">Nouveau PVRI</a>
+							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutavcc' }) }}"  class="btn btn-sm btn-default">Nouvel avenant à la convention client</a>
+							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutavrm' }) }}"  class="btn btn-sm btn-default">Nouvel avenant au récapitulatif de mission</a>
 						  </div>
 					    </div>
 					</div>

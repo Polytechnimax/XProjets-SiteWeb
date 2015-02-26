@@ -5,3 +5,8 @@ services:
 #    junior_siteinterne.example:
 #        class: %junior_siteinterne.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    junior_siteinterne.validator.surveilledates:
+        class: Junior\SiteinterneBundle\Validator\SurveilledatesValidator
+        arguments: [@request_stack, @doctrine.orm.entity_manager]
+        tags:
+            - { name: validator.constraint_validator, alias: junior_siteinternebundle_surveilledates }

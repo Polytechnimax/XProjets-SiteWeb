@@ -22,19 +22,21 @@
 					<div class="well"><h3>Télécharger</h3>
 					{% if doc.upUneFois %}
 						<a href="{{ asset(doc.webPath) }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> {{doc.typeDeDocument}}</a><br />
-					{% else %}
+					{% endif %}
 						Le document n'est pas encore en ligne.<br />
 						{% if doc.dirName == 'propale'%}
 						<a href="{{ path('junior_siteinterne_docvierge', { 'id': doc.mission.id, 'typedoc' : doc.dirName }) }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> {{doc.typeDeDocument}} (vierge)</a><br />
 						{% endif %}
-					{% endif %}</div>
+					</div>
 					{% if statut=="polemission" or (statut =="cdp" and not doc.frozen) %}
 					<div class="well"><h3>Ajouter</h3>
+						<div class="row">
+						<div class="col-md-offset-1 col-md-10">
 								{{ form_start(form2, {'attr': {'class': 'form-horizontal'}}) }}
 
 								{{ form_errors(form2) }}
 
-								{% if statut == "cdp" %}
+								{% if statut == "cdp" or statut == "polemission" %}
 								<div class="form-group">
 									{{ form_label(form2.file, "Fichier", {'label_attr': {'class': 'control-label'}}) }}
 
@@ -48,7 +50,7 @@
 								<div class="form-group">
 									{{ form_label(form2.signeLe, "Signé le (attention, la date inscrite doit être la même que sur le document)", {'label_attr': {'class': 'control-label'}}) }}
 
-									{{ form_errors(form2.signeLe) }}
+									<span style="color:red">{{ form_errors(form2.signeLe) }}</span>
 
 									<div>
 										{{ form_widget(form2.signeLe) }}
@@ -77,6 +79,8 @@
 
 				  
 								{{ form_end(form2) }}
+						</div>
+						</div>
 					</div>
 							{% endif %}
 					</div>

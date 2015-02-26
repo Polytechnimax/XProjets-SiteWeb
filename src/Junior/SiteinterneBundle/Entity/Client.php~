@@ -60,6 +60,13 @@ class Client
     /**
      * @var string
      *
+     * @ORM\Column(name="fonction_contact", type="string", length=255,nullable=true)
+     */
+    private $fonctionContact;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -397,5 +404,28 @@ class Client
     public function getPays()
     {
         return $this->pays;
+    }
+
+    /**
+     * Set prenomContact
+     *
+     * @param string $prenomContact
+     * @return Client
+     */
+    public function setPrenomContact($prenomContact)
+    {
+        $this->prenomContact = $prenomContact;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomContact
+     *
+     * @return string 
+     */
+    public function getPrenomContact()
+    {
+        return $this->prenomContact;
     }
 }
