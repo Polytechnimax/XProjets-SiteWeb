@@ -36,11 +36,16 @@ Configuration
 				{% for a in rh %}
 					{{a.username}} <a href="{{path('junior_siteinterne_config', { 'iduser': a.id, 'action': 8 })}}"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a><br/>
 				{% endfor %}
-				<a href="{{ path('junior_siteinterne_config', { 'action': 14}) }}">Nouveau</a></div></div>
+				<a href="{{ path('junior_siteinterne_config', { 'action': 14}) }}">Nouveau</a></div>
+				<div class="well col-md-5"><h3>Recruteur</h3>
+					{% if recruteur %}{{recruteur.username}}{% endif %} <br/>
+				<a href="{{ path('junior_siteinterne_config', { 'action': 15}) }}">Changer</a></div></div>
 				</div>
 			</section>
-			{% elseif action >= 10 %}
+			{% elseif action >= 10 and action <=14 %}
 			{% for u in users %}<a href="{{ path('junior_siteinterne_config', { 'action': action-10, 'iduser': u.id}) }}">{{u.username}}</a><br/>{%endfor%}
+			{% elseif action == 15 %}
+			{% for u in users %}<a href="{{ path('junior_siteinterne_config', { 'action': 9, 'iduser': u.id}) }}">{{u.username}}</a><br/>{%endfor%}
 			{% endif %}
 			
 			<script src="{{asset('js/jquery.min.js')}}"></script>

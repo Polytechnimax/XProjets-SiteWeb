@@ -64,8 +64,8 @@ junior_siteinterne_docs:
     defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:docs }
 
 junior_siteinterne_user:
-    pattern:  /user/{id}
-    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:user }
+    pattern:  /user/{id}.{changerNum}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:user, changerNum:'null' }
     requirements:
         id: \d+
 

@@ -120,27 +120,41 @@ class SiteinterneController extends Controller
 				}
 				$em->persist($mission1);
 				
+		//---Debut des mails
+				//Msg au référent
 				$message_referent = \Swift_Message::newInstance()
 					->setSubject('[XProjets] Nouvelle mission postée')
 					->setFrom('contact@xprojets.com')
-					//->setTo($this->getReferent()->getEmail())
-					->setTo('remi.delbouys@laposte.net')
+					->setTo($mission1->getReferent()->getEmail())
 					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-referent-mission-ajoutee.html.twig', array(
 					'mission' => $mission1
 					)))
 				;
-				$message_recruteur = \Swift_Message::newInstance()
-					->setSubject('[XProjets] Nouvelle mission postée')
-					->setFrom('contact@xprojets.com')
-					//->setTo('mailreferent')
-					->setTo('remi.delbouys@laposte.net')
-					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-recruteur-mission-ajoutee.html.twig', array(
-					'mission' => $mission1
-					)))
-				;
-	
 				$this->get('mailer')->send($message_referent);
-				$this->get('mailer')->send($message_recruteur);
+				//Message au respo recrutement
+				$recruteur;
+				$users = $this->getDoctrine()
+							  ->getRepository('JuniorSiteinterneBundle:User')
+							  ->findAll();
+				foreach($users as $u){
+					foreach($u->getRoles() as $r){
+						if($r == "ROLE_RECRUTEUR"){
+							$recruteur = $u;
+						}
+					}
+				}
+				if($recruteur != null){
+					$message_recruteur = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Nouvelle mission postée')
+						->setFrom('contact@xprojets.com')
+						->setTo($recruteur->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-recruteur-mission-ajoutee.html.twig', array(
+						'mission' => $mission1
+						)))
+					;
+					$this->get('mailer')->send($message_recruteur);
+				}
+		//---Fin des mails
 				
 				foreach($tableau as $typeDoc){
 					$doc = new Document();
@@ -178,27 +192,44 @@ class SiteinterneController extends Controller
 					$mission2->setReferent($referentMission);
 				}
 				$em->persist($mission2);
+				
+		//---Debut des mails
+				//Msg au référent
 				$message_referent = \Swift_Message::newInstance()
 					->setSubject('[XProjets] Nouvelle mission postée')
 					->setFrom('contact@xprojets.com')
-					//->setTo($this->getReferent()->getEmail())
-					->setTo('remi.delbouys@laposte.net')
+					->setTo($mission2->getReferent()->getEmail())
 					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-referent-mission-ajoutee.html.twig', array(
 					'mission' => $mission2
 					)))
 				;
-				$message_recruteur = \Swift_Message::newInstance()
-					->setSubject('[XProjets] Nouvelle mission postée')
-					->setFrom('contact@xprojets.com')
-					//->setTo('mailreferent')
-					->setTo('remi.delbouys@laposte.net')
-					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-recruteur-mission-ajoutee.html.twig', array(
-					'mission' => $mission2
-					)))
-				;
-	
 				$this->get('mailer')->send($message_referent);
-				$this->get('mailer')->send($message_recruteur);
+				//Message au respo recrutement
+				$recruteur;
+				$users = $this->getDoctrine()
+							  ->getRepository('JuniorSiteinterneBundle:User')
+							  ->findAll();
+				foreach($users as $u){
+					foreach($u->getRoles() as $r){
+						if($r == "ROLE_RECRUTEUR"){
+							$recruteur = $u;
+						}
+					}
+				}
+				if($recruteur != null){
+					$message_recruteur = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Nouvelle mission postée')
+						->setFrom('contact@xprojets.com')
+						->setTo($recruteur->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-recruteur-mission-ajoutee.html.twig', array(
+						'mission' => $mission2
+						)))
+					;
+					$this->get('mailer')->send($message_recruteur);
+				}
+		//---Fin des mails
+				
+				
 				foreach($tableau as $typeDoc){
 					$doc = new Document();
 					$doc->setTypeDeDocument($typeDoc);
@@ -331,7 +362,29 @@ public function docsAction(){
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-public function userAction($id, Request $request){
+public function userAction($id, $changerNum, Request $request){
+	if($changerNum != 'null'){
+		$repository = $this
+						->getDoctrine()
+						->getManager()
+						->getRepository('JuniorSiteinterneBundle:User');
+		$utilisateur = $repository->find($id);
+		$form3 = $this->get('form.factory')->create('form', $utilisateur)
+			->add('phone', 'text')
+			->add('save', 'submit')
+		;
+		if($form3->handleRequest($request)->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->flush();
+			return $this->redirect($this->generateUrl('junior_siteinterne_user', array('id' => $id)));
+		}
+		return $this->render('JuniorSiteinterneBundle:Siteinterne:user_changer_num.html.twig',
+		 array(
+			'form3' => $form3->createView(),
+			'u' => $utilisateur
+		 ));
+	}
+
 	$repository = $this
 					->getDoctrine()
 					->getManager()
@@ -370,6 +423,8 @@ public function userAction($id, Request $request){
 		$em = $this->getDoctrine()->getManager();
 		$em->flush();
 	}
+	
+
 
 	$repository = $this
 					->getDoctrine()
@@ -411,6 +466,16 @@ public function userAction($id, Request $request){
 			$user = $repository2->find($iduser);
 			if($refIntCDP == 1){
 				$mission->setReferent($user);
+				//Mail au nouveau référent
+				$message_referent = \Swift_Message::newInstance()
+					->setSubject('[XProjets] Tu es affecté à une nouvelle mission')
+					->setFrom('contact@xprojets.com')
+					->setTo($user->getEmail())
+					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-referent-mission-ajoutee.html.twig', array(
+					'mission' => $mission
+					)))
+				;
+				$this->get('mailer')->send($message_referent);
 			} elseif ($refIntCDP== 2 ){
 				$mission->addIntervenant($user);
 				$doc = new Document();
@@ -419,8 +484,131 @@ public function userAction($id, Request $request){
 				$doc->setMission($mission);
 				$doc->setIntervenant($user);
 				$this->getDoctrine()->getManager()->persist($doc);
+				//Mail au rh
+				if(!$user->getInscrit()){
+					$rh;
+					$users = $this->getDoctrine()
+								  ->getRepository('JuniorSiteinterneBundle:User')
+								  ->findAll();
+					foreach($users as $u){
+						foreach($u->getRoles() as $r){
+							if($r == "ROLE_RH"){
+								$rh = $u;
+							}
+						}
+					}
+					$message = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Nouveau chef de projet/intervenant pas encore inscrit à la JE')
+						->setFrom('contact@xprojets.com')
+						->setTo($rh->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-rh-inscription.html.twig', array(
+						'user' => $user
+						)))
+					;
+					$this->get('mailer')->send($message);
+				}
+				//Mail à l'intervenant pour l'inscription à la JE
+				if(!$user->getInscrit()){
+					$rh;
+					$users = $this->getDoctrine()
+								  ->getRepository('JuniorSiteinterneBundle:User')
+								  ->findAll();
+					foreach($users as $u){
+						foreach($u->getRoles() as $r){
+							if($r == "ROLE_RH"){
+								$rh = $u;
+							}
+						}
+					}
+					$message = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Inscription JE')
+						->setFrom($rh->getEmail())
+						->setTo($user->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-intcdp-inscription.html.twig'))
+					;
+					$this->get('mailer')->send($message);
+				}
+				//Mail au référent
+				$message = \Swift_Message::newInstance()
+					->setSubject('[XProjets] Mission "'. $mission->getNom() .'" : Nouvel intervenant')
+					->setFrom('contact@xprojets.com')
+					->setTo($mission->getReferent()->getEmail())
+					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-referent-nouvellepersonneaffectee.html.twig', array(
+					'mission' => $mission,
+					'user' => $user,
+					'statut' => 'intervenant'
+					)))
+				;
+				$this->get('mailer')->send($message);
 			} elseif ($refIntCDP== 3 ){
 				$mission->setChefDeProjet($user);
+				//Mail au nouveau cdp
+				$message = \Swift_Message::newInstance()
+					->setSubject('[XProjets] Tu es affecté à une nouvelle mission')
+					->setFrom($mission->getReferent()->getEmail())
+					->setTo($user->getEmail())
+					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-cdp-affectedtomission.html.twig', array(
+					'mission' => $mission,
+					'user' => $user
+					)))
+				;
+				$this->get('mailer')->send($message);
+				//Mail au chef de projet pour l'inscription à la JE
+				if(!$user->getInscrit()){
+					$rh;
+					$users = $this->getDoctrine()
+								  ->getRepository('JuniorSiteinterneBundle:User')
+								  ->findAll();
+					foreach($users as $u){
+						foreach($u->getRoles() as $r){
+							if($r == "ROLE_RH"){
+								$rh = $u;
+							}
+						}
+					}
+					$message = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Inscription JE')
+						->setFrom($rh->getEmail())
+						->setTo($user->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-intcdp-inscription.html.twig'))
+					;
+					$this->get('mailer')->send($message);
+				}
+				//Mail au rh
+				if(!$user->getInscrit()){
+					$rh;
+					$users = $this->getDoctrine()
+								  ->getRepository('JuniorSiteinterneBundle:User')
+								  ->findAll();
+					foreach($users as $u){
+						foreach($u->getRoles() as $r){
+							if($r == "ROLE_RH"){
+								$rh = $u;
+							}
+						}
+					}
+					$message = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Nouveau chef de projet/intervenant pas encore inscrit à la JE')
+						->setFrom('contact@xprojets.com')
+						->setTo($rh->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-rh-inscription.html.twig', array(
+						'user' => $user
+						)))
+					;
+					$this->get('mailer')->send($message);
+				}
+				//Mail au référent
+				$message = \Swift_Message::newInstance()
+					->setSubject('[XProjets] Mission "'. $mission->getNom() .'" : Nouveau chef de projet')
+					->setFrom('contact@xprojets.com')
+					->setTo($mission->getReferent()->getEmail())
+					->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-referent-nouvellepersonneaffectee.html.twig', array(
+					'mission' => $mission,
+					'user' => $user,
+					'statut' => 'chef de projet'
+					)))
+				;
+				$this->get('mailer')->send($message);
 			}
 			$em = $this->getDoctrine()->getManager();
 			$em->flush();
@@ -603,6 +791,33 @@ public function userAction($id, Request $request){
 				$com->setAjoutePar($user);
 				$em->persist($com);
 				$em->flush();
+				//Mail au référent et au cdp (on envoie qu'aux personnes qui n'ont pas écrit le commentaire)
+				if($user != $mission->getChefDeProjet()){
+					$message_cdp = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Nouveau message pour la mission "'. $mission->getNom() .'" à propos du document '. $doc->getTypeDeDocument())
+						->setFrom('contact@xprojets.com')
+						->setTo($mission->getChefDeProjet()->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-cdp-remarqueajoutee.html.twig', array(
+						'mission' => $mission,
+						'doc' => $doc,
+						'com' => $com
+						)))
+					;
+					$this->get('mailer')->send($message_cdp);
+				}
+				if($user != $mission->getReferent()){
+					$message_ref = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Nouveau message pour la mission "'. $mission->getNom() .'" à propos du document '. $doc->getTypeDeDocument())
+						->setFrom('contact@xprojets.com')
+						->setTo($mission->getReferent()->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-cdp-remarqueajoutee.html.twig', array(
+						'mission' => $mission,
+						'doc' => $doc,
+						'com' => $com
+						)))
+					;
+					$this->get('mailer')->send($message_ref);
+				}
 			}
 		}
 
@@ -648,6 +863,18 @@ public function userAction($id, Request $request){
 				$doc->setAjoutePar($user);
 				$doc->setAjouteLe(new \Datetime());
 				$em->flush();
+				if($user != $mission->getReferent()){
+					$message_ref = \Swift_Message::newInstance()
+						->setSubject('[XProjets] Nouveau document pour la mission "'. $mission->getNom() .'" - type : '. $doc->getTypeDeDocument())
+						->setFrom('contact@xprojets.com')
+						->setTo($mission->getReferent()->getEmail())
+						->setBody($this->renderView('JuniorSiteinterneBundle:Mails:mail-cdp-docajouted.html.twig', array(
+						'mission' => $mission,
+						'doc' => $doc
+						)))
+					;
+					$this->get('mailer')->send($message_ref);
+				}
 			}
 		}
 
@@ -904,10 +1131,12 @@ public function userAction($id, Request $request){
 		6 : enlever un mbje
 		7 : enlever un polemission
 		8 : enlever un rh 
+		9 : choisir le recruteur
 		11 : afficher les users pr ajouter admin
 		12 : afficher les users pr ajouter mbje
 		13 : afficher les users pr ajouter polemission
-		14 : afficher les users pr ajouter rh*/
+		14 : afficher les users pr ajouter rh
+		15 : afficher les users pr choisir recruteur*/
 		
 		$manager = $this
 						->getDoctrine()
@@ -957,6 +1186,16 @@ public function userAction($id, Request $request){
 		}elseif($action == 8){
 			$user = $repository->findOneById($iduser);
 			$user->setRoles(array("ROLE_MBJE"));
+		}elseif($action == 9){
+			foreach($users as $u){
+				foreach($u->getRoles() as $r){
+					if($r == "ROLE_RECRUTEUR"){
+						$u->setRoles(array("ROLE_MBJE"));
+					}
+				}
+			}
+			$user = $repository->findOneById($iduser);
+			$user->setRoles(array("ROLE_RECRUTEUR"));
 		}
 		
 		$manager->flush();
@@ -965,6 +1204,7 @@ public function userAction($id, Request $request){
 		$mbje = array();
 		$polemission = array();
 		$rh = array();
+		$recruteur = null;
 		foreach($users as $u){
 			foreach($u->getRoles() as $r){
 				if($r == "ROLE_ADMIN"){
@@ -978,6 +1218,9 @@ public function userAction($id, Request $request){
 				}elseif($r == "ROLE_RH"){
 					$rh[] = $u; 
 					$mbje[] = $u; 
+				}elseif($r == "ROLE_RECRUTEUR"){
+					$recruteur = $u; 
+					$mbje[] = $u; 
 				}
 			}
 		}
@@ -987,6 +1230,7 @@ public function userAction($id, Request $request){
 			'mbje' => $mbje,
 			'polemission' => $polemission,
 			'rh' => $rh,
+			'recruteur' => $recruteur,
 			'action' => $action
 		));		
 	}

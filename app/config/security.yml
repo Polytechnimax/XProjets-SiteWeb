@@ -5,8 +5,9 @@ security:
     role_hierarchy:
         ROLE_MBJE:        ROLE_USER
         ROLE_RH:          ROLE_MBJE
+        ROLE_RECRUTEUR:   ROLE_MBJE
         ROLE_POLEMISSION: ROLE_MBJE
-        ROLE_ADMIN:       [ROLE_MBJE, ROLE_USER, ROLE_POLEMISSION, ROLE_RH]
+        ROLE_ADMIN:       [ROLE_MBJE, ROLE_USER, ROLE_POLEMISSION, ROLE_RH, ROLE_RECRUTEUR]
 
     providers:
         main_provider:

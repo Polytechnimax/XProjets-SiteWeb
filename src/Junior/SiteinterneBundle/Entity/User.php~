@@ -49,8 +49,8 @@ class User implements UserInterface
   private $lastName;
 
   /**
-   * permet d'utiliser l'authentification via Frankiz
-   * @ORM\Column(name="hash", type="string", length=255)
+   * pourrait permettre d'utiliser l'authentification via Frankiz
+   * @ORM\Column(name="hash", type="string", length=255, nullable=true)
    */
   private $hash;
 
@@ -58,6 +58,13 @@ class User implements UserInterface
     * @ORM\Column(name="roles", type="array")
     */
     private $roles = array();
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     */
+    private $phone;
 
     /**
      * @var string
@@ -307,5 +314,74 @@ class User implements UserInterface
     public function getInscritLe()
     {
         return $this->inscritLe;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string 
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set hash
+     *
+     * @param string $hash
+     * @return User
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+
+        return $this;
+    }
+
+    /**
+     * Get hash
+     *
+     * @return string 
+     */
+    public function getHash()
+    {
+        return $this->hash;
     }
 }

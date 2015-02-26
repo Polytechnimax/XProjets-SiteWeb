@@ -21,14 +21,18 @@
 								<h3>Infos</h3>
 								Promo<br/>
 								<span class="light padd">{{u.promo}}</span><br />
+								Email<br/>
+								<span class="light padd">{{u.email}}</span><br />
+								Tel<br/>
+								<span class="light padd">{{u.phone}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'changerNum': 'ok' }) }}" class="btn btn-sm btn-default">Modifier numéro de téléphone</a><br />
 								Statut<br/>
 								<span class="light padd">{% for st in u.roles %}{{st}}{% if not loop.last %}, {% endif %}{% else %} Aucun statut{% endfor %}</span><br />
 								Inscrit à la JE ?<br/>
 								<span class="light padd">{% if u.inscrit %}Oui{% else %}Non{% endif %}</span><br />
 								{% if u.inscrit %}Inscrit le<br/>
 								<span class="light padd">{{u.inscritLe|date('j M Y')}}</span><br />{% endif %}
-								{% if is_granted('ROLE_RH') %}
 								<h3>Modifier</h3>
+								{% if is_granted('ROLE_RH') %}
 								{{ form_start(form2) }}
 
 								{{ form_errors(form2) }}
@@ -55,6 +59,8 @@
 				  
 								{{ form_end(form2) }}
 								{%endif%}
+								
+
 							</div>
 					<div class="well"><h3>Ses missions en tant que chef de projet</h3>
 					<hr>
