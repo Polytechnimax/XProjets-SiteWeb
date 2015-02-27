@@ -36,6 +36,13 @@ class Document
      */
     private $typeDeDocument;
 	
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="string", length=255)
+     */
+    private $extension;
+	
 	/**
      * @var boolean
      *
@@ -118,7 +125,7 @@ class Document
 
     $this->file->move(
       $this->getUploadRootDir(),
-      $this->getId()
+      $this->getId().$this->getExtension()
     );
   }
   public function getUploadDir()
@@ -148,8 +155,17 @@ class Document
 	if($this->typeDeDocument == "Récapitulatif mission"){
 		return "recapitulatifmission";
 	}
-	if($this->typeDeDocument == "Avenant et PVRI"){
-		return "avenantetpvri";
+	if($this->typeDeDocument == "PVRI"){
+		return "pvri";
+	}
+	if($this->typeDeDocument == "Avenant à la convention client"){
+		return "avenantalacc";
+	}
+	if($this->typeDeDocument == "Avenant au récapitulatif mission"){
+		return "avenantaurm";
+	}
+	if($this->typeDeDocument == "Avenant de rupture à la convention"){
+		return "avenantruptureconv";
 	}
 	if($this->typeDeDocument == "PVRF"){
 		return "pvrf";
@@ -344,5 +360,28 @@ class Document
     public function getSigneLe()
     {
         return $this->signeLe;
+    }
+
+    /**
+     * Set intervenant
+     *
+     * @param \Junior\SiteinterneBundle\Entity\User $intervenant
+     * @return Document
+     */
+    public function setIntervenant(\Junior\SiteinterneBundle\Entity\User $intervenant = null)
+    {
+        $this->intervenant = $intervenant;
+
+        return $this;
+    }
+
+    /**
+     * Get intervenant
+     *
+     * @return \Junior\SiteinterneBundle\Entity\User 
+     */
+    public function getIntervenant()
+    {
+        return $this->intervenant;
     }
 }

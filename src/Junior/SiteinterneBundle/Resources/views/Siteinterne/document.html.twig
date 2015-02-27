@@ -15,17 +15,18 @@
 				</div>
 				<div id="content" class="col-md-10">
 					<h2>{{doc.typeDeDocument}} de la mission "{{doc.mission.nom}}" </h2>
-					<span class="light">Ajouté le {{ doc.ajouteLe|date('d/m/Y à H\\hi') }} par {{ doc.ajoutePar.firstName }} {{ doc.ajoutePar.lastName }}.</span>
+					<span class="light">Ajouté le {{ doc.ajouteLe|date('d/m/Y à H\\hi') }}{% if doc.ajoutePar %} par {{ doc.ajoutePar.firstName }} {{ doc.ajoutePar.lastName }}{% endif %}.</span>
 					<hr>
 					<br />
 					<div class="col-md-6">
 					<div class="well"><h3>Télécharger</h3>
 					{% if doc.upUneFois %}
 						<a href="{{ asset(doc.webPath) }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> {{doc.typeDeDocument}}</a><br />
-					{% endif %}
+					{% else %}
 						Le document n'est pas encore en ligne.<br />
-						{% if doc.dirName == 'propale'%}
-						<a href="{{ path('junior_siteinterne_docvierge', { 'id': doc.mission.id, 'typedoc' : doc.dirName }) }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> {{doc.typeDeDocument}} (vierge)</a><br />
+					{% endif %}
+						{% if doc.dirName == 'propale' or doc.dirName == 'conventionclient' or doc.dirName == 'recapitulatifmission' or doc.dirName == 'rapportpedagogique' or doc.dirName == 'pvri' or doc.dirName == 'pvrf' or doc.dirName == 'avenantaurm' or doc.dirName == 'avenantalacc' or doc.dirName == 'avenantruptureconv'%}
+						<a href="{{ path('junior_siteinterne_docvierge', { 'id': doc.mission.id, 'typedoc' : doc.dirName, 'iddoc' : doc.id }) }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> {{doc.typeDeDocument}} (vierge)</a><br />
 						{% endif %}
 					</div>
 					{% if statut=="polemission" or (statut =="cdp" and not doc.frozen) %}

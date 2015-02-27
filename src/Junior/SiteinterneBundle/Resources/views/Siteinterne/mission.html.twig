@@ -157,7 +157,7 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 									{% else %}
 									<tr class="danger">
 									{% endif %}
-										<td>{{ doc.typeDeDocument }} {% if doc.typeDeDocument == "Récapitulatif mission" %} ({{doc.intervenant.firstName}} {{doc.intervenant.lastName}}){%endif%}</td>
+										<td>{{ doc.typeDeDocument }} {% if doc.typeDeDocument == "Récapitulatif mission" or doc.typeDeDocument == "Avenant au récapitulatif mission" %}{% if doc.intervenant %} ({{doc.intervenant.firstName}} {{doc.intervenant.lastName}}){%endif%}{%endif%}</td>
 										{% if doc.frozen %}
 										<td><span class="glyphicon glyphicon-ok"></span></td>
 										{% else %}
@@ -170,7 +170,8 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 							</table>
 							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutpvri' }) }}" class="btn btn-sm btn-default">Nouveau PVRI</a>
 							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutavcc' }) }}"  class="btn btn-sm btn-default">Nouvel avenant à la convention client</a>
-							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutavrm' }) }}"  class="btn btn-sm btn-default">Nouvel avenant au récapitulatif de mission</a>
+							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutavrcc' }) }}"  class="btn btn-sm btn-default">Nouvel avenant de rupture à la convention</a>
+							{% for intervenant in mission.intervenants %}<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'iduser': intervenant.id, 'modifDocs': 'ajoutavrm' }) }}"  class="btn btn-sm btn-default">Nouvel avenant au récapitulatif de mission ({{intervenant.firstName}} {{intervenant.lastName}})</a>{% endfor %}
 						  </div>
 					    </div>
 					</div>

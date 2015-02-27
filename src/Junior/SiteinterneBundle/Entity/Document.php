@@ -36,6 +36,13 @@ class Document
      */
     private $typeDeDocument;
 	
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="string", length=255)
+     */
+    private $extension;
+	
 	/**
      * @var boolean
      *
@@ -115,10 +122,12 @@ class Document
     if (null === $this->file) {
       return;
     }
+	
+	$this->setExtension('.' . $this->file->guessExtension());
 
     $this->file->move(
       $this->getUploadRootDir(),
-      $this->getId()
+      $this->getId().$this->getExtension()
     );
   }
   public function getUploadDir()
@@ -148,8 +157,17 @@ class Document
 	if($this->typeDeDocument == "Récapitulatif mission"){
 		return "recapitulatifmission";
 	}
-	if($this->typeDeDocument == "Avenant et PVRI"){
-		return "avenantetpvri";
+	if($this->typeDeDocument == "PVRI"){
+		return "pvri";
+	}
+	if($this->typeDeDocument == "Avenant à la convention client"){
+		return "avenantalacc";
+	}
+	if($this->typeDeDocument == "Avenant au récapitulatif mission"){
+		return "avenantaurm";
+	}
+	if($this->typeDeDocument == "Avenant de rupture à la convention"){
+		return "avenantruptureconv";
 	}
 	if($this->typeDeDocument == "PVRF"){
 		return "pvrf";
@@ -171,7 +189,14 @@ class Document
 
   public function getWebPath()
   {
-    return $this->getUploadDir().'/'.$this->getId().'.xml';
+    return $this->getUploadDir().'/'.$this->getId().$this->getExtension();
+  }
+  
+  /**
+   * @ORM\PrePersist
+   */
+   public function xmlParDefault(){
+	$this->setExtension('.xml');
   }
 
   /**
@@ -367,5 +392,28 @@ class Document
     public function getIntervenant()
     {
         return $this->intervenant;
+    }
+
+    /**
+     * Set extension
+     *
+     * @param string $extension
+     * @return Document
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Get extension
+     *
+     * @return string 
+     */
+    public function getExtension()
+    {
+        return $this->extension;
     }
 }

@@ -67,6 +67,13 @@ class Client
     /**
      * @var string
      *
+     * @ORM\Column(name="civilite_contact", type="string", length=255,nullable=true)
+     */
+    private $civiliteContact;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -450,5 +457,39 @@ class Client
     public function getFonctionContact()
     {
         return $this->fonctionContact;
+    }
+
+    /**
+     * Set civiliteContact
+     *
+     * @param string $civiliteContact
+     * @return Client
+     */
+    public function setCiviliteContact($civiliteContact)
+    {
+        $this->civiliteContact = $civiliteContact;
+
+        return $this;
+    }
+
+    /**
+     * Get civiliteContact
+     *
+     * @return string 
+     */
+    public function getCiviliteContact()
+    {
+        return $this->civiliteContact;
+    }
+
+    public function getCiviliteContactBienEcrit()
+    {
+		if($this->getCiviliteContact() == 'm'){
+			return 'M. ';
+		}
+		if($this->getCiviliteContact() == 'mme'){
+			return 'Mme. ';
+		}
+        return $this->civiliteContact;
     }
 }

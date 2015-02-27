@@ -96,6 +96,14 @@
 				</div>
 				
 				<div class="form-group">
+					{{ form_label(form1.tauxTva, "Taux TVA", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form1.tauxTva) }}
+					<div class="col-sm-6">
+						{{ form_widget(form1.tauxTva) }}
+					</div>
+				</div>
+				
+				<div class="form-group">
 					{{ form_label(form1.frais, "Frais", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
 					{{ form_errors(form1.frais) }}
 					<div class="col-sm-6">
@@ -104,7 +112,7 @@
 				</div>
 				
 				<div class="form-group">
-					{{ form_label(form1.accompte, "Accompte", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_label(form1.accompte, "Acompte", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
 					{{ form_errors(form1.accompte) }}
 					<div class="col-sm-6">
 						{{ form_widget(form1.accompte) }}

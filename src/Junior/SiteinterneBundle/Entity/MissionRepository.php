@@ -32,6 +32,18 @@ class MissionRepository extends EntityRepository
 		;
 	}
 	
+	public function isThereMission()
+	{
+		$qb=$this
+			->createQueryBuilder('a')
+		;
+		
+		return ($qb
+				->getQuery()
+				->getOneOrNullResult()!=null)
+		;
+	}
+	
 	public function getMissionEnTantQueCDP(\Junior\SiteinterneBundle\Entity\User $user = null)
 	{
 		$qb=$this

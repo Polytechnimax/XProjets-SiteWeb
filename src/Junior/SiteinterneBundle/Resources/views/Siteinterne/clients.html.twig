@@ -58,6 +58,14 @@
 							</div>
 						</div>
 						<div class="form-group">
+							{{ form_label(form.civiliteContact, "Civilité du contact", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form.civiliteContact) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form.civiliteContact, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
 							{{ form_label(form.nomContact, "Nom du contact", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
 							{{ form_errors(form.nomContact) }}
 

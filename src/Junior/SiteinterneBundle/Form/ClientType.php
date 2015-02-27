@@ -38,6 +38,13 @@ class ClientType extends AbstractType
             ->add('nomContact', 'text')
             ->add('prenomContact', 'text')
             ->add('fonctionContact', 'text')
+            ->add('civiliteContact', 'choice', array(
+					'choices' => array(
+									   'm' =>'M.',
+									   'mme' => 'Mme.',
+									),
+					'required' => false)
+				)
             ->add('email', 'text')
             ->add('telephone', 'text')
             ->add('adresse1', 'text')

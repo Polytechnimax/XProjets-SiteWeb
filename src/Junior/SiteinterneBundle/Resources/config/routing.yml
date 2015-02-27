@@ -48,7 +48,7 @@ junior_siteinterne_docmission:
         iddoc: \d+
 
 junior_siteinterne_docvierge:
-    pattern:  /mission/{id}/{typedoc}
+    pattern:  /mission/{id}/{iddoc}.{typedoc}
     defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:docvierge }
     requirements:
         id: \d+

@@ -109,14 +109,30 @@ class SiteinterneController extends Controller
 							  ->getRepository('JuniorSiteinterneBundle:Mission')
 							  ->getProchainNum();
 				$mission1->setNumSiaje($numSiaje);
-				$dernierReferent=$this->getDoctrine()
-									->getRepository('JuniorSiteinterneBundle:Mission')
-									->getDernierReferent();
-				if($dernierReferent != null){
-					$referentMission = $this->getDoctrine()
+				
+				if($this->getDoctrine()->getRepository('JuniorSiteinterneBundle:Mission')->isThereMission()){
+					$dernierReferent=$this->getDoctrine()
+										->getRepository('JuniorSiteinterneBundle:Mission')
+										->getDernierReferent();
+					if($dernierReferent != null){
+						$referentMission = $this->getDoctrine()
+									  ->getRepository('JuniorSiteinterneBundle:User')
+									  ->getProchainReferent($dernierReferent);
+						$mission1->setReferent($referentMission);
+					}
+				}else{
+					$referent;
+					$users = $this->getDoctrine()
 								  ->getRepository('JuniorSiteinterneBundle:User')
-								  ->getProchainReferent($dernierReferent);
-					$mission1->setReferent($referentMission);
+								  ->findAll();
+					foreach($users as $u){
+						foreach($u->getRoles() as $r){
+							if($r == "ROLE_POLEMISSION"){
+								$referent = $u;
+							}
+						}
+					}
+					$mission1->setReferent($referent);
 				}
 				$em->persist($mission1);
 				
@@ -182,14 +198,29 @@ class SiteinterneController extends Controller
 							  ->getRepository('JuniorSiteinterneBundle:Mission')
 							  ->getProchainNum();
 				$mission2->setNumSiaje($numSiaje);
-				$dernierReferent=$this->getDoctrine()
-									->getRepository('JuniorSiteinterneBundle:Mission')
-									->getDernierReferent();
-				if($dernierReferent != null){
-					$referentMission = $this->getDoctrine()
+				if($this->getDoctrine()->getRepository('JuniorSiteinterneBundle:Mission')->isThereMission()){
+					$dernierReferent=$this->getDoctrine()
+										->getRepository('JuniorSiteinterneBundle:Mission')
+										->getDernierReferent();
+					if($dernierReferent != null){
+						$referentMission = $this->getDoctrine()
+									  ->getRepository('JuniorSiteinterneBundle:User')
+									  ->getProchainReferent($dernierReferent);
+						$mission2->setReferent($referentMission);
+					}
+				}else{
+					$referent;
+					$users = $this->getDoctrine()
 								  ->getRepository('JuniorSiteinterneBundle:User')
-								  ->getProchainReferent($dernierReferent);
-					$mission2->setReferent($referentMission);
+								  ->findAll();
+					foreach($users as $u){
+						foreach($u->getRoles() as $r){
+							if($r == "ROLE_POLEMISSION"){
+								$referent = $u;
+							}
+						}
+					}
+					$mission2->setReferent($referent);
 				}
 				$em->persist($mission2);
 				
@@ -892,7 +923,7 @@ public function userAction($id, $changerNum, Request $request){
 		 ));
 	}
 	
-	public function docviergeAction($id, $typedoc, Request $request)
+	public function docviergeAction($id, $iddoc, $typedoc, Request $request)
 	{
 
 		$manager = $this
@@ -901,6 +932,9 @@ public function userAction($id, $changerNum, Request $request){
 		$repository1 = $manager
 						->getRepository('JuniorSiteinterneBundle:Mission');
 		$mission = $repository1->find($id);
+		$repository2 = $manager
+						->getRepository('JuniorSiteinterneBundle:Document');
+		$doc = $repository2->find($iddoc);
 		
 		$name = $typedoc.'.xml'; // nom du fichier à ouvrir
 		$myFile = file_get_contents( __DIR__.'/../../../../web/downloads/docsvierges/'.$name);
@@ -912,34 +946,48 @@ public function userAction($id, $changerNum, Request $request){
 			'{etude_titre}' => $mission->getNom(),
 			'{suiveur_prenom}' => $mission->getChefDeProjet()->getFirstName(),
 			'{suiveur_nom}' => $mission->getChefDeProjet()->getLastName(),
+			'{suiveur_portable}' => $mission->getChefDeProjet()->getPhone(),
+			'{suiveur_mail}' => $mission->getChefDeProjet()->getEmail(),
 			'{client_societe}' => $mission->getClient()->getNom(),
+			'{client_titre} ' => $mission->getClient()->getCiviliteContactBienEcrit(),
 			'{client_nom}' => $mission->getClient()->getNomContact(),
 			'{client_prenom}' => $mission->getClient()->getPrenomContact(),
 			'{client_fonction}' => $mission->getClient()->getFonctionContact(),
-			'{client_adresse}' => $mission->getClient()->getAdresse1() .$mission->getClient()->getAdresse2() .$mission->getClient()->getAdresse3(),
+			'{client_adresse}' => $mission->getClient()->getAdresse1() . ' ' . $mission->getClient()->getAdresse2() . ' ' . $mission->getClient()->getAdresse3(),
 			'{client_code_postal}' => $mission->getClient()->getCodePostal(),
 			'{client_ville}' => $mission->getClient()->getVille(),
 			'{nb_semaines}' => $mission->getNbSemaines(),
 			'{etude_nombre_JEH}' => $mission->getNbJeh(),
 			'{etude_nombre_JEH_lettres}' => $nbToWrd->_toWords($mission->getNbJeh()),
 			'{etude_montant_HT}' => $mission->getNbJeh()*300,
-			'{etude_montant_TVA}' => $mission->getNbJeh()*300*0.2,//
+			'{etude_montant_TVA}' => $mission->getNbJeh()*300*$mission->getTauxTva()/100,
 			'{etude_montant_HT_lettres}' => $nbToWrd->_toWords($mission->getNbJeh()*300),
 			'{frais_HT}' => $mission->getFrais(),
 			'{frais_HT_lettres}' => $nbToWrd->_toWords($mission->getFrais()),
 			'{total_HT}' => $mission->getFrais()+ $mission->getNbJeh()*300,
 			'{total_HT_lettres}' => $nbToWrd->_toWords($mission->getFrais()+ $mission->getNbJeh()*300),
-			'{taux_tva}' => 20,//
-			'{total_TTC}' => ($mission->getFrais()+ $mission->getNbJeh()*300)*(1.2),//
-			'{etude_accompte_HT}' => $mission->getAccompte(),
-			'{etude_accompte_HT_lettres}' => $nbToWrd->_toWords($mission->getAccompte()),
-			'{etude_accompte_pourcentage}' => $mission->getAccompte()/($mission->getFrais()+ $mission->getNbJeh()*300)*100,
-			'{etude_accompte_TTC}' => $mission->getAccompte()*1.2,//
-			'{etude_accompte_TTC_lettres}' => $nbToWrd->_toWords($mission->getAccompte()*1.2)//
+			'{taux_tva}' => $mission->getTauxTva(),//
+			'{total_TTC}' => ($mission->getFrais()+ $mission->getNbJeh()*300)*(1+$mission->getTauxTva()/100),
+			'{total_TTC_lettres}' => $nbToWrd->_toWords(($mission->getFrais()+ $mission->getNbJeh()*300)*(1+$mission->getTauxTva()/100)),
+			'{etude_acompte_HT}' => $mission->getAccompte(),
+			'{etude_acompte_HT_lettres}' => $nbToWrd->_toWords($mission->getAccompte()),
+			'{etude_acompte_pourcentage}' => $mission->getAccompte()/($mission->getFrais()+ $mission->getNbJeh()*300)*100,
+			'{etude_acompte_TTC}' => $mission->getAccompte()*(1+$mission->getTauxTva()/100),
+			'{etude_acompte_TTC_lettres}' => $nbToWrd->_toWords($mission->getAccompte()*(1+$mission->getTauxTva()/100))
 			);
 		 
+		if($mission->getFrais()+ $mission->getNbJeh()*300 != 0){
+			$searchReplace['{etude_acompte_pourcentage}'] =round($mission->getAccompte()/($mission->getFrais()+ $mission->getNbJeh()*300)*100);
+		}
+		if($doc->getTypeDeDocument() == "Récapitulatif mission" || $doc->getTypeDeDocument() == "Avenant au récapitulatif mission"){
+			$searchReplace['{etudiant_nom}'] = $doc->getIntervenant()->getLastName();
+			$searchReplace['{etudiant_prenom}'] = $doc->getIntervenant()->getFirstName();
+		}
+		
 		$search  = array_keys($searchReplace);
 		$replace = array_values($searchReplace);
+
+			
 
 		
 		$response = new Response();
@@ -968,8 +1016,10 @@ public function userAction($id, $changerNum, Request $request){
 			$repository3 = $manager
 							->getRepository('JuniorSiteinterneBundle:Document');
 			$intervenant = $repository2->find($iduser);
-			$document = $repository3->findOneByIntervenant($intervenant);
-			$manager->remove($document);
+			$documents = $repository3->findByIntervenant($intervenant);
+			foreach($documents as $document){
+				$manager->remove($document);
+			}
 			
 			$mission->removeIntervenant($intervenant);
 			$manager->flush();
@@ -1002,11 +1052,18 @@ public function userAction($id, $changerNum, Request $request){
 				$typeDoc ="Avenant à la convention client";
 			}elseif($modifDocs=="ajoutavrm"){
 				$typeDoc ="Avenant au récapitulatif mission";
+			}elseif($modifDocs=="ajoutavrcc"){
+				$typeDoc ="Avenant de rupture à la convention";
 			}
 			$doc = new Document();
 			$doc->setTypeDeDocument($typeDoc);
 			$doc->setFrozen(false);
 			$doc->setMission($mission);
+			if($modifDocs=="ajoutavrm"){
+				$doc->setIntervenant($repository1 = $manager
+							->getRepository('JuniorSiteinterneBundle:User')
+							->find($iduser));
+			}
 			$manager->persist($doc);
 			$manager->flush();
 			return $this->redirect($this->generateUrl('junior_siteinterne_mission', array('id' => $mission->getId())));
@@ -1045,8 +1102,9 @@ public function userAction($id, $changerNum, Request $request){
 			$mission->setPublique($mission->getPublique()==1);
 			$form = $this->get('form.factory')->create(new MissionVxClientType(), $mission)
 				->add('nbJeh', 'integer', array('required' => false))
-				->add('frais', 'integer', array('required' => false))
-				->add('accompte', 'integer', array('required' => false))
+				->add('tauxTva', 'number', array('required' => false))
+				->add('frais', 'number', array('required' => false))
+				->add('accompte', 'number', array('required' => false))
 				->add('montrerClientAuCdp', 'checkbox', array('required' => false))
 				;
 			if ($form->handleRequest($request)->isValid()) {

@@ -98,6 +98,13 @@ class Mission
     /**
      * @var integer
      *
+     * @ORM\Column(name="taux_tva", type="integer", nullable=true)
+     */
+    private $tauxTva;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="frais", type="integer", nullable=true)
      */
     private $frais;
@@ -711,5 +718,28 @@ class Mission
     public function getFrais()
     {
         return $this->frais;
+    }
+
+    /**
+     * Set accompte
+     *
+     * @param integer $accompte
+     * @return Mission
+     */
+    public function setAccompte($accompte)
+    {
+        $this->accompte = $accompte;
+
+        return $this;
+    }
+
+    /**
+     * Get accompte
+     *
+     * @return integer 
+     */
+    public function getAccompte()
+    {
+        return $this->accompte;
     }
 }

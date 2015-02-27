@@ -172,6 +172,14 @@
 							</div>
 						</div>
 						<div class="form-group">
+							{{ form_label(form2.client.civiliteContact, "Civilité du contact", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+							{{ form_errors(form2.client.civiliteContact) }}
+
+							<div class="col-sm-6">
+								{{ form_widget(form2.client.civiliteContact, {'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
 							{{ form_label(form2.client.nomContact, "Nom du contact", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
 							{{ form_errors(form2.client.nomContact) }}
 
