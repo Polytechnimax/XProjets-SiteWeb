@@ -101,6 +101,13 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 							Date de fin : {% if mission.dateFin%}{{ mission.dateFin|date('d/m/Y') }}{% else %}Pas encore défini{% endif %}<br />
 							{% if is_granted('ROLE_MBJE') %}<a  href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDates': 'ok' }) }}" id="montre_menu_modi_etat" class="btn btn-default btn-xs" style="cursor:pointer;">Modifier les dates &raquo;</a><br/>{% endif %}
 					{% endif %}
+					
+				<h3>Phases</h3>
+				<ul>{% for p in mission.phases %}
+					<li>Phase {{p.idPhase}} : {{p.nbJeh}} JEH - {{p.nom}}</li>
+				{% endfor %}</ul>
+				<a href="{{path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifPhases': 'ok'})}}" class="btn btn-default btn-xs">Modifier les phases &raquo;</a>
+				 
 						  </div>
 					{% if statut=="mbje" or (statut=="cdp" and mission.montrerClientAuCdp)%}
 						  <div class="row well">
@@ -140,6 +147,8 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 							
 						  </div>
 					{%endif%}
+					
+					
 						  <div class="row well">
 							<h2>Documents</h2>
 							<table class="table table-bordered table-striped">
@@ -172,8 +181,35 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutavcc' }) }}"  class="btn btn-sm btn-default">Nouvel avenant à la convention client</a>
 							<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDocs': 'ajoutavrcc' }) }}"  class="btn btn-sm btn-default">Nouvel avenant de rupture à la convention</a>
 							{% for intervenant in mission.intervenants %}<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'iduser': intervenant.id, 'modifDocs': 'ajoutavrm' }) }}"  class="btn btn-sm btn-default">Nouvel avenant au récapitulatif de mission ({{intervenant.firstName}} {{intervenant.lastName}})</a>{% endfor %}
+						  </div><!-- Fin bloc documents /-->
+						  
+						  <!-- Bloc trésorerie /-->
+						  {% if is_granted('ROLE_MBJE') %}
+						  <div class="row well">
+							<h2>Trésorerie</h2>
+							<h3>Emettre une facture</h3>
+							Cocher les phases à facturer. <br/> 
+							<form action="{{ path('junior_siteinterne_docvierge', { 'id': mission.id, 'typedoc' : 'facture', 'iddoc' : 0 }) }}" method="post"> 
+							{% for p in mission.phases %}
+								<input type="checkbox" name="phase{{p.idPhase}}" value="{{p.idPhase}}"> Phase {{p.idPhase}} : {{p.nom}} <br/>
+							{% endfor %}
+							Date d'émission : <input type="date" name="emission"><br/>
+							Date d'échéance : <input type="date" name="echeance"><br/>
+							<input type="submit" value="Emettre la facture" class="btn btn-default" />
+							</form>
+							<h3>Emettre un bulletin de versement</h3>
+							Choisir l'intervenant et le nombre de JEH <br/> 
+							<form action="{{ path('junior_siteinterne_docvierge', { 'id': mission.id, 'typedoc' : 'bulletinversement', 'iddoc' : 0 }) }}" method="post"> 
+							{% for u in mission.intervenants %}
+								<input type="radio" name="idintervenant" value="{{u.id}}"> {{u.firstName}} {{u.lastName}} <br/>
+							{% endfor %}
+							Nombre de JEH : <input type="number" name="nb_jeh_bv"><br/>
+							Date d'émission : <input type="date" name="emission"><br/>
+							<input type="submit" value="Emettre le BV" class="btn btn-default" />
+							</form>
+						  </div><!-- Fin bloc trésorerie /-->{% endif %}
+
 						  </div>
-					    </div>
 					</div>
 					<hr>
 					<div class="row">

@@ -1,0 +1,39 @@
+{% extends "JuniorSiteinterneBundle::layout.html.twig" %}
+
+{% block title %}
+{{ parent() }}
+{% endblock %}
+
+{% block feuilleStyleAlternative %}
+		<link rel="stylesheet" href="{{asset('css/Siteinterne/css/carouseladditionnel.css')}}">
+{% endblock %}
+
+
+{% block body %}
+			<section class="row">
+				<div class="col-md-1">
+					<a href="{{ path('junior_siteinterne_mission', { 'id': mission.id}) }}" class="btn btn-xs btn-default" style="margin-top:30px;">&laquo; Retour<br/>à la<br/>mission</a>
+				</div>
+				<div id="content" class="col-md-10">
+			<div class="well">
+				<h2>Modifier les phases</h2>
+				<br>
+				<ul>
+				{% for p in mission.phases %}
+					<li>Phase {{p.idPhase}} : {{p.nbJeh}} JEH - {{p.nom}} <a href="{{path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifPhases': 'suppr', 'idphase': p.idPhase })}}"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></li>
+				{% endfor %}
+				</ul>
+				<div class="row">
+				  <form action="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifPhases': 'ok' }) }}" method="post" class="form-horizontal col-md-6">
+					Numéro : <input class="input-md form-control" type="text" name="id_phase" value="" /><br/>
+					Nom : <input class="input-md form-control" type="text" name="nom" value="" /><br/>
+					Nombre de JEH : <input class="input-md form-control" type="text" name="nb_jeh" value="" /><br/>
+					<br />
+					<input class="btn btn-primary btn-sm" type="submit" value="Ajouter" />
+				  </form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

@@ -64,8 +64,8 @@ junior_siteinterne_docs:
     defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:docs }
 
 junior_siteinterne_user:
-    pattern:  /user/{id}.{changerNum}
-    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:user, changerNum:'null' }
+    pattern:  /user/{id}.{action}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:user, action:'null' }
     requirements:
         id: \d+
 
@@ -74,8 +74,8 @@ junior_siteinterne_users:
     defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:users, refIntCDP:0, idmission:0,iduser:0, add:'null'  }
 
 junior_siteinterne_modification_mission:
-    pattern:  /modifmission/{idmission}/{iduser}/{supprInt}/{changerEtat}/{changerPublique}/{modifMission}/{modifDates}/{modifRaisonEchec}/{modifDocs}
-    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:modif, supprInt:'null', idmission:0,iduser:0, add:'null', changerEtat:'null', changerPublique:'null', modifMission:'null', modifDates:'null', modifDocs:'null', modifRaisonEchec:'null'  }
+    pattern:  /modifmission/{idmission}/{iduser}/{supprInt}/{changerEtat}/{changerPublique}/{modifMission}/{modifDates}/{modifRaisonEchec}/{modifDocs}/{modifPhases}/{idphase}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:modif, supprInt:'null', idmission:0,iduser:0,idphase:0, add:'null', changerEtat:'null', changerPublique:'null', modifMission:'null', modifDates:'null', modifDocs:'null', modifRaisonEchec:'null', modifPhases:'null'  }
 
 junior_siteinterne_config:
     pattern:  /config/{iduser}/{action}

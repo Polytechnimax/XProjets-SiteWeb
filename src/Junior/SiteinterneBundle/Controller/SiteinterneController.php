@@ -393,8 +393,8 @@ public function docsAction(){
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-public function userAction($id, $changerNum, Request $request){
-	if($changerNum != 'null'){
+public function userAction($id, $action, Request $request){
+	if($action == 'changerNum'){
 		$repository = $this
 						->getDoctrine()
 						->getManager()
@@ -412,7 +412,52 @@ public function userAction($id, $changerNum, Request $request){
 		return $this->render('JuniorSiteinterneBundle:Siteinterne:user_changer_num.html.twig',
 		 array(
 			'form3' => $form3->createView(),
-			'u' => $utilisateur
+			'u' => $utilisateur,
+			'action' => 'phone'
+		 ));
+	}
+	if($action == 'changerMail'){
+		$repository = $this
+						->getDoctrine()
+						->getManager()
+						->getRepository('JuniorSiteinterneBundle:User');
+		$utilisateur = $repository->find($id);
+		$form3 = $this->get('form.factory')->create('form', $utilisateur)
+			->add('email', 'text')
+			->add('save', 'submit')
+		;
+		if($form3->handleRequest($request)->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->flush();
+			return $this->redirect($this->generateUrl('junior_siteinterne_user', array('id' => $id)));
+		}
+		return $this->render('JuniorSiteinterneBundle:Siteinterne:user_changer_num.html.twig',
+		 array(
+			'form3' => $form3->createView(),
+			'u' => $utilisateur,
+			'action' => 'email'
+		 ));
+	}
+	if($action == 'changerNumSecu'){
+		$repository = $this
+						->getDoctrine()
+						->getManager()
+						->getRepository('JuniorSiteinterneBundle:User');
+		$utilisateur = $repository->find($id);
+		$form3 = $this->get('form.factory')->create('form', $utilisateur)
+			->add('numSecu', 'text')
+			->add('save', 'submit')
+		;
+		if($form3->handleRequest($request)->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->flush();
+			return $this->redirect($this->generateUrl('junior_siteinterne_user', array('id' => $id)));
+		}
+		return $this->render('JuniorSiteinterneBundle:Siteinterne:user_changer_num.html.twig',
+		 array(
+			'form3' => $form3->createView(),
+			'u' => $utilisateur,
+			'action' => 'numsecu'
 		 ));
 	}
 
@@ -438,6 +483,7 @@ public function userAction($id, $changerNum, Request $request){
 		->add('inscrit', 'checkbox', array('required' => false))
 		->add('inscritLe', 'date')
 		->add('save', 'submit')
+		->add('numSecu', 'text')
 		->getForm();
 
 	if ($form->handleRequest($request)->isValid()) {
@@ -934,13 +980,13 @@ public function userAction($id, $changerNum, Request $request){
 		$mission = $repository1->find($id);
 		$repository2 = $manager
 						->getRepository('JuniorSiteinterneBundle:Document');
-		$doc = $repository2->find($iddoc);
 		
 		$name = $typedoc.'.xml'; // nom du fichier à ouvrir
 		$myFile = file_get_contents( __DIR__.'/../../../../web/downloads/docsvierges/'.$name);
 		 
 		$nbToWrd = new Numbers_Words_Locale_fr();
-
+		
+		
 		$searchReplace = array(
 			'{num_etude}' => $mission->getNumSiaje(),
 			'{etude_titre}' => $mission->getNom(),
@@ -971,7 +1017,6 @@ public function userAction($id, $changerNum, Request $request){
 			'{total_TTC_lettres}' => $nbToWrd->_toWords(($mission->getFrais()+ $mission->getNbJeh()*300)*(1+$mission->getTauxTva()/100)),
 			'{etude_acompte_HT}' => $mission->getAccompte(),
 			'{etude_acompte_HT_lettres}' => $nbToWrd->_toWords($mission->getAccompte()),
-			'{etude_acompte_pourcentage}' => $mission->getAccompte()/($mission->getFrais()+ $mission->getNbJeh()*300)*100,
 			'{etude_acompte_TTC}' => $mission->getAccompte()*(1+$mission->getTauxTva()/100),
 			'{etude_acompte_TTC_lettres}' => $nbToWrd->_toWords($mission->getAccompte()*(1+$mission->getTauxTva()/100))
 			);
@@ -979,10 +1024,55 @@ public function userAction($id, $changerNum, Request $request){
 		if($mission->getFrais()+ $mission->getNbJeh()*300 != 0){
 			$searchReplace['{etude_acompte_pourcentage}'] =round($mission->getAccompte()/($mission->getFrais()+ $mission->getNbJeh()*300)*100);
 		}
-		if($doc->getTypeDeDocument() == "Récapitulatif mission" || $doc->getTypeDeDocument() == "Avenant au récapitulatif mission"){
-			$searchReplace['{etudiant_nom}'] = $doc->getIntervenant()->getLastName();
-			$searchReplace['{etudiant_prenom}'] = $doc->getIntervenant()->getFirstName();
+		
+		if($iddoc != 0){
+			$doc = $repository2->find($iddoc);
+			if($doc->getTypeDeDocument() == "Récapitulatif mission" || $doc->getTypeDeDocument() == "Avenant au récapitulatif mission"){
+				$searchReplace['{etudiant_nom}'] = $doc->getIntervenant()->getLastName();
+				$searchReplace['{etudiant_prenom}'] = $doc->getIntervenant()->getFirstName();
+			}
 		}
+		
+		
+		for($i=1;$i<8;$i++){
+			$searchReplace['{nom_phase'. $i .'}'] ='';
+			$searchReplace['{nb_jeh_phase'. $i .'}'] ='';
+			$searchReplace['{montant_phase'. $i .'}'] ='';
+		}
+		$compteur = 1;
+		$nbJehFactures = 0;
+		foreach($mission->getPhases() as $p){
+			if($request->request->get('phase'.$p['idPhase'])){
+				$searchReplace['{nom_phase'. $compteur .'}'] =$p['nom'];
+				$searchReplace['{nb_jeh_phase'. $compteur .'}'] ='(' . $p['nbJeh'] . ' Jour - Etude Homme)';
+				$searchReplace['{montant_phase'. $compteur .'}'] =$p['nbJeh']*300 . ',00';
+				$compteur++;
+				$nbJehFactures+=$p['nbJeh'];
+			}
+		}
+		if($request->request->get('emission')){
+			$searchReplace['{date_emission}'] =date_format(date_create($request->request->get('emission')),'d-m-Y');
+		}
+		if($request->request->get('echeance')){
+			$searchReplace['{date_echeance}'] =date_format(date_create($request->request->get('echeance')),'d-m-Y');
+		}
+		if($request->request->get('nb_jeh_bv')){
+			$searchReplace['{nb_jeh_bv}'] =$request->request->get('nb_jeh_bv');
+		}
+		if($request->request->get('idintervenant')){
+			$repository3 = $manager
+				->getRepository('JuniorSiteinterneBundle:User');
+			$int = $repository3->find($request->request->get('idintervenant'));
+			$searchReplace['{etudiant_nom}'] = $int->getLastName();
+			$searchReplace['{etudiant_prenom}'] = $int->getFirstName();
+			$searchReplace['{etudiant_num_secu}'] = $int->getNumSecu();
+		}
+		$searchReplace['{nb_jeh_factures}'] =$nbJehFactures;
+		$searchReplace['{montant_ht_facture}'] =$nbJehFactures*300 . ',00';
+		$searchReplace['{montant_tva_facture}'] = $nbJehFactures*300 * $mission->getTauxTva()/100 ;
+		$searchReplace['{montant_total_facture}'] = $nbJehFactures*300 * (1+$mission->getTauxTva()/100) ;
+		$searchReplace['{montant_total_lettre}'] = $nbToWrd->_toWords($nbJehFactures*300 * (1+$mission->getTauxTva()/100)) . ' euros' ;
+
 		
 		$search  = array_keys($searchReplace);
 		$replace = array_values($searchReplace);
@@ -1002,7 +1092,7 @@ public function userAction($id, $changerNum, Request $request){
   /**
    * @Security("has_role('ROLE_MBJE')")
    */
-	public function modifAction($idmission, $iduser, $supprInt, $changerEtat, $changerPublique, $modifMission, $modifDates, $modifDocs, $modifRaisonEchec, Request $request)
+	public function modifAction($idmission, $iduser, $idphase, $supprInt, $changerEtat, $changerPublique, $modifMission, $modifDates, $modifDocs, $modifRaisonEchec, $modifPhases, Request $request)
 	{
 		if($supprInt == 'ok'){
 			$manager = $this
@@ -1168,6 +1258,50 @@ public function userAction($id, $changerNum, Request $request){
 			 array(
 				'form3' => $form->createView(),
 				'formulaire' => 3
+			 ));
+		}
+		
+		if($modifPhases != 'null'){
+			$manager = $this
+							->getDoctrine()
+							->getManager();
+			$repository = $manager
+							->getRepository('JuniorSiteinterneBundle:Mission');
+			$mission = $repository->find($idmission);
+			$phases = $mission->getPhases();
+			if($request->request->get('nom') != null){
+				$phase = array(
+							'nom'=>$request->request->get('nom'),
+							'nbJeh'=>$request->request->get('nb_jeh'),
+							'idPhase'=>$request->request->get('id_phase')
+						);
+				$nvellesPhases = array();
+				foreach($phases as $p){
+					if($p['idPhase'] < $phase['idPhase']){
+						$nvellesPhases[] = $p;
+					}
+				}
+				$nvellesPhases[] = $phase;
+				foreach($phases as $p){
+					if($p['idPhase'] >= $phase['idPhase']){
+						$nvellesPhases[] = $p;
+					}
+				}
+				$mission->setPhases($nvellesPhases);
+			}
+			if($modifPhases == 'suppr'){
+				$nvellesPhases = array();
+				foreach($phases as $p){
+					if($p['idPhase'] != $idphase){
+						$nvellesPhases[] = $p;
+					}
+				}
+				$mission->setPhases($nvellesPhases);
+			}
+			$manager->flush();
+			return $this->render('JuniorSiteinterneBundle:Siteinterne:phases.html.twig',
+			 array(
+				'mission' => $mission
 			 ));
 		}
 		

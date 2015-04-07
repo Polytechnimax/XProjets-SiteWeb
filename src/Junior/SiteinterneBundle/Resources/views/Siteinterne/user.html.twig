@@ -21,10 +21,12 @@
 								<h3>Infos</h3>
 								Promo<br/>
 								<span class="light padd">{{u.promo}}</span><br />
+								Numéro de sécurité sociale<br/>
+								<span class="light padd">{{u.numSecu}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'action': 'changerNumSecu' }) }}" class="btn btn-xs btn-default">Modifier</a><br />
 								Email<br/>
-								<span class="light padd">{{u.email}}</span><br />
+								<span class="light padd">{{u.email}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'action': 'changerMail' }) }}" class="btn btn-xs btn-default">Modifier</a><br />
 								Tel<br/>
-								<span class="light padd">{{u.phone}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'changerNum': 'ok' }) }}" class="btn btn-sm btn-default">Modifier numéro de téléphone</a><br />
+								<span class="light padd">{{u.phone}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'action': 'changerNum' }) }}" class="btn btn-xs btn-default">Modifier</a><br />
 								Statut<br/>
 								<span class="light padd">{% for st in u.roles %}{{st}}{% if not loop.last %}, {% endif %}{% else %} Aucun statut{% endfor %}</span><br />
 								Inscrit à la JE ?<br/>
@@ -49,6 +51,12 @@
 
 									{{ form_errors(form2.inscritLe) }}
 										{{ form_widget(form2.inscritLe) }}
+								</div><br/>
+								<div>
+									{{ form_label(form2.numSecu, "Numéro de sécurité sociale") }}
+
+									{{ form_errors(form2.numSecu) }}
+										{{ form_widget(form2.numSecu) }}
 								</div><br/>
 								
 										{{ form_widget(form2.save, {'attr': {'class': 'btn btn-default'}}) }}

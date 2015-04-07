@@ -69,6 +69,13 @@ class User implements UserInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="num_secu", type="string", length=255,nullable=true)
+     */
+    private $numSecu;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -406,5 +413,28 @@ class User implements UserInterface
     public function getPhone()
     {
         return $this->phone;
+    }
+
+    /**
+     * Set numSecu
+     *
+     * @param string $numSecu
+     * @return User
+     */
+    public function setNumSecu($numSecu)
+    {
+        $this->numSecu = $numSecu;
+
+        return $this;
+    }
+
+    /**
+     * Get numSecu
+     *
+     * @return string 
+     */
+    public function getNumSecu()
+    {
+        return $this->numSecu;
     }
 }

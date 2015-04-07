@@ -87,6 +87,11 @@ class Mission
      * @ORM\Column(name="nb_semaines", type="integer", nullable=true)
      */
     private $nbSemaines;
+	
+   /**
+    * @ORM\Column(name="phases", type="array", nullable=true)
+    */
+    private $phases = array();
 
     /**
      * @var integer
@@ -764,5 +769,28 @@ class Mission
     public function getTauxTva()
     {
         return $this->tauxTva;
+    }
+
+    /**
+     * Set phases
+     *
+     * @param array $phases
+     * @return Mission
+     */
+    public function setPhases($phases)
+    {
+        $this->phases = $phases;
+
+        return $this;
+    }
+
+    /**
+     * Get phases
+     *
+     * @return array 
+     */
+    public function getPhases()
+    {
+        return $this->phases;
     }
 }

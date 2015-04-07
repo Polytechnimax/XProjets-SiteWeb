@@ -1,0 +1,1430 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Title>Untitled Spreadsheet</Title>
+  <Author>Unknown Creator</Author>
+  <LastAuthor>Rémi</LastAuthor>
+  <Created>2015-03-18T09:32:25Z</Created>
+  <LastSaved>2015-04-07T10:03:53Z</LastSaved>
+  <Company>Microsoft Corporation</Company>
+  <Version>15.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>7755</WindowHeight>
+  <WindowWidth>20490</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Arial" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="m335198880">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Size="11" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m335200544">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="m335200564">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="m335200584">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="m335200624">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m335202000">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m335202020">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0F0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m335202060">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m335202100">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307143592">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307143612">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307143632">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307143652">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307143672">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307143692">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m307142760">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307142780">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307142800">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307142820">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Italic="1"/>
+  </Style>
+  <Style ss:ID="m307142840">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Italic="1"/>
+  </Style>
+  <Style ss:ID="m307142860">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="m307141324">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m307141344">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m307141364">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m307141384">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="m307141404">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Arial" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Arial" ss:Size="24" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Center"/>
+   <Font ss:FontName="Copperplate Gothic Bold" ss:Size="24" ss:Color="#969696"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Font ss:FontName="Arial" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Font ss:FontName="Copperplate Gothic Bold" ss:Size="14" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Font ss:FontName="Copperplate Gothic Bold" ss:Size="12" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:Indent="1"/>
+   <Font ss:FontName="Century Gothic" ss:Size="12" ss:Color="#969696" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Century Gothic" ss:Size="8" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Font ss:FontName="Century Gothic" ss:Size="8" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:Indent="1"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#969696" ss:Bold="1"/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Size="11" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#DFDFDF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Color="#000000"/>
+   <Interior ss:Color="#DFDFDF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+   <Interior ss:Color="#DFDFDF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s90">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s93">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Size="9" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s95">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#DFDFDF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s97">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+   <Interior ss:Color="#DFDFDF" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0"/>
+  </Style>
+  <Style ss:ID="s99">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Arial" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s100">
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s102">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s104">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#F0F0F0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s105">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#F0F0F0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Fixed"/>
+  </Style>
+  <Style ss:ID="s106">
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s108">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#FF0000" ss:Italic="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s109">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#F0F0F0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s110">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s119">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s131">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s132">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s140">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s141">
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+   <NumberFormat ss:Format="Percent"/>
+  </Style>
+  <Style ss:ID="s142">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s143">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+   <NumberFormat ss:Format="Percent"/>
+  </Style>
+  <Style ss:ID="s144">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+   <NumberFormat ss:Format="Fixed"/>
+  </Style>
+  <Style ss:ID="s148">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s149">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+   <NumberFormat ss:Format="Percent"/>
+  </Style>
+  <Style ss:ID="s150">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s151">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s157">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000"/>
+   <NumberFormat ss:Format="Fixed"/>
+  </Style>
+  <Style ss:ID="s158">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s166">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Fixed"/>
+  </Style>
+  <Style ss:ID="s167">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Percent"/>
+  </Style>
+  <Style ss:ID="s168">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="Fixed"/>
+  </Style>
+  <Style ss:ID="s178">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#F0F0F0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="#,##0.00\ &quot;€&quot;"/>
+  </Style>
+  <Style ss:ID="s180">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Italic="1"/>
+  </Style>
+  <Style ss:ID="s189">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Size="11" ss:Color="#000000"/>
+   <NumberFormat ss:Format="#,##0.00\ &quot;€&quot;"/>
+  </Style>
+  <Style ss:ID="s192">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+   <Interior ss:Color="#FDF931" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="0"/>
+  </Style>
+  <Style ss:ID="s193">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Size="11" ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="#,##0.00\ &quot;€&quot;"/>
+  </Style>
+  <Style ss:ID="s196">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Italic="1"/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s202">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="Standard"/>
+  </Style>
+  <Style ss:ID="s208">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="Standard"/>
+  </Style>
+  <Style ss:ID="s217">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s226">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" ss:Indent="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Century Gothic" ss:Size="11" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#666666" ss:Pattern="Solid"/>
+   <NumberFormat
+    ss:Format="_-* #,##0.00\ [$€-40C]_-;\-* #,##0.00\ [$€-40C]_-;_-* &quot;-&quot;??\ [$€-40C]_-;_-@_-"/>
+  </Style>
+  <Style ss:ID="s227">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Century Gothic" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s230">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Century Gothic" ss:Size="8" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s232">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s234">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Century Gothic" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s235">
+   <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s236">
+   <Font ss:FontName="Century Gothic" ss:Size="8" ss:Color="#000000"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Fiche BV">
+  <Names>
+   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Fiche BV'!R1C2:R61C9"/>
+  </Names>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="65" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="60">
+   <Column ss:AutoFitWidth="0" ss:Width="7.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="30.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="63.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="54"/>
+   <Column ss:AutoFitWidth="0" ss:Width="54.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:AutoFitWidth="0" ss:Width="58.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="65.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="36.5625">
+    <Cell ss:MergeDown="60" ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="6" ss:StyleID="s66"><Data ss:Type="String">Bulletin de versement</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="23.4375">
+    <Cell ss:Index="2" ss:StyleID="s67"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s70"><Data ss:Type="String">XProjets</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s72"><Data ss:Type="String">N° 15.04</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="49.3125">
+    <Cell ss:Index="3" ss:StyleID="s73"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s75"><Data ss:Type="String">Junior-Entreprise - Ecole Polytechnique</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">{date_emission}</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s78"><Data ss:Type="String">XProjets</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s81"><Data ss:Type="String">{etudiant_prenom} {etudiant_nom}</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s78"><Data ss:Type="String">Ecole Polytechnique&#10;</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s84"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s78"><Data ss:Type="String">91128 Palaiseau</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s87"><Data ss:Type="String">Palaiseau</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s90"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s87"><Data ss:Type="String"> </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s93"><Data ss:Type="String">N° SIRET : 334 963 287 00019</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s87"><Data ss:Type="String"> </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s93"><Data ss:Type="String">N° APE : 94.99Z</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s84"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s93"><Data ss:Type="String">N° URSSAF : 910 120168408001011 10</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">N° SS :</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s97"><Data ss:Type="String">{etudiant_num_secu}</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s93"><Data ss:Type="String">N° Intracommunautaire : FR 40 334 963 287</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s63"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s99"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:StyleID="s100"><Data ss:Type="String">N° étude :</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s102"><Data ss:Type="String">{num_etude}</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s104"><Data ss:Type="String">Rémunération brute : </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s105" ss:Formula="=R[1]C*R[4]C"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:Index="2" ss:StyleID="s106"><Data ss:Type="String">Ref du RDM :</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s108"><Data ss:Type="String">130/RDM11/3</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s104"><Data ss:Type="String">Nombre de jours-étude : </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">{nb_jeh_bv}</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:StyleID="s106"><Data ss:Type="String">Type de travail :</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s110"><Data ss:Type="String">Intervenant</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s104"><Data ss:Type="String">Base U.R.S.S.A.F. : </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="Number">38.44</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s104"><Data ss:Type="String">Assiette des cotisations : </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s109" ss:Formula="=R[-1]C*R[-2]C"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="7" ss:MergeAcross="1" ss:StyleID="s104"><Data ss:Type="String">Rémunération brute par JEH</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="Number">180</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="9">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s63"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16.5">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307141324"><Data
+      ss:Type="String">COTISATIONS</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">BASE</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="m307141344"><Data ss:Type="String">Part Junior-Entreprise</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="m307141364"><Data ss:Type="String">Part étudiant</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307141384"><Data
+      ss:Type="String">SOCIALES</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">TAUX</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">MONTANT</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">TAUX</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">MONTANT</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307141404"><Data
+      ss:Type="String">R.D.S. + CSG non déductible</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s140" ss:Formula="=R[-5]C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s141"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s142"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="Number">2.9000000000000001E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-4]*RC[-1],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307142760"><Data
+      ss:Type="String">C.S.G. </Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s141"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s142"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="Number">5.0999999999999997E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-4]*RC[-1],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307142780"><Data
+      ss:Type="String">Assurance maladie</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">0.128</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="Number">7.4999999999999997E-3</Data><Comment
+      ss:Author="Franck ROBERT"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Face="Tahoma" html:Size="9" html:Color="#000000">Ce taux est différent si la Junior est dans le Bas Rhin, Haut Rhin, ou Moselle</Font></ss:Data></Comment><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-4]*RC[-1],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:StyleID="s150"><Data ss:Type="String">Contribution de solidarité</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s151"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">3.0000000000000001E-3</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:StyleID="s150"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s148"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307142800"><Data
+      ss:Type="String">Assurance vieillesse</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307142820"><Data
+      ss:Type="String">déplafonnée</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">1.7999999999999999E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="Number">3.0000000000000001E-3</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-4]*RC[-1],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307142840"><Data
+      ss:Type="String">plafonnée TA</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">8.5000000000000006E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="Number">6.8500000000000005E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-4]*RC[-1],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307142860"><Data
+      ss:Type="String">Accident du travail</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">1.4999999999999999E-2</Data><Comment
+      ss:Author="Olivier RICHARD"><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma" html:Size="8"
+        html:Color="#000000">Ce Taux varie en fonction des régions. Ce reporter au documents de la CRAM ou à votre déclaration URSSAF</Font></ss:Data></Comment><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s142"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307143592"><Data
+      ss:Type="String">Allocations familliales</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">5.2499999999999998E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s142"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307143612"><Data
+      ss:Type="String">Fond National d'Aide au Logement</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">1E-3</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s142"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307143632"><Data
+      ss:Type="String">Versement Transport</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s148" ss:Formula="=R16C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">0</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s142"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307143652"><Data
+      ss:Type="String">Assurance chômage</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s157" ss:Formula="=R[-20]C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">0.04</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="Number">2.4E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-4]*RC[-1],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307143672"><Data
+      ss:Type="String">AGS</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s157" ss:Formula="=R[-21]C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="Number">3.0000000000000001E-3</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s144" ss:Formula="=ROUND(RC[-1]*RC[-2],2)"><Data
+      ss:Type="Error">#VALUE!</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:Index="9" ss:StyleID="s158"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m307143692"><Data
+      ss:Type="String">TOTAL DES COTISATIONS DUES (base URSSAF)</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s166" ss:Formula="=R[-19]C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s167" ss:Formula="=SUM(R[-14]C:R[-3]C)"><Data
+      ss:Type="Number">0.30249999999999999</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s168" ss:Formula="=SUM(R[-14]C:R[-3]C)"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s167" ss:Formula="=SUM(R[-14]C:R[-3]C)"><Data
+      ss:Type="Number">0.159</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s168" ss:Formula="=SUM(R[-14]C:R[-3]C)"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="m335202000"><Data
+      ss:Type="String">TOTAL DES COTISATIONS DUES (base brute)</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s166" ss:Formula="=R[-23]C[4]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s167" ss:Formula="=SUM(R[-3]C:R[-2]C)"><Data ss:Type="Number">4.3000000000000003E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s168" ss:Formula="=SUM(R[-3]C:R[-2]C)"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s167" ss:Formula="=SUM(R[-3]C:R[-2]C)"><Data ss:Type="Number">2.4E-2</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s168" ss:Formula="=SUM(R[-3]C:R[-2]C)"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335202020"><ss:Data
+      ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">TOTAL DES COTISATIONS</Font><B><I><Font
+         html:Face="Century Gothic" html:Color="#000000"> </Font></I></B><I><Font
+        html:Face="Century Gothic" html:Color="#000000">part Junior</Font></I></ss:Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s178" ss:Formula="=R[-3]C+R[-2]C"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s180"><Data ss:Type="String">Payé par virement</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335202060"><ss:Data
+      ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">TOTAL DES COTISATIONS</Font><I><Font
+        html:Face="Century Gothic" html:Color="#000000"> part étudiant</Font></I></ss:Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s189" ss:Formula="=R[-4]C[2]+R[-3]C[2]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s192"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335202100"><ss:Data
+      ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">TOTAL DES COTISATIONS</Font><I><Font
+        html:Face="Century Gothic" html:Color="#000000"> part Junior + part étudiant</Font></I></ss:Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s193" ss:Formula="=R[-2]C+R[-1]C"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s196" ss:Formula="=R[-37]C[1]"><Data
+      ss:Type="String">{date_emission}</Data><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335200544"><Data
+      ss:Type="String">Rémunération Brute</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s202" ss:Formula="=R[-28]C[2]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335200564"><Data
+      ss:Type="String">Total retenues étudiant </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s208" ss:Formula="=R[-7]C[2]+R[-6]C[2]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335200584"><Data
+      ss:Type="String">Montant net </Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s208" ss:Formula="=R[-2]C-R[-1]C"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s180"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335200624"><ss:Data
+      ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Montant net imposable </Font><B><I><Font
+         html:Face="Century Gothic" html:Size="8" html:Color="#000000">(net+C.S.G. Non déd +R.D.S.)</Font></I></B></ss:Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s208" ss:Formula="=R[-1]C+R[-23]C[2]"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s217"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+    <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="m335198880"><Data
+      ss:Type="String">TOTAL A PAYER</Data><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s226" ss:Formula="=R[-2]C"><Data ss:Type="Error">#VALUE!</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="6">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s227"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="3" ss:MergeAcross="2" ss:StyleID="s227"><Data ss:Type="String">Signature de l'étudiant</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s227"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s227"><Data ss:Type="String">Signature du Trésorier</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:MergeDown="2" ss:StyleID="s227"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5"/>
+   <Row ss:AutoFitHeight="0" ss:Height="21.5625"/>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s230"><Data ss:Type="String">Association loi 1901 affiliée à la CNJE</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="6">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s230"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s230"><Data ss:Type="String">Les cotisations assises sur les rémunérations d'étudiants chargés d'étude dans le cadre d'une </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s230"><Data ss:Type="String">Junior-Entreprise sont encadrées par la lettre ministérielle du 01.VIII.1988 et l'arrêté du 20.VI.1988.</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="6.5625">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s232"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s230"><Data ss:Type="String">Ce bulletin de versement ne constitue en aucun cas un bulletin de salaire, et par conséquent, n'ouvre </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s230"><Data ss:Type="String">pas droit à l'établissement d'une carte de séjour. </Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="6.5625">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s232"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s230"><Data ss:Type="String">Les rémunérations sont à déclarer sur la déclaration des revenus dans la rubrique bénéfices non commerciaux</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="6">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s232"><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:Index="2" ss:MergeAcross="7" ss:StyleID="s234"><Data ss:Type="String">CE DOCUMENT EST A CONSERVER SANS LIMITATION DE DUREE PAR SON BENEFICIAIRE</Data><NamedCell
+      ss:Name="Print_Area"/></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s235"/>
+    <Cell ss:StyleID="s235"/>
+    <Cell ss:StyleID="s235"/>
+    <Cell ss:StyleID="s235"/>
+    <Cell ss:StyleID="s235"/>
+    <Cell ss:StyleID="s235"/>
+    <Cell ss:StyleID="s235"/>
+    <Cell ss:StyleID="s235"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s236"/>
+    <Cell ss:StyleID="s236"/>
+    <Cell ss:StyleID="s236"/>
+    <Cell ss:StyleID="s236"/>
+    <Cell ss:StyleID="s236"/>
+    <Cell ss:StyleID="s236"/>
+    <Cell ss:StyleID="s236"/>
+    <Cell ss:StyleID="s236"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="12.9375">
+    <Cell ss:Index="2" ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0"/>
+    <Footer x:Margin="0"/>
+    <PageMargins x:Bottom="0.2" x:Left="0.25" x:Right="0.25" x:Top="0.2"/>
+   </PageSetup>
+   <Print>
+    <FitHeight>0</FitHeight>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <Scale>90</Scale>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <TopRowVisible>3</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>8</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <AllowFormatCells/>
+   <AllowSizeCols/>
+   <AllowSizeRows/>
+   <AllowInsertCols/>
+   <AllowInsertRows/>
+   <AllowInsertHyperlinks/>
+   <AllowDeleteCols/>
+   <AllowDeleteRows/>
+   <AllowSort/>
+   <AllowFilter/>
+   <AllowUsePivotTables/>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

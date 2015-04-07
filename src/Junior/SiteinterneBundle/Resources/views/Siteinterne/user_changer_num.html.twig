@@ -20,6 +20,7 @@
 
 								{{ form_errors(form3) }}
 
+{% if action == 'phone'%}
 								<div class="form-group">
 									{{ form_label(form3.phone, "Numéro de téléphone", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
 
@@ -29,6 +30,29 @@
 										{{ form_widget(form3.phone, {'attr': {'class': 'form-control'}}) }}
 									</div>
 								</div>
+{%endif%}
+{% if action == 'email'%}
+								<div class="form-group">
+									{{ form_label(form3.email, "Email", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+
+									{{ form_errors(form3.email) }}
+
+									<div class="col-sm-6">
+										{{ form_widget(form3.email, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+{%endif%}
+{% if action == 'numsecu'%}
+								<div class="form-group">
+									{{ form_label(form3.numSecu, "Numéro de sécurité sociale", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+
+									{{ form_errors(form3.numSecu) }}
+
+									<div class="col-sm-6">
+										{{ form_widget(form3.numSecu, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+{%endif%}
 								{{ form_widget(form3.save, {'attr': {'class': 'btn btn-default'}}) }}
 
 
