@@ -311,6 +311,9 @@ class SiteinterneController extends Controller
 		if($this->get('security.context')->isGranted('ROLE_MBJE')){
 			$statut = "mbje";
 		}
+		if($this->get('security.context')->isGranted('ROLE_RECRUTEUR')){
+			$statut = "mbje";
+		}
 		
 		if($statut == "simple visiteur") {
 			if(!$mission->getPublique()){
@@ -394,73 +397,6 @@ public function docsAction(){
    * @Security("has_role('ROLE_MBJE')")
    */
 public function userAction($id, $action, Request $request){
-	if($action == 'changerNum'){
-		$repository = $this
-						->getDoctrine()
-						->getManager()
-						->getRepository('JuniorSiteinterneBundle:User');
-		$utilisateur = $repository->find($id);
-		$form3 = $this->get('form.factory')->create('form', $utilisateur)
-			->add('phone', 'text')
-			->add('save', 'submit')
-		;
-		if($form3->handleRequest($request)->isValid()) {
-			$em = $this->getDoctrine()->getManager();
-			$em->flush();
-			return $this->redirect($this->generateUrl('junior_siteinterne_user', array('id' => $id)));
-		}
-		return $this->render('JuniorSiteinterneBundle:Siteinterne:user_changer_num.html.twig',
-		 array(
-			'form3' => $form3->createView(),
-			'u' => $utilisateur,
-			'action' => 'phone'
-		 ));
-	}
-	if($action == 'changerMail'){
-		$repository = $this
-						->getDoctrine()
-						->getManager()
-						->getRepository('JuniorSiteinterneBundle:User');
-		$utilisateur = $repository->find($id);
-		$form3 = $this->get('form.factory')->create('form', $utilisateur)
-			->add('email', 'text')
-			->add('save', 'submit')
-		;
-		if($form3->handleRequest($request)->isValid()) {
-			$em = $this->getDoctrine()->getManager();
-			$em->flush();
-			return $this->redirect($this->generateUrl('junior_siteinterne_user', array('id' => $id)));
-		}
-		return $this->render('JuniorSiteinterneBundle:Siteinterne:user_changer_num.html.twig',
-		 array(
-			'form3' => $form3->createView(),
-			'u' => $utilisateur,
-			'action' => 'email'
-		 ));
-	}
-	if($action == 'changerNumSecu'){
-		$repository = $this
-						->getDoctrine()
-						->getManager()
-						->getRepository('JuniorSiteinterneBundle:User');
-		$utilisateur = $repository->find($id);
-		$form3 = $this->get('form.factory')->create('form', $utilisateur)
-			->add('numSecu', 'text')
-			->add('save', 'submit')
-		;
-		if($form3->handleRequest($request)->isValid()) {
-			$em = $this->getDoctrine()->getManager();
-			$em->flush();
-			return $this->redirect($this->generateUrl('junior_siteinterne_user', array('id' => $id)));
-		}
-		return $this->render('JuniorSiteinterneBundle:Siteinterne:user_changer_num.html.twig',
-		 array(
-			'form3' => $form3->createView(),
-			'u' => $utilisateur,
-			'action' => 'numsecu'
-		 ));
-	}
-
 	$repository = $this
 					->getDoctrine()
 					->getManager()
@@ -481,9 +417,22 @@ public function userAction($id, $action, Request $request){
 	
 	$form2 = $this->get('form.factory')->createBuilder('form', $utilisateur)
 		->add('inscrit', 'checkbox', array('required' => false))
-		->add('inscritLe', 'date')
+		->add('inscritLe', 'date', array('required' => false))
+		->add('phone', 'text', array('required' => false))
+		->add('email', 'text', array('required' => false))
 		->add('save', 'submit')
-		->add('numSecu', 'text')
+		->add('numSecu', 'text', array('required' => false))
+		->add('centreSecu', 'text', array('required' => false))
+		->add('ville', 'text', array('required' => false))
+		->add('codeBanque', 'text', array('required' => false))
+		->add('codeGuichet', 'text', array('required' => false))
+		->add('compte', 'text', array('required' => false))
+		->add('cle', 'text', array('required' => false))
+		->add('domiciliation', 'text', array('required' => false))
+		->add('titulaire', 'text', array('required' => false))
+		->add('iban', 'text', array('required' => false))
+		->add('bic', 'text', array('required' => false))
+		->add('nationalite', 'text', array('required' => false))
 		->getForm();
 
 	if ($form->handleRequest($request)->isValid()) {
@@ -562,7 +511,7 @@ public function userAction($id, $action, Request $request){
 				$doc->setIntervenant($user);
 				$this->getDoctrine()->getManager()->persist($doc);
 				//Mail au rh
-				if(!$user->getInscrit()){
+				if($user->getInscrit() == false){
 					$rh;
 					$users = $this->getDoctrine()
 								  ->getRepository('JuniorSiteinterneBundle:User')
@@ -585,7 +534,7 @@ public function userAction($id, $action, Request $request){
 					$this->get('mailer')->send($message);
 				}
 				//Mail à l'intervenant pour l'inscription à la JE
-				if(!$user->getInscrit()){
+				if($user->getInscrit() == false){
 					$rh;
 					$users = $this->getDoctrine()
 								  ->getRepository('JuniorSiteinterneBundle:User')
@@ -631,7 +580,7 @@ public function userAction($id, $action, Request $request){
 				;
 				$this->get('mailer')->send($message);
 				//Mail au chef de projet pour l'inscription à la JE
-				if(!$user->getInscrit()){
+				if($user->getInscrit() == false){
 					$rh;
 					$users = $this->getDoctrine()
 								  ->getRepository('JuniorSiteinterneBundle:User')
@@ -652,7 +601,7 @@ public function userAction($id, $action, Request $request){
 					$this->get('mailer')->send($message);
 				}
 				//Mail au rh
-				if(!$user->getInscrit()){
+				if($user->getInscrit() == false){
 					$rh;
 					$users = $this->getDoctrine()
 								  ->getRepository('JuniorSiteinterneBundle:User')
@@ -1306,6 +1255,31 @@ public function userAction($id, $action, Request $request){
 		}
 		
 		return $this->redirect($this->generateUrl('junior_site_homepage'));
+	}
+
+	public function modifdetailavancementAction($idmission, Request $request)
+	{
+			$manager = $this
+							->getDoctrine()
+							->getManager();
+			$repository1 = $manager
+							->getRepository('JuniorSiteinterneBundle:Mission');
+			$mission = $repository1->find($idmission);
+			$form = $this->get('form.factory')->create('form', $mission)
+				->add('detailAvancement', 'textarea')
+				->add('save', 'submit')
+			;
+			if($form->handleRequest($request)->isValid()) {
+				$manager->flush();
+				return $this->redirect($this->generateUrl('junior_siteinterne_mission', array('id' => $mission->getId())));
+			}
+			return $this->render('JuniorSiteinterneBundle:Siteinterne:modif.html.twig',
+			 array(
+				'form4' => $form->createView(),
+				'formulaire' => 4
+			 ));
+
+			return $this->redirect($this->generateUrl('junior_site_homepage'));
 	}
 
   /**

@@ -178,7 +178,26 @@
 				</div>
   
 				{{ form_end(form3) }}
-				{%endif%}
+	{% elseif formulaire == 4 %}
+				{{ form_start(form4, {'attr': {'class': 'form-horizontal'}}) }}
+
+				{{ form_errors(form4) }}
+				<div class="form-group">
+					{{ form_label(form4.detailAvancement, "Détail de l'avancement, à destination du client", {'label_attr': {'class': 'col-sm-4 col-sm-offset-1 control-label'}}) }}
+					{{ form_errors(form4.detailAvancement) }}
+					<div class="col-sm-6">
+						{{ form_widget(form4.detailAvancement) }}
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-4">
+						{{ form_widget(form4.save, {'attr': {'class': 'btn btn-primary'}}) }}
+					</div>
+				</div>
+  
+				{{ form_end(form4) }}
+	{%endif%}
 			</div>
 		</div>
 	</section>

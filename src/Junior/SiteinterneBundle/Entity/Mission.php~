@@ -68,6 +68,13 @@ class Mission
     private $raisonEchec;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="detail_avancement", type="text", nullable=true)
+     */
+    private $detailAvancement;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_debut", type="datetime", nullable=true)
@@ -89,7 +96,7 @@ class Mission
     private $nbSemaines;
 	
    /**
-    * @ORM\Column(name="phases", type="array")
+    * @ORM\Column(name="phases", type="array", nullable=true)
     */
     private $phases = array();
 
@@ -769,5 +776,28 @@ class Mission
     public function getTauxTva()
     {
         return $this->tauxTva;
+    }
+
+    /**
+     * Set phases
+     *
+     * @param array $phases
+     * @return Mission
+     */
+    public function setPhases($phases)
+    {
+        $this->phases = $phases;
+
+        return $this;
+    }
+
+    /**
+     * Get phases
+     *
+     * @return array 
+     */
+    public function getPhases()
+    {
+        return $this->phases;
     }
 }

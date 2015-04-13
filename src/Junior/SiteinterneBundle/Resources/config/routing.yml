@@ -77,6 +77,10 @@ junior_siteinterne_modification_mission:
     pattern:  /modifmission/{idmission}/{iduser}/{supprInt}/{changerEtat}/{changerPublique}/{modifMission}/{modifDates}/{modifRaisonEchec}/{modifDocs}/{modifPhases}/{idphase}
     defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:modif, supprInt:'null', idmission:0,iduser:0,idphase:0, add:'null', changerEtat:'null', changerPublique:'null', modifMission:'null', modifDates:'null', modifDocs:'null', modifRaisonEchec:'null', modifPhases:'null'  }
 
+junior_siteinterne_modification_detailavancement:
+    pattern:  /modifdetailavancement/{idmission}
+    defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:modifdetailavancement, idmission:0 }
+
 junior_siteinterne_config:
     pattern:  /config/{iduser}/{action}
     defaults: { _controller: JuniorSiteinterneBundle:Siteinterne:config, iduser:0, action:0}

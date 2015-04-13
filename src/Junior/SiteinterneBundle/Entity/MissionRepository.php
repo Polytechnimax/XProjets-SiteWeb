@@ -40,6 +40,7 @@ class MissionRepository extends EntityRepository
 		
 		return ($qb
 				->getQuery()
+				->setMaxResults(1)
 				->getOneOrNullResult()!=null)
 		;
 	}
@@ -97,8 +98,8 @@ class MissionRepository extends EntityRepository
 		$derniereMission=$this
 			->createQueryBuilder('a')
 			->orderBy('a.ajouteLe', 'DESC')
-			->setMaxResults(1)
 			->getQuery()
+			->setMaxResults(1)
 			->getSingleResult()
 		;
 		if($derniereMission){

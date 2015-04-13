@@ -68,6 +68,13 @@ class Mission
     private $raisonEchec;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="detail_avancement", type="text", nullable=true)
+     */
+    private $detailAvancement;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_debut", type="datetime", nullable=true)
@@ -792,5 +799,28 @@ class Mission
     public function getPhases()
     {
         return $this->phases;
+    }
+
+    /**
+     * Set detailAvancement
+     *
+     * @param string $detailAvancement
+     * @return Mission
+     */
+    public function setDetailAvancement($detailAvancement)
+    {
+        $this->detailAvancement = $detailAvancement;
+
+        return $this;
+    }
+
+    /**
+     * Get detailAvancement
+     *
+     * @return string 
+     */
+    public function getDetailAvancement()
+    {
+        return $this->detailAvancement;
     }
 }

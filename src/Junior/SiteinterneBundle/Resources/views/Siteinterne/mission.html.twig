@@ -70,9 +70,9 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 								<a href="{{ path('junior_siteinterne_users', { 'idmission': mission.id,'refIntCDP': 3 }) }}" class="btn btn-primary">Choisir</a>{% endif %}<br />
 								</span><br/>
 								Intervenant(s) :<br />
-								{% for intervenant in mission.intervenants %}<span class="light padd">{{intervenant.firstName}} {{intervenant.lastName}}</span> {% if is_granted('ROLE_MBJE') %}<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id,'iduser': intervenant.id, 'supprInt':'ok' }) }}"><span class="glyphicon glyphicon-remove"></span></a>{% endif %}<br />
+								{% for intervenant in mission.intervenants %}<span class="light padd">{{intervenant.firstName}} {{intervenant.lastName}}</span> {% if is_granted('ROLE_MBJE') or is_granted('ROLE_RECRUTEUR') %}<a href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id,'iduser': intervenant.id, 'supprInt':'ok' }) }}"><span class="glyphicon glyphicon-remove"></span></a>{% endif %}<br />
 								{%else%}<span class="light padd">Pas encore recruté(s)</span><br/>{% endfor %}
-								{% if is_granted('ROLE_MBJE') %}<a href="{{ path('junior_siteinterne_users', { 'idmission': mission.id,'refIntCDP': 2 }) }}" class="btn btn-primary">Nouvel intervenant</a>{% endif %}<br />
+								{% if is_granted('ROLE_MBJE') or is_granted('ROLE_RECRUTEUR') %}<a href="{{ path('junior_siteinterne_users', { 'idmission': mission.id,'refIntCDP': 2 }) }}" class="btn btn-primary">Nouvel intervenant</a>{% endif %}<br />
 
 							</div>
 						</div>
@@ -100,6 +100,10 @@ Mission {{mission.numSiaje}} : {{mission.nom}}
 							Date de début : {% if mission.dateDebut%}{{ mission.dateDebut|date('d/m/Y') }}{% else %}Pas encore défini{% endif %}<br />
 							Date de fin : {% if mission.dateFin%}{{ mission.dateFin|date('d/m/Y') }}{% else %}Pas encore défini{% endif %}<br />
 							{% if is_granted('ROLE_MBJE') %}<a  href="{{ path('junior_siteinterne_modification_mission', { 'idmission': mission.id, 'modifDates': 'ok' }) }}" id="montre_menu_modi_etat" class="btn btn-default btn-xs" style="cursor:pointer;">Modifier les dates &raquo;</a><br/>{% endif %}
+							Détails d'avancement à destination du client :<br/>
+							{{mission.detailAvancement}}<br/>
+							{% if is_granted('ROLE_MBJE') or statut == 'cdp' %}<a  href="{{ path('junior_siteinterne_modification_detailavancement', { 'idmission': mission.id }) }}" class="btn btn-default btn-xs" style="cursor:pointer;">Modifier &raquo;</a><br/>{% endif %}
+							
 					{% endif %}
 					
 				<h3>Phases</h3>

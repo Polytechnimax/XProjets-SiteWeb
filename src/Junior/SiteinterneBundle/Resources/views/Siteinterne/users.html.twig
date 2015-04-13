@@ -15,10 +15,27 @@ Utilisateurs - {{ parent() }}
 				<div id="content" class="col-md-offset-1 col-md-9">
 					<h1>Liste des utilisateurs</h1>
 					<hr>
-					{% for u in listeUsers %}
 						{% if refIntCDP== 0 %}
-						<a href="{{ path('junior_siteinterne_user', { 'id': u.id }) }}" class="btn btn-primary">{{u.firstName}} {{u.lastName}}</a><br /><br />
+					<table class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Promo</th>
+							<th>+ d'infos</th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for u in listeUsers %}
+								<tr class="">
+									<td>{{u.firstName}} {{u.lastName}}</td>
+									<td>{{ u.promo }}</td>
+									<td><a href="{{ path('junior_siteinterne_user', { 'id': u.id }) }}" class="btn btn-xs btn-default">Détails  &raquo;</a></td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
 						{% endif %}
+					{% for u in listeUsers %}
 						{% if refIntCDP== 1 %}
 						<a href="{{ path('junior_siteinterne_users', { 'idmission': idmission,'refIntCDP': refIntCDP,'iduser': u.id, 'add':'ok' }) }}" class="btn btn-primary">{{u.firstName}} {{u.lastName}}</a><br /><br />
 						{% endif %}

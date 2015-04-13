@@ -16,23 +16,47 @@
 			<section class="row">
 				<div id="content" class="col-md-offset-1 col-md-10">
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-7">
 							<div class="well">
 								<h3>Infos</h3>
-								Promo<br/>
-								<span class="light padd">{{u.promo}}</span><br />
-								Numéro de sécurité sociale<br/>
-								<span class="light padd">{{u.numSecu}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'action': 'changerNumSecu' }) }}" class="btn btn-xs btn-default">Modifier</a><br />
 								Email<br/>
-								<span class="light padd">{{u.email}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'action': 'changerMail' }) }}" class="btn btn-xs btn-default">Modifier</a><br />
+								<span class="light padd">{{u.email}}</span> <br />
 								Tel<br/>
-								<span class="light padd">{{u.phone}}</span> <a href="{{ path('junior_siteinterne_user', { 'id': u.id, 'action': 'changerNum' }) }}" class="btn btn-xs btn-default">Modifier</a><br />
+								<span class="light padd">{{u.phone}}</span> <br />
 								Statut<br/>
 								<span class="light padd">{% for st in u.roles %}{{st}}{% if not loop.last %}, {% endif %}{% else %} Aucun statut{% endfor %}</span><br />
 								Inscrit à la JE ?<br/>
 								<span class="light padd">{% if u.inscrit %}Oui{% else %}Non{% endif %}</span><br />
 								{% if u.inscrit %}Inscrit le<br/>
 								<span class="light padd">{{u.inscritLe|date('j M Y')}}</span><br />{% endif %}
+								Promo<br/>
+								<span class="light padd">{{u.promo}}</span><br />
+								Numéro de sécurité sociale<br/>
+								<span class="light padd">{{u.numSecu}}</span> <br />
+								Centre de sécurité sociale<br/>
+								<span class="light padd">{{u.centreSecu}}</span> <br />
+								Ville<br/>
+								<span class="light padd">{{u.ville}}</span> <br />
+								RIB (code banque)<br/>
+								<span class="light padd">{{u.codeBanque}}</span> <br />
+								RIB (code guichet)<br/>
+								<span class="light padd">{{u.codeGuichet}}</span> <br />
+								RIB (compte)<br/>
+								<span class="light padd">{{u.compte}}</span> <br />
+								RIB (clé)<br/>
+								<span class="light padd">{{u.cle}}</span> <br />
+								RIB (domiciliation)<br/>
+								<span class="light padd">{{u.domiciliation}}</span> <br />
+								RIB (titulaire)<br/>
+								<span class="light padd">{{u.titulaire}}</span> <br />
+								RIB (IBAN)<br/>
+								<span class="light padd">{{u.iban}}</span> <br />
+								RIB (bic)<br/>
+								<span class="light padd">{{u.bic}}</span> <br />
+								Nationalité<br/>
+								<span class="light padd">{{u.nationalite}}</span> <br />
+								
+								
 								<h3>Modifier</h3>
 								{% if is_granted('ROLE_RH') %}
 								{{ form_start(form2) }}
@@ -52,12 +76,133 @@
 									{{ form_errors(form2.inscritLe) }}
 										{{ form_widget(form2.inscritLe) }}
 								</div><br/>
-								<div>
-									{{ form_label(form2.numSecu, "Numéro de sécurité sociale") }}
+								<div class="form-group">
+									{{ form_label(form2.phone, "Numéro de téléphone", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.phone) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.phone, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.email, "Email", {'label_attr': {'class': 'control-label row  col-md-10'}}) }}
+
+									{{ form_errors(form2.email) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.email, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.numSecu, "Numéro de sécurité sociale", {'label_attr': {'class': 'control-label'}}) }}
 
 									{{ form_errors(form2.numSecu) }}
-										{{ form_widget(form2.numSecu) }}
-								</div><br/>
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.numSecu, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.centreSecu, "Centre de sécurité sociale", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.centreSecu) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.centreSecu, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.ville, "Ville", {'label_attr': {'class': 'control-label row  col-md-10'}}) }}
+
+									{{ form_errors(form2.ville) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.ville, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.codeBanque, "RIB (code banque)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.codeBanque) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.codeBanque, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.codeGuichet, "RIB (code guichet)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.codeGuichet) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.codeGuichet, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.compte, "RIB (compte)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.compte) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.compte, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.cle, "RIB (clé)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.cle) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.cle, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.domiciliation, "RIB (domiciliation)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.domiciliation) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.domiciliation, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.titulaire, "RIB (titulaire)", {'label_attr': {'class': ' control-label'}}) }}
+
+									{{ form_errors(form2.titulaire) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.titulaire, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.iban, "RIB (IBAN)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.iban) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.iban, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.bic, "RIB (BIC)", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.bic) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.bic, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+								<div class="form-group">
+									{{ form_label(form2.nationalite, "Nationalité", {'label_attr': {'class': 'control-label'}}) }}
+
+									{{ form_errors(form2.nationalite) }}
+
+									<div class="row col-md-10 col-md-offset-1">
+										{{ form_widget(form2.nationalite, {'attr': {'class': 'form-control'}}) }}
+									</div>
+								</div>
+
 								
 										{{ form_widget(form2.save, {'attr': {'class': 'btn btn-default'}}) }}
 
@@ -122,7 +267,7 @@
 					{% endif %}
 						<br />
 						</div></div>
-						<div class="col-md-7">
+						<div class="col-md-5">
 							<div class="well">
 							<h3>Remarques</h3>
 								{% for com in commentaires %}

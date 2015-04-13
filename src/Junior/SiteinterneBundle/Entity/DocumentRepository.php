@@ -37,6 +37,7 @@ class DocumentRepository extends EntityRepository
 			$datecc = $qb->AndWhere('a.typeDeDocument= :td')
 				->setParameter('td', "Convention client")
 				->getQuery()
+				->setMaxResults(1)
 				->getSingleResult()
 				->getSigneLe();
 				;
@@ -47,6 +48,7 @@ class DocumentRepository extends EntityRepository
 			$datepropale = $qb->AndWhere('a.typeDeDocument= :td')
 				->setParameter('td', "Propale")
 				->getQuery()
+				->setMaxResults(1)
 				->getSingleResult()
 				->getSigneLe();
 				;
@@ -57,6 +59,7 @@ class DocumentRepository extends EntityRepository
 			$datecc = $qb->AndWhere('a.typeDeDocument= :td')
 				->setParameter('td', "Convention client")
 				->getQuery()
+				->setMaxResults(1)
 				->getSingleResult()
 				->getSigneLe();
 				;
@@ -67,6 +70,7 @@ class DocumentRepository extends EntityRepository
 			$datefacture = $qb->AndWhere('a.typeDeDocument= :td')
 				->setParameter('td', "Facture")
 				->getQuery()
+				->setMaxResults(1)
 				->getSingleResult()
 				->getSigneLe();
 				;
@@ -80,6 +84,7 @@ class DocumentRepository extends EntityRepository
 			$datebv = $qb->AndWhere('a.typeDeDocument= :td')
 				->setParameter('td', "Bulletin de versement")
 				->getQuery()
+				->setMaxResults(1)
 				->getSingleResult()
 				->getSigneLe();
 				;
@@ -90,6 +95,7 @@ class DocumentRepository extends EntityRepository
 			$daterp = $qb->AndWhere('a.typeDeDocument= :td')
 				->setParameter('td', "Rapport pédagogique")
 				->getQuery()
+				->setMaxResults(1)
 				->getSingleResult()
 				->getSigneLe();
 				;

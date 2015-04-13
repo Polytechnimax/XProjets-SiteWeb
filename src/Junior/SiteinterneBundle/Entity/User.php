@@ -76,6 +76,83 @@ class User implements UserInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="centre_secu", type="string", length=255,nullable=true)
+     */
+    private $centreSecu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255,nullable=true)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code_banque", type="string", length=255,nullable=true)
+     */
+    private $codeBanque;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code_guichet", type="string", length=255,nullable=true)
+     */
+    private $codeGuichet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="compte", type="string", length=255,nullable=true)
+     */
+    private $compte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cle", type="string", length=255,nullable=true)
+     */
+    private $cle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="domiciliation", type="string", length=255,nullable=true)
+     */
+    private $domiciliation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titulaire", type="string", length=255,nullable=true)
+     */
+    private $titulaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="iban", type="string", length=255,nullable=true)
+     */
+    private $iban;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bic", type="string", length=255,nullable=true)
+     */
+    private $bic;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationalite", type="string", length=255,nullable=true)
+     */
+    private $nationalite;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -436,5 +513,258 @@ class User implements UserInterface
     public function getNumSecu()
     {
         return $this->numSecu;
+    }
+
+    /**
+     * Set centreSecu
+     *
+     * @param string $centreSecu
+     * @return User
+     */
+    public function setCentreSecu($centreSecu)
+    {
+        $this->centreSecu = $centreSecu;
+
+        return $this;
+    }
+
+    /**
+     * Get centreSecu
+     *
+     * @return string 
+     */
+    public function getCentreSecu()
+    {
+        return $this->centreSecu;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     * @return User
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string 
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set codeBanque
+     *
+     * @param string $codeBanque
+     * @return User
+     */
+    public function setCodeBanque($codeBanque)
+    {
+        $this->codeBanque = $codeBanque;
+
+        return $this;
+    }
+
+    /**
+     * Get codeBanque
+     *
+     * @return string 
+     */
+    public function getCodeBanque()
+    {
+        return $this->codeBanque;
+    }
+
+    /**
+     * Set codeGuichet
+     *
+     * @param string $codeGuichet
+     * @return User
+     */
+    public function setCodeGuichet($codeGuichet)
+    {
+        $this->codeGuichet = $codeGuichet;
+
+        return $this;
+    }
+
+    /**
+     * Get codeGuichet
+     *
+     * @return string 
+     */
+    public function getCodeGuichet()
+    {
+        return $this->codeGuichet;
+    }
+
+    /**
+     * Set compte
+     *
+     * @param string $compte
+     * @return User
+     */
+    public function setCompte($compte)
+    {
+        $this->compte = $compte;
+
+        return $this;
+    }
+
+    /**
+     * Get compte
+     *
+     * @return string 
+     */
+    public function getCompte()
+    {
+        return $this->compte;
+    }
+
+    /**
+     * Set cle
+     *
+     * @param string $cle
+     * @return User
+     */
+    public function setCle($cle)
+    {
+        $this->cle = $cle;
+
+        return $this;
+    }
+
+    /**
+     * Get cle
+     *
+     * @return string 
+     */
+    public function getCle()
+    {
+        return $this->cle;
+    }
+
+    /**
+     * Set domiciliation
+     *
+     * @param string $domiciliation
+     * @return User
+     */
+    public function setDomiciliation($domiciliation)
+    {
+        $this->domiciliation = $domiciliation;
+
+        return $this;
+    }
+
+    /**
+     * Get domiciliation
+     *
+     * @return string 
+     */
+    public function getDomiciliation()
+    {
+        return $this->domiciliation;
+    }
+
+    /**
+     * Set titulaire
+     *
+     * @param string $titulaire
+     * @return User
+     */
+    public function setTitulaire($titulaire)
+    {
+        $this->titulaire = $titulaire;
+
+        return $this;
+    }
+
+    /**
+     * Get titulaire
+     *
+     * @return string 
+     */
+    public function getTitulaire()
+    {
+        return $this->titulaire;
+    }
+
+    /**
+     * Set iban
+     *
+     * @param string $iban
+     * @return User
+     */
+    public function setIban($iban)
+    {
+        $this->iban = $iban;
+
+        return $this;
+    }
+
+    /**
+     * Get iban
+     *
+     * @return string 
+     */
+    public function getIban()
+    {
+        return $this->iban;
+    }
+
+    /**
+     * Set bic
+     *
+     * @param string $bic
+     * @return User
+     */
+    public function setBic($bic)
+    {
+        $this->bic = $bic;
+
+        return $this;
+    }
+
+    /**
+     * Get bic
+     *
+     * @return string 
+     */
+    public function getBic()
+    {
+        return $this->bic;
+    }
+
+    /**
+     * Set nationalite
+     *
+     * @param string $nationalite
+     * @return User
+     */
+    public function setNationalite($nationalite)
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    /**
+     * Get nationalite
+     *
+     * @return string 
+     */
+    public function getNationalite()
+    {
+        return $this->nationalite;
     }
 }

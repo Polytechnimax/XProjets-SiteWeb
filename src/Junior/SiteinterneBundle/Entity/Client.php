@@ -25,7 +25,7 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, unique=true, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
 
