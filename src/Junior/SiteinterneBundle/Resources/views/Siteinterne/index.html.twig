@@ -29,7 +29,7 @@ Bienvenue sur le site interne d'XProjets.
 						{% for mission in listeMissions %}
 						{% if mission.publique and mission.etat == "A pourvoir" %}
 						<tr class="">
-							<td>{{ mission.nom }}<span class="light">  - {{mission.chaineDeCaractere}}</span></td>
+							<td>{{ mission.nom }}<span class="light"> - {{mission.chaineDeCaractere}}</span></td>
 							<td>{% if mission.client.particulierEntreprise == "particulier"%}Particulier{%else%}{{ mission.client.nom }}{%endif%}</td>
 							<td>{% for categorie in mission.categories %}{{categorie.name}}{% if not loop.last %}, {% endif %}{% else %} Pas de catégories{% endfor %}</td>
 							<td><a href="{{ path('junior_siteinterne_mission', { 'id': mission.id }) }}" class="btn btn-default btn-xs">Détails  &raquo;</a></td>

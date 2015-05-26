@@ -1005,6 +1005,9 @@ public function userAction($id, $action, Request $request){
 		if($request->request->get('echeance')){
 			$searchReplace['{date_echeance}'] =date_format(date_create($request->request->get('echeance')),'d-m-Y');
 		}
+		if($request->request->get('valeur_du_jeh')){
+			$searchReplace['{valeur_du_jeh}'] =$request->request->get('valeur_du_jeh');
+		}
 		if($request->request->get('nb_jeh_bv')){
 			$searchReplace['{nb_jeh_bv}'] =$request->request->get('nb_jeh_bv');
 		}
