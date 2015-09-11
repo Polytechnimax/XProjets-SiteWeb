@@ -1038,8 +1038,7 @@ public function userAction($id, $action, Request $request){
 		$response->headers->set('Content-Transfer-Encoding', 'binary');
 		$response->headers->set('Content-Disposition', 'attachment; filename="'.$name.'"');
 
-		$response->send();
-		return $this->redirect($this->generateUrl('junior_siteinterne_docmission', array('id' => $mission->getId(), 'iddoc' => $iddoc)));
+		return $response;
 	}
 	
   /**
