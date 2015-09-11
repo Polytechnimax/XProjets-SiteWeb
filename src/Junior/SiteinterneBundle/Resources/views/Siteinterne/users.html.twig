@@ -25,7 +25,7 @@ Utilisateurs - {{ parent() }}
 						</tr>
 						</thead>
 						<tbody>
-							{% for u in listeUsers %}
+							{% for u in listeUsers | sort %}
 								<tr class="">
 									<td>{{u.firstName}} {{u.lastName}}</td>
 									<td>{{ u.promo }}</td>

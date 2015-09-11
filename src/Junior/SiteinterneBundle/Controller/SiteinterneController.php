@@ -643,7 +643,8 @@ public function userAction($id, $action, Request $request){
 		
 		$listeUsers = $this->getDoctrine()
 							  ->getRepository('JuniorSiteinterneBundle:User')
-							  ->findAll();
+							  ->findBy([], ['lastName' => 'ASC']);
+		
 		return $this->render('JuniorSiteinterneBundle:Siteinterne:users.html.twig', array(
 		'listeUsers' => $listeUsers,
 		'refIntCDP' => $refIntCDP,
