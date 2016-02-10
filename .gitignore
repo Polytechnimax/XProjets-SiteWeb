@@ -7,3 +7,7 @@ web/bundles/*
 
 # Configuration files
 app/config/parameters.yml
+
+# Mac DS_Store
+*/.DS_Store
+
