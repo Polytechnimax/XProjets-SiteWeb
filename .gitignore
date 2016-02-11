@@ -10,4 +10,6 @@ app/config/parameters.yml
 
 # Mac DS_Store
 */.DS_Store
+.DS_Store
+.gitignore
 
