@@ -22,7 +22,7 @@ class SecurityController extends Controller
 		
 		
 		if(null === $request->query->get('response')){
-			return $this->redirect('http://albi-gite.fr/fkz.php');
+			return $this->redirect('http://www.xprojets.com/fkz.php');
 		}
 		
 		$reponse = json_decode($request->query->get('response'),true);
