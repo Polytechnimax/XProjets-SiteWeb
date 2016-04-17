@@ -938,93 +938,93 @@ public function userAction($id, $action, Request $request){
 		
 		
 		$searchReplace = array(
-			'{num_etude}' => $mission->getNumSiaje(),
-			'{etude_titre}' => $mission->getNom(),
-			'{suiveur_prenom}' => $mission->getChefDeProjet()->getFirstName(),
-			'{suiveur_nom}' => $mission->getChefDeProjet()->getLastName(),
-			'{suiveur_portable}' => $mission->getChefDeProjet()->getPhone(),
-			'{suiveur_mail}' => $mission->getChefDeProjet()->getEmail(),
-			'{client_societe}' => $mission->getClient()->getNom(),
-			'{client_titre} ' => $mission->getClient()->getCiviliteContactBienEcrit(),
-			'{client_nom}' => $mission->getClient()->getNomContact(),
-			'{client_prenom}' => $mission->getClient()->getPrenomContact(),
-			'{client_fonction}' => $mission->getClient()->getFonctionContact(),
-			'{client_adresse}' => $mission->getClient()->getAdresse1() . ' ' . $mission->getClient()->getAdresse2() . ' ' . $mission->getClient()->getAdresse3(),
-			'{client_code_postal}' => $mission->getClient()->getCodePostal(),
-			'{client_ville}' => $mission->getClient()->getVille(),
-			'{nb_semaines}' => $mission->getNbSemaines(),
-			'{etude_nombre_JEH}' => $mission->getNbJeh(),
-			'{etude_nombre_JEH_lettres}' => $nbToWrd->_toWords($mission->getNbJeh()),
-			'{etude_montant_HT}' => $mission->getNbJeh()*300,
-			'{etude_montant_TVA}' => $mission->getNbJeh()*300*$mission->getTauxTva()/100,
-			'{etude_montant_HT_lettres}' => $nbToWrd->_toWords($mission->getNbJeh()*300),
-			'{frais_HT}' => $mission->getFrais(),
-			'{frais_HT_lettres}' => $nbToWrd->_toWords($mission->getFrais()),
-			'{total_HT}' => $mission->getFrais()+ $mission->getNbJeh()*300,
-			'{total_HT_lettres}' => $nbToWrd->_toWords($mission->getFrais()+ $mission->getNbJeh()*300),
-			'{taux_tva}' => $mission->getTauxTva(),//
-			'{total_TTC}' => ($mission->getFrais()+ $mission->getNbJeh()*300)*(1+$mission->getTauxTva()/100),
-			'{total_TTC_lettres}' => $nbToWrd->_toWords(($mission->getFrais()+ $mission->getNbJeh()*300)*(1+$mission->getTauxTva()/100)),
-			'{etude_acompte_HT}' => $mission->getAccompte(),
-			'{etude_acompte_HT_lettres}' => $nbToWrd->_toWords($mission->getAccompte()),
-			'{etude_acompte_TTC}' => $mission->getAccompte()*(1+$mission->getTauxTva()/100),
-			'{etude_acompte_TTC_lettres}' => $nbToWrd->_toWords($mission->getAccompte()*(1+$mission->getTauxTva()/100))
+			'xxxnNumEtudexxx' => $mission->getNumSiaje(),
+			'xxxEtudeTitrexxx' => $mission->getNom(),
+			'xxxSuiveurNomxxx' => $mission->getChefDeProjet()->getFirstName(),
+			'xxxSuiveurPrenomxxx' => $mission->getChefDeProjet()->getLastName(),
+			'xxxSuiveurPortablexxx' => $mission->getChefDeProjet()->getPhone(),
+			'xxxSuiveurMailxxx' => $mission->getChefDeProjet()->getEmail(),
+			'xxxClientSocietexxx' => $mission->getClient()->getNom(),
+			'xxxClientTitrexxx' => $mission->getClient()->getCiviliteContactBienEcrit(),
+			'xxxClientNomxxx' => $mission->getClient()->getNomContact(),
+			'xxxClientPrenomxxx' => $mission->getClient()->getPrenomContact(),
+			'xxxClientFinctionxxx' => $mission->getClient()->getFonctionContact(),
+			'xxxClientAdressexxx' => $mission->getClient()->getAdresse1() . ' ' . $mission->getClient()->getAdresse2() . ' ' . $mission->getClient()->getAdresse3(),
+			'xxxClientCodePostalxxx' => $mission->getClient()->getCodePostal(),
+			'xxxClientVillexxx' => $mission->getClient()->getVille(),
+			'xxxNbSemainesxxx' => $mission->getNbSemaines(),
+			'xxxEtudeNombreJEHxxx' => $mission->getNbJeh(),
+			'xxxEtudeNombreJEHLettresxxx' => $nbToWrd->_toWords($mission->getNbJeh()),
+			'xxxEtudeMontantHTxxx' => $mission->getNbJeh()*300,
+			'xxxEtudeMontantTVAxxx' => $mission->getNbJeh()*300*$mission->getTauxTva()/100,
+			'xxxEtudeMontantHTLettresxxx' => $nbToWrd->_toWords($mission->getNbJeh()*300),
+			'xxxFraisHTxxx' => $mission->getFrais(),
+			'xxxFraisHTLettresxxx' => $nbToWrd->_toWords($mission->getFrais()),
+			'xxxTotalHTxxx' => $mission->getFrais()+ $mission->getNbJeh()*300,
+			'xxxTotalHTLettresxxx' => $nbToWrd->_toWords($mission->getFrais()+ $mission->getNbJeh()*300),
+			'xxxTauxTVAxxx' => $mission->getTauxTva(),//
+			'xxxTotalTTCxxx' => ($mission->getFrais()+ $mission->getNbJeh()*300)*(1+$mission->getTauxTva()/100),
+			'xxxTotalTTCLettres' => $nbToWrd->_toWords(($mission->getFrais()+ $mission->getNbJeh()*300)*(1+$mission->getTauxTva()/100)),
+			'xxxEtudeAcompteHTxxx' => $mission->getAccompte(),
+			'xxxEtudeAcompteHTLettresxxx' => $nbToWrd->_toWords($mission->getAccompte()),
+			'xxxEtudeAcompteTTCxxx' => $mission->getAccompte()*(1+$mission->getTauxTva()/100),
+			'xxxEtudeAcompteTTCLettresxxx' => $nbToWrd->_toWords($mission->getAccompte()*(1+$mission->getTauxTva()/100))
 			);
 		 
 		if($mission->getFrais()+ $mission->getNbJeh()*300 != 0){
-			$searchReplace['{etude_acompte_pourcentage}'] =round($mission->getAccompte()/($mission->getFrais()+ $mission->getNbJeh()*300)*100);
+			$searchReplace['xxxEtudeAcomptePourcentagexxx'] =round($mission->getAccompte()/($mission->getFrais()+ $mission->getNbJeh()*300)*100);
 		}
 		
 		if($iddoc != 0){
 			$doc = $repository2->find($iddoc);
 			if($doc->getTypeDeDocument() == "Récapitulatif mission" || $doc->getTypeDeDocument() == "Avenant au récapitulatif mission"){
-				$searchReplace['{etudiant_nom}'] = $doc->getIntervenant()->getLastName();
-				$searchReplace['{etudiant_prenom}'] = $doc->getIntervenant()->getFirstName();
+				$searchReplace['xxxEtudiantNomxxx'] = $doc->getIntervenant()->getLastName();
+				$searchReplace['xxxEtudiantPrenomxxx'] = $doc->getIntervenant()->getFirstName();
 			}
 		}
 		
 		
 		for($i=1;$i<8;$i++){
-			$searchReplace['{nom_phase'. $i .'}'] ='';
-			$searchReplace['{nb_jeh_phase'. $i .'}'] ='';
-			$searchReplace['{montant_phase'. $i .'}'] ='';
+			$searchReplace['xxxNomPhase'. $i .'xxx'] ='';
+			$searchReplace['xxxNbJEHPhase'. $i .'xxx'] ='';
+			$searchReplace['xxxMontantPhase'. $i .'xxx'] ='';
 		}
 		$compteur = 1;
 		$nbJehFactures = 0;
 		foreach($mission->getPhases() as $p){
 			if($request->request->get('phase'.$p['idPhase'])){
-				$searchReplace['{nom_phase'. $compteur .'}'] =$p['nom'];
-				$searchReplace['{nb_jeh_phase'. $compteur .'}'] ='(' . $p['nbJeh'] . ' Jour - Etude Homme)';
-				$searchReplace['{montant_phase'. $compteur .'}'] =$p['nbJeh']*300 . ',00';
+				$searchReplace['xxxNomPhase'. $compteur .'xxx'] =$p['nom'];
+				$searchReplace['xxxNbJEHPhase'. $compteur .'xxx'] ='(' . $p['nbJeh'] . ' Jour - Etude Homme)';
+				$searchReplace['xxxMontantPhase'. $compteur .'xxx'] =$p['nbJeh']*300 . ',00';
 				$compteur++;
 				$nbJehFactures+=$p['nbJeh'];
 			}
 		}
 		if($request->request->get('emission')){
-			$searchReplace['{date_emission}'] =date_format(date_create($request->request->get('emission')),'d-m-Y');
+			$searchReplace['xxxDateEmissionxxx'] =date_format(date_create($request->request->get('emission')),'d-m-Y');
 		}
 		if($request->request->get('echeance')){
-			$searchReplace['{date_echeance}'] =date_format(date_create($request->request->get('echeance')),'d-m-Y');
+			$searchReplace['xxxDateEcheancexxx'] =date_format(date_create($request->request->get('echeance')),'d-m-Y');
 		}
 		if($request->request->get('valeur_du_jeh')){
-			$searchReplace['{valeur_du_jeh}'] =$request->request->get('valeur_du_jeh');
+			$searchReplace['xxxValeurDuJEHxxx'] =$request->request->get('valeur_du_jeh');
 		}
 		if($request->request->get('nb_jeh_bv')){
-			$searchReplace['{nb_jeh_bv}'] =$request->request->get('nb_jeh_bv');
+			$searchReplace['xxxNbJEHBVxxx}'] =$request->request->get('nb_jeh_bv');
 		}
 		if($request->request->get('idintervenant')){
 			$repository3 = $manager
 				->getRepository('JuniorSiteinterneBundle:User');
 			$int = $repository3->find($request->request->get('idintervenant'));
-			$searchReplace['{etudiant_nom}'] = $int->getLastName();
-			$searchReplace['{etudiant_prenom}'] = $int->getFirstName();
-			$searchReplace['{etudiant_num_secu}'] = $int->getNumSecu();
+			$searchReplace['xxxEtudiantNomxxx'] = $int->getLastName();
+			$searchReplace['xxxEtudiantPrenomxxx'] = $int->getFirstName();
+			$searchReplace['xxxEtudiantNumSecuxxx'] = $int->getNumSecu();
 		}
-		$searchReplace['{nb_jeh_factures}'] =$nbJehFactures;
-		$searchReplace['{montant_ht_facture}'] =$nbJehFactures*300 . ',00';
-		$searchReplace['{montant_tva_facture}'] = $nbJehFactures*300 * $mission->getTauxTva()/100 ;
-		$searchReplace['{montant_total_facture}'] = $nbJehFactures*300 * (1+$mission->getTauxTva()/100) ;
-		$searchReplace['{montant_total_lettre}'] = $nbToWrd->_toWords($nbJehFactures*300 * (1+$mission->getTauxTva()/100)) . ' euros' ;
+		$searchReplace['NbJEHFacturesxxx'] =$nbJehFactures;
+		$searchReplace['xxxMontantHTFacturexxx'] =$nbJehFactures*300 . ',00';
+		$searchReplace['xxxMontantTVAFacturexxx'] = $nbJehFactures*300 * $mission->getTauxTva()/100 ;
+		$searchReplace['xxxMontantTotalFacturexxx'] = $nbJehFactures*300 * (1+$mission->getTauxTva()/100) ;
+		$searchReplace['xxxMontantTotalLettresxxx'] = $nbToWrd->_toWords($nbJehFactures*300 * (1+$mission->getTauxTva()/100)) . ' euros' ;
 
 		
 		$search  = array_keys($searchReplace);
